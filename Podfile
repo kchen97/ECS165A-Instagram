@@ -7,9 +7,21 @@ target 'ecs165a-instagram' do
 
   # Pods for ecs165a-instagram
 
+  #
+  ## UI
+  ###
   # SnapKit - https://github.com/SnapKit/SnapKit
   pod 'SnapKit'
 
+  #
+  ## Network
+  ###
+  # Alamofire - https://github.com/Alamofire/Alamofire
+  pod 'Alamofire'
+
+  #
+  ## Utilities
+  ###
   # SwiftLint - https://github.com/realm/SwiftLint
   pod 'SwiftLint'
 
