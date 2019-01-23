@@ -1,0 +1,6 @@
+framework module Pods_ecs165a_instagram {
+  umbrella header "Pods-ecs165a-instagram-umbrella.h"
+
+  export *
+  module * { export * }
+}
