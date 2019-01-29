@@ -6,7 +6,13 @@
 //  Copyright © 2019 Korman Chen. All rights reserved.
 //
 
-import Foundation
+import ObjectMapper
 
-class IGBaseModel: NSObject, Encodable {
+class IGBaseModel: NSObject, Mappable {
+
+    required init?(map: Map) {
+    }
+
+    func mapping(map: Map) {
+    }
 }

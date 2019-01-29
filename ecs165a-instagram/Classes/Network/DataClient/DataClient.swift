@@ -7,14 +7,23 @@
 //
 
 import Foundation
+import ObjectMapper
 
 protocol DataClient {
 
-    func request<T: Decodable>(info: Any,
-                               success: @escaping (T) -> Void,
-                               failure: @escaping () -> Void)
+    func get<T: Mappable>(info: Any?,
+                          success: @escaping (T?) -> Void,
+                          failure: @escaping () -> Void)
 
-    func request<T: Decodable>(info: Any,
-                               success: @escaping ([T]) -> Void,
-                               failure: @escaping () -> Void)
+    func post(info: Any?,
+              success: @escaping () -> Void,
+              failure: @escaping () -> Void)
+
+    func patch(info: Any?,
+               success: @escaping () -> Void,
+               failure: @escaping () -> Void)
+
+    func delete(info: Any?,
+                success: @escaping () -> Void,
+                failure: @escaping () -> Void)
 }

@@ -18,6 +18,13 @@
 		8E94C34D21F7F0BC004BB77A /* IGBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E94C34C21F7F0BC004BB77A /* IGBaseView.swift */; };
 		8E94C34F21F7F0DA004BB77A /* IGBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E94C34E21F7F0DA004BB77A /* IGBaseModel.swift */; };
 		8ED7FEB022000CF500859BE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ED7FEAF22000CF500859BE1 /* GoogleService-Info.plist */; };
+		8ED7FEB22200580700859BE1 /* IGBaseAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FEB12200580700859BE1 /* IGBaseAPIService.swift */; };
+		8ED7FEB5220059C800859BE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FEB4220059C800859BE1 /* Constants.swift */; };
+		8ED7FEBB2200667700859BE1 /* APIStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FEBA2200667700859BE1 /* APIStorage.swift */; };
+		8ED7FEBD220078E800859BE1 /* HelloWorldAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FEBC220078E800859BE1 /* HelloWorldAPIService.swift */; };
+		8ED7FEBF22007AE200859BE1 /* HelloWorldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FEBE22007AE200859BE1 /* HelloWorldViewModel.swift */; };
+		8ED7FEC122007D5500859BE1 /* HelloWorldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FEC022007D5500859BE1 /* HelloWorldModel.swift */; };
+		8ED7FEC322007EAC00859BE1 /* HelloWorldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FEC222007EAC00859BE1 /* HelloWorldViewController.swift */; };
 		970184B3E8A4576D6672F50C /* Pods_ecs165a_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14E89B7B3212D500D5A045C /* Pods_ecs165a_instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +44,13 @@
 		8E94C34C21F7F0BC004BB77A /* IGBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGBaseView.swift; sourceTree = "<group>"; };
 		8E94C34E21F7F0DA004BB77A /* IGBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGBaseModel.swift; sourceTree = "<group>"; };
 		8ED7FEAF22000CF500859BE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8ED7FEB12200580700859BE1 /* IGBaseAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGBaseAPIService.swift; sourceTree = "<group>"; };
+		8ED7FEB4220059C800859BE1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8ED7FEBA2200667700859BE1 /* APIStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStorage.swift; sourceTree = "<group>"; };
+		8ED7FEBC220078E800859BE1 /* HelloWorldAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorldAPIService.swift; sourceTree = "<group>"; };
+		8ED7FEBE22007AE200859BE1 /* HelloWorldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorldViewModel.swift; sourceTree = "<group>"; };
+		8ED7FEC022007D5500859BE1 /* HelloWorldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorldModel.swift; sourceTree = "<group>"; };
+		8ED7FEC222007EAC00859BE1 /* HelloWorldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorldViewController.swift; sourceTree = "<group>"; };
 		C14E89B7B3212D500D5A045C /* Pods_ecs165a_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ecs165a_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -55,7 +69,8 @@
 		8E6148E921FA922F00E35EBD /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				8E6148F021FA93CC00E35EBD /* Endpoints */,
+				8ED7FEB92200663800859BE1 /* APIStorage */,
+				8E6148F021FA93CC00E35EBD /* Constants */,
 				8E6148EB21FA92CD00E35EBD /* DataClient */,
 				8E6148EA21FA92C100E35EBD /* APIService */,
 			);
@@ -65,6 +80,8 @@
 		8E6148EA21FA92C100E35EBD /* APIService */ = {
 			isa = PBXGroup;
 			children = (
+				8ED7FEBC220078E800859BE1 /* HelloWorldAPIService.swift */,
+				8ED7FEB12200580700859BE1 /* IGBaseAPIService.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -78,12 +95,13 @@
 			path = DataClient;
 			sourceTree = "<group>";
 		};
-		8E6148F021FA93CC00E35EBD /* Endpoints */ = {
+		8E6148F021FA93CC00E35EBD /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				8ED7FEB4220059C800859BE1 /* Constants.swift */,
 				8E6148F121FA93D400E35EBD /* Endpoint.swift */,
 			);
-			path = Endpoints;
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		8E94C32121F7EEB9004BB77A = {
@@ -118,6 +136,7 @@
 		8E94C33F21F7EEC7004BB77A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8ED7FEC022007D5500859BE1 /* HelloWorldModel.swift */,
 				8E94C34E21F7F0DA004BB77A /* IGBaseModel.swift */,
 			);
 			path = Model;
@@ -134,6 +153,7 @@
 		8E94C34121F7EED1004BB77A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8ED7FEBE22007AE200859BE1 /* HelloWorldViewModel.swift */,
 				8E94C34A21F7F098004BB77A /* IGBaseViewModel.swift */,
 			);
 			path = ViewModel;
@@ -142,6 +162,7 @@
 		8E94C34221F7EED5004BB77A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8ED7FEC222007EAC00859BE1 /* HelloWorldViewController.swift */,
 				8E94C32F21F7EEB9004BB77A /* IGBaseViewController.swift */,
 			);
 			path = ViewController;
@@ -150,12 +171,12 @@
 		8E94C34321F7EEDC004BB77A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				8E6148E921FA922F00E35EBD /* Network */,
 				8E94C34421F7EEE6004BB77A /* AppDelegate */,
+				8E94C33F21F7EEC7004BB77A /* Model */,
+				8E6148E921FA922F00E35EBD /* Network */,
+				8E94C34021F7EECC004BB77A /* View */,
 				8E94C34221F7EED5004BB77A /* ViewController */,
 				8E94C34121F7EED1004BB77A /* ViewModel */,
-				8E94C34021F7EECC004BB77A /* View */,
-				8E94C33F21F7EEC7004BB77A /* Model */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -191,6 +212,14 @@
 				8E94C33421F7EEBA004BB77A /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		8ED7FEB92200663800859BE1 /* APIStorage */ = {
+			isa = PBXGroup;
+			children = (
+				8ED7FEBA2200667700859BE1 /* APIStorage.swift */,
+			);
+			path = APIStorage;
 			sourceTree = "<group>";
 		};
 		A143C41CD4904F021BF76B3E /* Pods */ = {
@@ -306,6 +335,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ecs165a-instagram/Pods-ecs165a-instagram-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -314,6 +344,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -330,14 +361,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ED7FEBD220078E800859BE1 /* HelloWorldAPIService.swift in Sources */,
 				8E94C33021F7EEB9004BB77A /* IGBaseViewController.swift in Sources */,
+				8ED7FEC322007EAC00859BE1 /* HelloWorldViewController.swift in Sources */,
 				8E94C34F21F7F0DA004BB77A /* IGBaseModel.swift in Sources */,
+				8ED7FEBF22007AE200859BE1 /* HelloWorldViewModel.swift in Sources */,
 				8E6148F221FA93D400E35EBD /* Endpoint.swift in Sources */,
 				8E6148ED21FA92E700E35EBD /* DataClient.swift in Sources */,
 				8E94C34D21F7F0BC004BB77A /* IGBaseView.swift in Sources */,
+				8ED7FEBB2200667700859BE1 /* APIStorage.swift in Sources */,
+				8ED7FEB5220059C800859BE1 /* Constants.swift in Sources */,
 				8E94C34B21F7F098004BB77A /* IGBaseViewModel.swift in Sources */,
 				8E6148EF21FA93A500E35EBD /* NetworkDataClient.swift in Sources */,
 				8E94C32E21F7EEB9004BB77A /* AppDelegate.swift in Sources */,
+				8ED7FEB22200580700859BE1 /* IGBaseAPIService.swift in Sources */,
+				8ED7FEC122007D5500859BE1 /* HelloWorldModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

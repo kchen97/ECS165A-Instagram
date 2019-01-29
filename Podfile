@@ -23,6 +23,9 @@ target 'ecs165a-instagram' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
 
+  # ObjectMapper - https://github.com/tristanhimmelman/ObjectMapper
+  pod 'ObjectMapper'
+
   #
   ## Utilities
   ###
