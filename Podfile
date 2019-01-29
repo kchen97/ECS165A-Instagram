@@ -19,10 +19,15 @@ target 'ecs165a-instagram' do
   # Alamofire - https://github.com/Alamofire/Alamofire
   pod 'Alamofire'
 
+  # Firebase - https://firebase.google.com/docs/
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+
   #
   ## Utilities
   ###
   # SwiftLint - https://github.com/realm/SwiftLint
-  pod 'SwiftLint'
+  pod 'SwiftLint', '~> 0.27'
+  
 
 end

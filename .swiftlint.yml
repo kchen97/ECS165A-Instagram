@@ -44,4 +44,4 @@ type_name:
     warning: 30
     error: 35
   excluded: iPhone # excluded via string
-reporter: "xcode
+reporter: "xcode"

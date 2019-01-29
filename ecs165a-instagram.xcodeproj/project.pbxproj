@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E6148ED21FA92E700E35EBD /* DataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6148EC21FA92E700E35EBD /* DataClient.swift */; };
+		8E6148EF21FA93A500E35EBD /* NetworkDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6148EE21FA93A500E35EBD /* NetworkDataClient.swift */; };
+		8E6148F221FA93D400E35EBD /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6148F121FA93D400E35EBD /* Endpoint.swift */; };
 		8E94C32E21F7EEB9004BB77A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E94C32D21F7EEB9004BB77A /* AppDelegate.swift */; };
 		8E94C33021F7EEB9004BB77A /* IGBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E94C32F21F7EEB9004BB77A /* IGBaseViewController.swift */; };
 		8E94C33521F7EEBA004BB77A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E94C33421F7EEBA004BB77A /* Assets.xcassets */; };
@@ -14,12 +17,16 @@
 		8E94C34B21F7F098004BB77A /* IGBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E94C34A21F7F098004BB77A /* IGBaseViewModel.swift */; };
 		8E94C34D21F7F0BC004BB77A /* IGBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E94C34C21F7F0BC004BB77A /* IGBaseView.swift */; };
 		8E94C34F21F7F0DA004BB77A /* IGBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E94C34E21F7F0DA004BB77A /* IGBaseModel.swift */; };
+		8ED7FEB022000CF500859BE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ED7FEAF22000CF500859BE1 /* GoogleService-Info.plist */; };
 		970184B3E8A4576D6672F50C /* Pods_ecs165a_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14E89B7B3212D500D5A045C /* Pods_ecs165a_instagram.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		12CA7B7FF93BDD9FD9D4859E /* Pods-ecs165a-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecs165a-instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ecs165a-instagram/Pods-ecs165a-instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		271D86E8C2068D1F2CA253FC /* Pods-ecs165a-instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecs165a-instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-ecs165a-instagram/Pods-ecs165a-instagram.release.xcconfig"; sourceTree = "<group>"; };
+		8E6148EC21FA92E700E35EBD /* DataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataClient.swift; sourceTree = "<group>"; };
+		8E6148EE21FA93A500E35EBD /* NetworkDataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataClient.swift; sourceTree = "<group>"; };
+		8E6148F121FA93D400E35EBD /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		8E94C32A21F7EEB9004BB77A /* ecs165a-instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ecs165a-instagram.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E94C32D21F7EEB9004BB77A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E94C32F21F7EEB9004BB77A /* IGBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGBaseViewController.swift; sourceTree = "<group>"; };
@@ -29,6 +36,7 @@
 		8E94C34A21F7F098004BB77A /* IGBaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGBaseViewModel.swift; sourceTree = "<group>"; };
 		8E94C34C21F7F0BC004BB77A /* IGBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGBaseView.swift; sourceTree = "<group>"; };
 		8E94C34E21F7F0DA004BB77A /* IGBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGBaseModel.swift; sourceTree = "<group>"; };
+		8ED7FEAF22000CF500859BE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C14E89B7B3212D500D5A045C /* Pods_ecs165a_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ecs165a_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -44,6 +52,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E6148E921FA922F00E35EBD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8E6148F021FA93CC00E35EBD /* Endpoints */,
+				8E6148EB21FA92CD00E35EBD /* DataClient */,
+				8E6148EA21FA92C100E35EBD /* APIService */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8E6148EA21FA92C100E35EBD /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		8E6148EB21FA92CD00E35EBD /* DataClient */ = {
+			isa = PBXGroup;
+			children = (
+				8E6148EC21FA92E700E35EBD /* DataClient.swift */,
+				8E6148EE21FA93A500E35EBD /* NetworkDataClient.swift */,
+			);
+			path = DataClient;
+			sourceTree = "<group>";
+		};
+		8E6148F021FA93CC00E35EBD /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				8E6148F121FA93D400E35EBD /* Endpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
 		8E94C32121F7EEB9004BB77A = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +150,7 @@
 		8E94C34321F7EEDC004BB77A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8E6148E921FA922F00E35EBD /* Network */,
 				8E94C34421F7EEE6004BB77A /* AppDelegate */,
 				8E94C34221F7EED5004BB77A /* ViewController */,
 				8E94C34121F7EED1004BB77A /* ViewModel */,
@@ -137,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				8E94C33921F7EEBA004BB77A /* Info.plist */,
+				8ED7FEAF22000CF500859BE1 /* GoogleService-Info.plist */,
 			);
 			path = PropertyLists;
 			sourceTree = "<group>";
@@ -178,7 +222,6 @@
 				8E94C32721F7EEB9004BB77A /* Frameworks */,
 				8E94C32821F7EEB9004BB77A /* Resources */,
 				90F5F1C25E2577A2FACA7A39 /* [CP] Embed Pods Frameworks */,
-				8E5389EE21F7F37900474EB7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -229,6 +272,7 @@
 			files = (
 				8E94C33821F7EEBA004BB77A /* LaunchScreen.storyboard in Resources */,
 				8E94C33521F7EEBA004BB77A /* Assets.xcassets in Resources */,
+				8ED7FEB022000CF500859BE1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,23 +297,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8E5389EE21F7F37900474EB7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
 		90F5F1C25E2577A2FACA7A39 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,12 +305,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ecs165a-instagram/Pods-ecs165a-instagram-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -299,8 +332,11 @@
 			files = (
 				8E94C33021F7EEB9004BB77A /* IGBaseViewController.swift in Sources */,
 				8E94C34F21F7F0DA004BB77A /* IGBaseModel.swift in Sources */,
+				8E6148F221FA93D400E35EBD /* Endpoint.swift in Sources */,
+				8E6148ED21FA92E700E35EBD /* DataClient.swift in Sources */,
 				8E94C34D21F7F0BC004BB77A /* IGBaseView.swift in Sources */,
 				8E94C34B21F7F098004BB77A /* IGBaseViewModel.swift in Sources */,
+				8E6148EF21FA93A500E35EBD /* NetworkDataClient.swift in Sources */,
 				8E94C32E21F7EEB9004BB77A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +476,7 @@
 			baseConfigurationReference = 12CA7B7FF93BDD9FD9D4859E /* Pods-ecs165a-instagram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2J85MR725D;
 				INFOPLIST_FILE = "$(SRCROOT)/ecs165a-instagram/PropertyLists/Info.plist";
@@ -449,6 +486,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kc.ecs165a-instagram";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -459,6 +497,7 @@
 			baseConfigurationReference = 271D86E8C2068D1F2CA253FC /* Pods-ecs165a-instagram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2J85MR725D;
 				INFOPLIST_FILE = "$(SRCROOT)/ecs165a-instagram/PropertyLists/Info.plist";
@@ -468,6 +507,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kc.ecs165a-instagram";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

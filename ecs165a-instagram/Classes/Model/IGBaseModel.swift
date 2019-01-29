@@ -8,5 +8,5 @@
 
 import Foundation
 
-class IGBaseModel: NSObject {
+class IGBaseModel: NSObject, Encodable {
 }
