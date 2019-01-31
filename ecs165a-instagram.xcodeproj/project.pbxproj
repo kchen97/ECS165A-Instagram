@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E5DF0AB22012EA700A82F29 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0AA22012EA700A82F29 /* Post.swift */; };
+		8E5DF0AE22012FAB00A82F29 /* FormatterUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0AD22012FAB00A82F29 /* FormatterUtility.swift */; };
+		8E5DF0B02201338700A82F29 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0AF2201338700A82F29 /* HomeTableViewCell.swift */; };
+		8E5DF0B22201339C00A82F29 /* IGBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0B12201339C00A82F29 /* IGBaseTableViewCell.swift */; };
+		8E5DF0B92201361F00A82F29 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0B82201361F00A82F29 /* RoundButton.swift */; };
+		8E5DF0BB220136BE00A82F29 /* IGBaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0BA220136BE00A82F29 /* IGBaseButton.swift */; };
 		8E6148ED21FA92E700E35EBD /* DataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6148EC21FA92E700E35EBD /* DataClient.swift */; };
 		8E6148EF21FA93A500E35EBD /* NetworkDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6148EE21FA93A500E35EBD /* NetworkDataClient.swift */; };
 		8E6148F221FA93D400E35EBD /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6148F121FA93D400E35EBD /* Endpoint.swift */; };
@@ -31,6 +37,12 @@
 /* Begin PBXFileReference section */
 		12CA7B7FF93BDD9FD9D4859E /* Pods-ecs165a-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecs165a-instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ecs165a-instagram/Pods-ecs165a-instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		271D86E8C2068D1F2CA253FC /* Pods-ecs165a-instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecs165a-instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-ecs165a-instagram/Pods-ecs165a-instagram.release.xcconfig"; sourceTree = "<group>"; };
+		8E5DF0AA22012EA700A82F29 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		8E5DF0AD22012FAB00A82F29 /* FormatterUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterUtility.swift; sourceTree = "<group>"; };
+		8E5DF0AF2201338700A82F29 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		8E5DF0B12201339C00A82F29 /* IGBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGBaseTableViewCell.swift; sourceTree = "<group>"; };
+		8E5DF0B82201361F00A82F29 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		8E5DF0BA220136BE00A82F29 /* IGBaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGBaseButton.swift; sourceTree = "<group>"; };
 		8E6148EC21FA92E700E35EBD /* DataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataClient.swift; sourceTree = "<group>"; };
 		8E6148EE21FA93A500E35EBD /* NetworkDataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataClient.swift; sourceTree = "<group>"; };
 		8E6148F121FA93D400E35EBD /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -66,6 +78,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E5DF0AC22012F9500A82F29 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8E5DF0AD22012FAB00A82F29 /* FormatterUtility.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8E5DF0B52201344500A82F29 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				8E5DF0AF2201338700A82F29 /* HomeTableViewCell.swift */,
+				8E5DF0B12201339C00A82F29 /* IGBaseTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		8E6148E921FA922F00E35EBD /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +167,7 @@
 			children = (
 				8ED7FEC022007D5500859BE1 /* HelloWorldModel.swift */,
 				8E94C34E21F7F0DA004BB77A /* IGBaseModel.swift */,
+				8E5DF0AA22012EA700A82F29 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -145,7 +175,10 @@
 		8E94C34021F7EECC004BB77A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8E5DF0BA220136BE00A82F29 /* IGBaseButton.swift */,
 				8E94C34C21F7F0BC004BB77A /* IGBaseView.swift */,
+				8E5DF0B82201361F00A82F29 /* RoundButton.swift */,
+				8E5DF0B52201344500A82F29 /* TableViewCells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +207,7 @@
 				8E94C34421F7EEE6004BB77A /* AppDelegate */,
 				8E94C33F21F7EEC7004BB77A /* Model */,
 				8E6148E921FA922F00E35EBD /* Network */,
+				8E5DF0AC22012F9500A82F29 /* Utilities */,
 				8E94C34021F7EECC004BB77A /* View */,
 				8E94C34221F7EED5004BB77A /* ViewController */,
 				8E94C34121F7EED1004BB77A /* ViewModel */,
@@ -362,17 +396,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				8ED7FEBD220078E800859BE1 /* HelloWorldAPIService.swift in Sources */,
+				8E5DF0BB220136BE00A82F29 /* IGBaseButton.swift in Sources */,
+				8E5DF0B22201339C00A82F29 /* IGBaseTableViewCell.swift in Sources */,
 				8E94C33021F7EEB9004BB77A /* IGBaseViewController.swift in Sources */,
 				8ED7FEC322007EAC00859BE1 /* HelloWorldViewController.swift in Sources */,
 				8E94C34F21F7F0DA004BB77A /* IGBaseModel.swift in Sources */,
+				8E5DF0AE22012FAB00A82F29 /* FormatterUtility.swift in Sources */,
 				8ED7FEBF22007AE200859BE1 /* HelloWorldViewModel.swift in Sources */,
+				8E5DF0B02201338700A82F29 /* HomeTableViewCell.swift in Sources */,
 				8E6148F221FA93D400E35EBD /* Endpoint.swift in Sources */,
 				8E6148ED21FA92E700E35EBD /* DataClient.swift in Sources */,
 				8E94C34D21F7F0BC004BB77A /* IGBaseView.swift in Sources */,
 				8ED7FEBB2200667700859BE1 /* APIStorage.swift in Sources */,
 				8ED7FEB5220059C800859BE1 /* Constants.swift in Sources */,
 				8E94C34B21F7F098004BB77A /* IGBaseViewModel.swift in Sources */,
+				8E5DF0AB22012EA700A82F29 /* Post.swift in Sources */,
 				8E6148EF21FA93A500E35EBD /* NetworkDataClient.swift in Sources */,
+				8E5DF0B92201361F00A82F29 /* RoundButton.swift in Sources */,
 				8E94C32E21F7EEB9004BB77A /* AppDelegate.swift in Sources */,
 				8ED7FEB22200580700859BE1 /* IGBaseAPIService.swift in Sources */,
 				8ED7FEC122007D5500859BE1 /* HelloWorldModel.swift in Sources */,

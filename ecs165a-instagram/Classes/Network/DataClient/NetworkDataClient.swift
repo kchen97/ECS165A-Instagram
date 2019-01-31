@@ -10,8 +10,6 @@ import Alamofire
 import ObjectMapper
 import FirebaseDatabase
 
-typealias DatabaseResponse = (reference: DatabaseReference, error: Error?)
-
 class NetworkDataClient: DataClient {
 
     private var pathTemplate: String!
