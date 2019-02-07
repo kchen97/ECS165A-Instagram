@@ -13,6 +13,12 @@ target 'ecs165a-instagram' do
   # SnapKit - https://github.com/SnapKit/SnapKit
   pod 'SnapKit'
 
+  # HexColors - https://github.com/mRs-/HexColors
+  pod 'HexColors'
+
+  # SkyFloatingLabelTextField - https://github.com/Skyscanner/SkyFloatingLabelTextField
+  pod 'SkyFloatingLabelTextField'
+
   #
   ## Network
   ###
