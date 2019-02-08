@@ -41,6 +41,4 @@ class HomeTableViewCell: IGBaseTableViewCell {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-
-    
 }
