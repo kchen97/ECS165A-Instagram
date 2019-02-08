@@ -52,6 +52,9 @@ extension InputViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: viewModel.fields[indexPath.row].type.rawValue, for: indexPath)
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.fields[indexPath.row].type.rawValue, for: indexPath)
+        cell.selectionStyle = .none
+        return cell
     }
 }

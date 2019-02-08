@@ -12,6 +12,8 @@ import SkyFloatingLabelTextField
 
 class TextFieldTableViewCell: IGBaseTableViewCell {
 
+    var validate: ((String?) -> Bool)?
+
     private let textField: SkyFloatingLabelTextField = {
 
         let tf = SkyFloatingLabelTextField()
@@ -43,6 +45,7 @@ class TextFieldTableViewCell: IGBaseTableViewCell {
 
     private func setup() {
 
+        textField.addTarget(self, action: #selector(checkInput), for: .editingChanged)
         contentView.addSubview(textField)
 
         textField.snp.makeConstraints { maker in
@@ -51,6 +54,13 @@ class TextFieldTableViewCell: IGBaseTableViewCell {
             maker.leading.equalToSuperview().inset(40)
             maker.trailing.equalToSuperview().inset(40)
             maker.bottom.equalToSuperview()
+        }
+    }
+
+    @objc private func checkInput() {
+
+        if let validate = validate {
+            textField.errorMessage = validate(textField.text) ? "" : "Invalid \(textField.title?.uppercased() ?? "NULL")"
         }
     }
 }

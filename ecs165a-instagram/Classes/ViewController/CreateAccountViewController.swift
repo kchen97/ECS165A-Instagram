@@ -14,9 +14,30 @@ class CreateAccountViewController: CredentialsViewController {
 
     override func configFields() {
         viewModel.fields = [
-            ("Username", .text),
+            ("E-mail", .text),
             ("Password", .text),
             ("Create", .button)
         ]
+    }
+}
+
+extension CreateAccountViewController {
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+
+        if let cell = cell as? TextFieldTableViewCell {
+
+            cell.validate = { [weak self] text in
+                return (indexPath.row == 0
+                    ? self?.createAcountVM.validate(email: text)
+                    : self?.createAcountVM.validate(password: text)) ?? false
+            }
+        }
+        else if let cell = cell as? ButtonTableViewCell {
+            cell.addTarget(target: self, selector: #selector(buttonTapped))
+        }
+        return cell
     }
 }

@@ -10,15 +10,15 @@ import Foundation
 
 class CreateAccountViewModel: IGBaseViewModel {
 
-//    func validate(username: String?) -> Bool {
-//
-//        let text = username ?? ""
-//        return text.contains("@") && text.contains(".") && text.count > 5
-//    }
-//
-//    func validate(password: String?) -> Bool {
-//
-//        let text = password ?? ""
-//        return text.count > 7
-//    }
+    func validate(email: String?) -> Bool {
+
+        let text = email ?? ""
+        return text.contains("@") && text.contains(".") && text.count > 4
+    }
+
+    func validate(password: String?) -> Bool {
+
+        let text = password ?? ""
+        return text.count > 7
+    }
 }

@@ -18,6 +18,7 @@ class ButtonTableViewCell: IGBaseTableViewCell {
     }
 
     private let button: UIButton = {
+
         let button = UIButton()
         button.layer.cornerRadius = 4.0
         return button
@@ -34,12 +35,15 @@ class ButtonTableViewCell: IGBaseTableViewCell {
         super.init(coder: aDecoder)
     }
 
-    func config(title: String, color: UIColor,
-                target: Any, selector: Selector) {
+    func config(title: String, color: UIColor = .clear) {
 
-        button.addTarget(target, action: selector, for: .touchUpInside)
         button.setTitle(title, for: .normal)
+        button.setTitleColor(color == .clear ? .themeBlue : .white, for: .normal)
         button.backgroundColor = color
+    }
+
+    func addTarget(target: Any, selector: Selector) {
+        button.addTarget(target, action: selector, for: .touchUpInside)
     }
 
     private func setup() {

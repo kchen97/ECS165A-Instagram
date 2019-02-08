@@ -11,6 +11,7 @@ import UIKit
 class CredentialsViewController: InputViewController {
 
     override func setup() {
+
         super.setup()
 
         configFields()
@@ -38,14 +39,12 @@ extension CredentialsViewController {
 
             // TODO: - indexPath.row == 2 logic should not be in VC
             cell.config(title: viewModel.fields[indexPath.row].title,
-                        secureTextEntry: indexPath.row == 2)
+                        secureTextEntry: indexPath.row == 1)
         }
         else if let cell = cell as? ButtonTableViewCell {
 
             cell.config(title: viewModel.fields[indexPath.row].title,
-                        color: .themeBlue,
-                        target: self,
-                        selector: #selector(buttonTapped))
+                        color: .themeBlue)
         }
         return cell
     }
