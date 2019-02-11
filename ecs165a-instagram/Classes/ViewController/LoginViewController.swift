@@ -10,13 +10,26 @@ import UIKit
 
 class LoginViewController: CredentialsViewController {
 
+    private let EMAIL_ROW = 0
+    private let PASSWORD_ROW = 1
+    private let LOGIN_BUTTON_ROW = 2
+
     override func configFields() {
         viewModel.fields = [
-            ("E-mail", .text),
-            ("Password", .text),
+            ("E-mail", .generic),
+            ("Password", .password),
             ("Login", .button),
             ("Don't have an account? Sign Up.", .button)
         ]
+    }
+
+    override func buttonTapped() {
+
+        super.buttonTapped()
+
+        userInfoVM.login { serviceResponse in
+            debugPrint(serviceResponse)
+        }
     }
 
     @objc private func signUpTapped() {
@@ -30,12 +43,38 @@ extension LoginViewController {
 
         let cell = super.tableView(tableview, cellForRowAt: indexPath)
 
-        if let cell = cell as? ButtonTableViewCell {
+        if let cell = cell as? TextFieldTableViewCell {
+
+            cell.textDidChange = { [weak self] text in
+
+                switch indexPath.row {
+
+                case self?.EMAIL_ROW:
+                    self?.userInfoVM.set(email: text)
+
+                case self?.PASSWORD_ROW:
+                    self?.userInfoVM.set(password: text)
+
+                default:
+                    fatalError("Index out of range")
+
+                }
+
+                self?.mainActionButtonCell.isUserInteractionEnabled = self?.userInfoVM.loginEnabled() ?? false
+            }
+        }
+        else if let cell = cell as? ButtonTableViewCell {
+
+            if indexPath.row == LOGIN_BUTTON_ROW {
+
+                mainActionButtonCell = cell
+                mainActionButtonCell.isUserInteractionEnabled = userInfoVM.loginEnabled()
+            }
 
             cell.config(title: viewModel.fields[indexPath.row].title,
-                        color: indexPath.row == 2 ? .themeBlue : .clear)
+                        color: indexPath.row == LOGIN_BUTTON_ROW ? .themeBlue : .clear)
             cell.addTarget(target: self,
-                           selector: indexPath.row == 2
+                           selector: indexPath.row == LOGIN_BUTTON_ROW
                             ? #selector(buttonTapped) : #selector(signUpTapped))
         }
         return cell

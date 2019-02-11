@@ -10,14 +10,18 @@ import UIKit
 
 class CredentialsViewController: InputViewController {
 
+    internal var mainActionButtonCell: ButtonTableViewCell!
+
+    internal let userInfoVM = UserInfoViewModel()
+
     override func setup() {
 
         super.setup()
 
         configFields()
 
-        tableview.register(TextFieldTableViewCell.self, forCellReuseIdentifier: InputType.text.rawValue)
-        tableview.register(ButtonTableViewCell.self, forCellReuseIdentifier: InputType.button.rawValue)
+        tableview.register(TextFieldTableViewCell.self, forCellReuseIdentifier: textFieldCellId)
+        tableview.register(ButtonTableViewCell.self, forCellReuseIdentifier: buttonFieldCellId)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -39,7 +43,7 @@ extension CredentialsViewController {
 
             // TODO: - indexPath.row == 2 logic should not be in VC
             cell.config(title: viewModel.fields[indexPath.row].title,
-                        secureTextEntry: indexPath.row == 1)
+                        secureTextEntry: viewModel.fields[indexPath.row].type == .password)
         }
         else if let cell = cell as? ButtonTableViewCell {
 

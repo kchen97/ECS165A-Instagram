@@ -12,6 +12,6 @@ final class APIStorage {
 
     static let storage = APIStorage()
 
-    lazy var saveHelloWorldAPI: NetworkDataClient? = NetworkDataClient(endpoint: saveHelloWorldEndpoint)
-    lazy var getHelloWorldAPI: NetworkDataClient? = NetworkDataClient(endpoint: getHelloWorldEndpoint)
+    lazy var signUpAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_SIGN_UP_ENDPOINT)
+    lazy var loginAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_LOGIN_ENDPOINT)
 }

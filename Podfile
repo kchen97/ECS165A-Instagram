@@ -25,6 +25,9 @@ target 'ecs165a-instagram' do
   # Alamofire - https://github.com/Alamofire/Alamofire
   pod 'Alamofire'
 
+  # PromiseKit - https://github.com/mxcl/PromiseKit
+  pod 'PromiseKit'
+
   # Firebase - https://firebase.google.com/docs/
   pod 'Firebase/Core'
   pod 'Firebase/Database'
