@@ -10,14 +10,31 @@ import UIKit
 
 class CreateAccountViewController: CredentialsViewController {
 
-    private let createAcountVM = CreateAccountViewModel()
+    private let FIRST_NAME_ROW = 0
+    private let LAST_NAME_ROW = 1
+    private let USERNAME_ROW = 2
+    private let EMAIL_ROW = 3
+    private let PASSWORD_ROW = 4
 
     override func configFields() {
+
         viewModel.fields = [
-            ("E-mail", .text),
-            ("Password", .text),
+            ("First Name", .generic),
+            ("Last Name", .generic),
+            ("Username", .generic),
+            ("E-mail", .generic),
+            ("Password", .password),
             ("Create", .button)
         ]
+    }
+
+    override func buttonTapped() {
+
+        super.buttonTapped()
+
+        userInfoVM.signUp { serviceResponse in
+            debugPrint(serviceResponse)
+        }
     }
 }
 
@@ -30,12 +47,54 @@ extension CreateAccountViewController {
         if let cell = cell as? TextFieldTableViewCell {
 
             cell.validate = { [weak self] text in
-                return (indexPath.row == 0
-                    ? self?.createAcountVM.validate(email: text)
-                    : self?.createAcountVM.validate(password: text)) ?? false
+
+                switch indexPath.row {
+
+                case self?.USERNAME_ROW:
+                    return self?.userInfoVM.validate(username: text) ?? false
+
+                case self?.EMAIL_ROW:
+                    return self?.userInfoVM.validate(email: text) ?? false
+
+                case self?.PASSWORD_ROW:
+                    return self?.userInfoVM.validate(password: text) ?? false
+
+                default:
+                    return true
+                }
+            }
+
+            cell.textDidChange = { [weak self] text in
+
+                switch indexPath.row {
+
+                case self?.FIRST_NAME_ROW:
+                    self?.userInfoVM.set(firstName: text)
+
+                case self?.LAST_NAME_ROW:
+                    self?.userInfoVM.set(lastName: text)
+
+                case self?.USERNAME_ROW:
+                    self?.userInfoVM.set(username: text)
+
+                case self?.EMAIL_ROW:
+                    self?.userInfoVM.set(email: text)
+
+                case self?.PASSWORD_ROW:
+                    self?.userInfoVM.set(password: text)
+
+                default:
+                    fatalError("Index out of range")
+                }
+
+                self?.mainActionButtonCell.isUserInteractionEnabled = self?.userInfoVM.signUpEnabled() ?? false
             }
         }
         else if let cell = cell as? ButtonTableViewCell {
+
+            mainActionButtonCell = cell
+            mainActionButtonCell.isUserInteractionEnabled = userInfoVM.signUpEnabled()
+
             cell.addTarget(target: self, selector: #selector(buttonTapped))
         }
         return cell

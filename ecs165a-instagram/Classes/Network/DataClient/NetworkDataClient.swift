@@ -27,99 +27,74 @@ class NetworkDataClient: DataClient {
         self.pathTemplate = endpoint.path
     }
 
-    func get<T: Mappable>(info: Any?,
-                          success: @escaping (T?) -> Void,
-                          failure: @escaping () -> Void) {
-
+    func request<T: Mappable>(info: Any,
+                              success: @escaping (T?) -> Void,
+                              failure: @escaping () -> Void) {
         process(info: info)
 
-        Database.database().reference().child(pathTemplate).observeSingleEvent(of: .value, with: { snapshot in
-            success(self.parse(data: snapshot.value))
+        getDataRequest().validate().responseJSON { response in
 
-        }) { error in
+            switch response.result {
 
-            debugPrint(error)
-            failure()
-        }
-    }
+            case .success:
+                success(self.parse(data: response.result.value))
 
-    func post(info: Any?,
-              success: @escaping () -> Void,
-              failure: @escaping () -> Void) {
-
-        process(info: info)
-
-        Database.database().reference().child(pathTemplate).setValue(parameters) { error, _ in
-
-            if let error = error {
-
-                debugPrint(error)
+            case .failure:
                 failure()
-            }
-            else {
-                success()
+
             }
         }
     }
 
-    func patch(info: Any?,
-               success: @escaping () -> Void,
-               failure: @escaping () -> Void) {
+    func request<T: Mappable>(info: Any,
+                              success: @escaping ([T]?) -> Void,
+                              failure: @escaping () -> Void) {
 
         process(info: info)
 
-        Database.database().reference().child(pathTemplate).setValue(parameters) { error, _ in
+        getDataRequest().validate().responseJSON { response in
 
-            if let error = error {
+            switch response.result {
 
-                debugPrint(error)
+            case .success:
+                success(self.parseArray(data: response.result.value))
+
+            case .failure:
                 failure()
-            }
-            else {
-                success()
+
             }
         }
     }
 
-    func delete(info: Any?,
-                success: @escaping () -> Void,
-                failure: @escaping () -> Void) {
+    func process(info: Any) {
 
-        process(info: info)
-
-        Database.database().reference().child(pathTemplate).removeValue { error, _ in
-
-            if let error = error {
-
-                debugPrint(error)
-                failure()
-            }
-            else {
-                success()
-            }
+        if let info = info as? Parameters {
+            parameters = info;
         }
     }
 
-    private func process(info: Any?) {
+    private func getDataRequest() -> DataRequest {
 
-        guard let info = info as? [String: Any] else { return }
-
-        if let params = info[kParameterKey] as? Parameters {
-            parameters = params
-        }
-
-        if let pathValues = info[kPathManipulationKey] as? [String: String] {
-
-            for value in pathValues {
-                pathTemplate = pathTemplate.replacingOccurrences(of: "{\(value.key)}", with: value.value)
-            }
-        }
+        return Alamofire.request(endpoint.path,
+                                 method: endpoint.method,
+                                 parameters: parameters,
+                                 encoding: endpoint.encoding,
+                                 headers: headers)
     }
 
     private func parse<T: Mappable>(data: Any?) -> T? {
 
         if let data = data as? [String: Any] {
             return T(JSON: data)
+        }
+
+        return nil
+    }
+
+    private func parseArray<T: Mappable>(data: Any?) -> [T]? {
+
+        if let data = data as? [[String: Any]] {
+            return Mapper<T>().mapArray(JSONArray: data)
         }
 
         return nil

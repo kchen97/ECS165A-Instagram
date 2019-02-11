@@ -60,6 +60,15 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - ObjectMapper (3.4.2)
+  - PromiseKit (6.8.3):
+    - PromiseKit/CorePromise (= 6.8.3)
+    - PromiseKit/Foundation (= 6.8.3)
+    - PromiseKit/UIKit (= 6.8.3)
+  - PromiseKit/CorePromise (6.8.3)
+  - PromiseKit/Foundation (6.8.3):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.8.3):
+    - PromiseKit/CorePromise
   - SkyFloatingLabelTextField (3.6.0)
   - SnapKit (4.2.0)
   - SwiftLint (0.30.1)
@@ -70,6 +79,7 @@ DEPENDENCIES:
   - Firebase/Database
   - HexColors
   - ObjectMapper
+  - PromiseKit
   - SkyFloatingLabelTextField
   - SnapKit
   - SwiftLint (~> 0.27)
@@ -89,6 +99,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - ObjectMapper
+    - PromiseKit
     - SkyFloatingLabelTextField
     - SnapKit
     - SwiftLint
@@ -107,10 +118,11 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
+  PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
   SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
 
-PODFILE CHECKSUM: f7f50b11b95918dd770d50a07c97e2b942587dc8
+PODFILE CHECKSUM: 11a91aad20c65af148c702715bade15de470ddff
 
 COCOAPODS: 1.6.0.rc.2

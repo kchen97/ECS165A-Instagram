@@ -8,9 +8,8 @@
 
 import Foundation
 
-enum InputType: String {
-    case text = "textFieldCellId"
-    case button = "buttonCellId"
+enum InputType {
+    case generic, password, button
 }
 
 typealias InputField = (title: String, type: InputType)

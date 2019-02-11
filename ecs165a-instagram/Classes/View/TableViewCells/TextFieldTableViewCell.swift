@@ -12,6 +12,7 @@ import SkyFloatingLabelTextField
 
 class TextFieldTableViewCell: IGBaseTableViewCell {
 
+    var textDidChange: ((String?) -> Void)?
     var validate: ((String?) -> Bool)?
 
     private let textField: SkyFloatingLabelTextField = {
@@ -62,5 +63,6 @@ class TextFieldTableViewCell: IGBaseTableViewCell {
         if let validate = validate {
             textField.errorMessage = validate(textField.text) ? "" : "Invalid \(textField.title?.uppercased() ?? "NULL")"
         }
+        textDidChange?(textField.text)
     }
 }

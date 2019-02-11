@@ -17,7 +17,7 @@ class ButtonTableViewCell: IGBaseTableViewCell {
         }
     }
 
-    private let button: UIButton = {
+    let button: UIButton = {
 
         let button = UIButton()
         button.layer.cornerRadius = 4.0

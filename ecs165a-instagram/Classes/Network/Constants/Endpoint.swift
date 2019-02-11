@@ -18,5 +18,7 @@ typealias Endpoint = (path: String, method: HTTPMethod, encoding: ParameterEncod
  **
  */
 
-let saveHelloWorldEndpoint: Endpoint = (path: "helloWorld/user/{name}", method: .post, encoding: URLEncoding.default)
-let getHelloWorldEndpoint: Endpoint = (path: "helloWorld/user/{name}", method: .get, encoding: URLEncoding.default)
+let IG_BASE_URI_PATH = "https://insta-b5cb5.appspot.com/api"
+
+let IG_SIGN_UP_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/signup", method: .post, encoding: JSONEncoding.default)
+let IG_LOGIN_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/login", method: .post, encoding: JSONEncoding.default)
