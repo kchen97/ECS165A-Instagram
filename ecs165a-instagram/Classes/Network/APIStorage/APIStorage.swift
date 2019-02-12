@@ -10,10 +10,10 @@ import Foundation
 
 final class APIStorage {
 
-    static let storage = APIStorage()
+    static let shared = APIStorage()
 
     lazy var signUpAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_SIGN_UP_ENDPOINT)
     lazy var loginAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_LOGIN_ENDPOINT)
 
-    lazy var profileAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_PROFILE_ENDPOINT)
+    lazy var getProfileAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_PROFILE_ENDPOINT)
 }

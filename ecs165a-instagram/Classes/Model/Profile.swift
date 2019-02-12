@@ -25,9 +25,9 @@ class Profile: IGBaseModel {
         firstName <- map["firstName"]
         lastName <- map["lastName"]
         username <- map["username"]
-        biography <- map["biography"]
-        posts <- map["posts"]
-        followers <- map["followers"]
-        following <- map["following"]
+        biography <- map["bio"]
+        posts <- map["numPosts"]
+        followers <- map["numFollowers"]
+        following <- map["numFollowing"]
     }
 }

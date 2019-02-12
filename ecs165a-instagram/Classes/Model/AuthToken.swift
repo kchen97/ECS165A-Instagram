@@ -11,11 +11,14 @@ import ObjectMapper
 class AuthToken: IGBaseModel {
 
     var token: String!
+    var username: String?
+
 
     override func mapping(map: Map) {
 
         super.mapping(map: map)
 
         token <- map["token"]
+        username <- map["username"]
     }
 }
