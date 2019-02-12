@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileChangeViewController: InputViewController {
+class ProfileChangeViewController: ProfilePageViewController {
     
     override func setup() {
         
