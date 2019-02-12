@@ -8,7 +8,6 @@
 
 import Alamofire
 import ObjectMapper
-import FirebaseDatabase
 
 class NetworkDataClient: DataClient {
 

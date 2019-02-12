@@ -14,4 +14,6 @@ final class APIStorage {
 
     lazy var signUpAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_SIGN_UP_ENDPOINT)
     lazy var loginAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_LOGIN_ENDPOINT)
+
+    lazy var profileAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_PROFILE_ENDPOINT)
 }
