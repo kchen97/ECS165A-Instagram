@@ -28,10 +28,6 @@ target 'ecs165a-instagram' do
   # PromiseKit - https://github.com/mxcl/PromiseKit
   pod 'PromiseKit'
 
-  # Firebase - https://firebase.google.com/docs/
-  pod 'Firebase/Core'
-  pod 'Firebase/Database'
-
   # ObjectMapper - https://github.com/tristanhimmelman/ObjectMapper
   pod 'ObjectMapper'
 

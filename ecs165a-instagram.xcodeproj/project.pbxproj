@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E4458832212502A00986E68 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4458822212502A00986E68 /* UIView+Extensions.swift */; };
+		8E445885221250FC00986E68 /* ProfileAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E445884221250FC00986E68 /* ProfileAPIService.swift */; };
+		8E4458872212512200986E68 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4458862212512200986E68 /* Profile.swift */; };
 		8E5DF0AB22012EA700A82F29 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0AA22012EA700A82F29 /* Post.swift */; };
 		8E5DF0AE22012FAB00A82F29 /* FormatterUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0AD22012FAB00A82F29 /* FormatterUtility.swift */; };
 		8E5DF0B02201338700A82F29 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0AF2201338700A82F29 /* HomeTableViewCell.swift */; };
@@ -38,7 +41,6 @@
 		8ED15AE9220BE69B001AC530 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED15AE8220BE69B001AC530 /* LoginViewController.swift */; };
 		8ED15AEB220BE79B001AC530 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED15AEA220BE79B001AC530 /* CreateAccountViewController.swift */; };
 		8ED15AED220BEB6A001AC530 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED15AEC220BEB6A001AC530 /* UserInfoViewModel.swift */; };
-		8ED7FEB022000CF500859BE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ED7FEAF22000CF500859BE1 /* GoogleService-Info.plist */; };
 		8ED7FEB22200580700859BE1 /* IGBaseAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FEB12200580700859BE1 /* IGBaseAPIService.swift */; };
 		8ED7FEB5220059C800859BE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FEB4220059C800859BE1 /* Constants.swift */; };
 		8ED7FEBB2200667700859BE1 /* APIStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FEBA2200667700859BE1 /* APIStorage.swift */; };
@@ -48,6 +50,9 @@
 /* Begin PBXFileReference section */
 		12CA7B7FF93BDD9FD9D4859E /* Pods-ecs165a-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecs165a-instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ecs165a-instagram/Pods-ecs165a-instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		271D86E8C2068D1F2CA253FC /* Pods-ecs165a-instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecs165a-instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-ecs165a-instagram/Pods-ecs165a-instagram.release.xcconfig"; sourceTree = "<group>"; };
+		8E4458822212502A00986E68 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		8E445884221250FC00986E68 /* ProfileAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPIService.swift; sourceTree = "<group>"; };
+		8E4458862212512200986E68 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		8E5DF0AA22012EA700A82F29 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8E5DF0AD22012FAB00A82F29 /* FormatterUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterUtility.swift; sourceTree = "<group>"; };
 		8E5DF0AF2201338700A82F29 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -81,7 +86,6 @@
 		8ED15AE8220BE69B001AC530 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8ED15AEA220BE79B001AC530 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		8ED15AEC220BEB6A001AC530 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
-		8ED7FEAF22000CF500859BE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8ED7FEB12200580700859BE1 /* IGBaseAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGBaseAPIService.swift; sourceTree = "<group>"; };
 		8ED7FEB4220059C800859BE1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8ED7FEBA2200667700859BE1 /* APIStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStorage.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 			children = (
 				8E66CC8422118BA000DA957C /* CredentialsAPIService.swift */,
 				8ED7FEB12200580700859BE1 /* IGBaseAPIService.swift */,
+				8E445884221250FC00986E68 /* ProfileAPIService.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				8E84DC9B220A6D61002BDA76 /* UIColor+Extensions.swift */,
+				8E4458822212502A00986E68 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -219,6 +225,7 @@
 				8E94C34E21F7F0DA004BB77A /* IGBaseModel.swift */,
 				8E5DF0AA22012EA700A82F29 /* Post.swift */,
 				8E66CC78221104F000DA957C /* User.swift */,
+				8E4458862212512200986E68 /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -292,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				8E94C33921F7EEBA004BB77A /* Info.plist */,
-				8ED7FEAF22000CF500859BE1 /* GoogleService-Info.plist */,
 			);
 			path = PropertyLists;
 			sourceTree = "<group>";
@@ -392,7 +398,6 @@
 			files = (
 				8E94C33821F7EEBA004BB77A /* LaunchScreen.storyboard in Resources */,
 				8E94C33521F7EEBA004BB77A /* Assets.xcassets in Resources */,
-				8ED7FEB022000CF500859BE1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,26 +430,20 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ecs165a-instagram/Pods-ecs165a-instagram-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -462,6 +461,7 @@
 				8ED15AE4220BD570001AC530 /* InputViewController.swift in Sources */,
 				8E5DF0BB220136BE00A82F29 /* IGBaseButton.swift in Sources */,
 				8E66CC8322118B3C00DA957C /* IGBaseViewService.swift in Sources */,
+				8E445885221250FC00986E68 /* ProfileAPIService.swift in Sources */,
 				8E66CC79221104F000DA957C /* User.swift in Sources */,
 				8E66CC8522118BA000DA957C /* CredentialsAPIService.swift in Sources */,
 				8E84DC99220A6904002BDA76 /* InputViewModel.swift in Sources */,
@@ -479,6 +479,7 @@
 				8E66CC8122118B2700DA957C /* CredentialsViewService.swift in Sources */,
 				8E94C34D21F7F0BC004BB77A /* IGBaseView.swift in Sources */,
 				8ED15AE7220BDB6C001AC530 /* CredentialsViewController.swift in Sources */,
+				8E4458832212502A00986E68 /* UIView+Extensions.swift in Sources */,
 				8E84DCA2220A7502002BDA76 /* ButtonTableViewCell.swift in Sources */,
 				8ED7FEBB2200667700859BE1 /* APIStorage.swift in Sources */,
 				8ED7FEB5220059C800859BE1 /* Constants.swift in Sources */,
@@ -487,6 +488,7 @@
 				8E6148EF21FA93A500E35EBD /* NetworkDataClient.swift in Sources */,
 				8E5DF0B92201361F00A82F29 /* RoundButton.swift in Sources */,
 				8E94C32E21F7EEB9004BB77A /* AppDelegate.swift in Sources */,
+				8E4458872212512200986E68 /* Profile.swift in Sources */,
 				8ED7FEB22200580700859BE1 /* IGBaseAPIService.swift in Sources */,
 				8E66CC7B22116A1900DA957C /* AuthToken.swift in Sources */,
 				8E84DC9C220A6D61002BDA76 /* UIColor+Extensions.swift in Sources */,
