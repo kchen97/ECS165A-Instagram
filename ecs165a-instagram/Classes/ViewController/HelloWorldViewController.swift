@@ -6,7 +6,7 @@
 //  Copyright © 2019 Korman Chen. All rights reserved.
 //
 
-import UIKit
+/*import UIKit
 import SnapKit
 
 class HelloWorldViewController: IGBaseViewController {
@@ -35,4 +35,4 @@ class HelloWorldViewController: IGBaseViewController {
             self?.nameLabel.text = "Hello \(name)"
         }
     }
-}
+}*/

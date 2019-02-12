@@ -6,7 +6,7 @@
 //  Copyright © 2019 Korman Chen. All rights reserved.
 //
 
-import Foundation
+/*import Foundation
 
 class HelloWorldViewModel: IGBaseViewModel {
 
@@ -24,4 +24,4 @@ class HelloWorldViewModel: IGBaseViewModel {
             completion(person?.name ?? "Error")
         }
     }
-}
+}*/

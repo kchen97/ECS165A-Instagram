@@ -6,7 +6,7 @@
 //  Copyright © 2019 Korman Chen. All rights reserved.
 //
 
-import UIKit
+/*import UIKit
 
 class RoundButton: IGBaseButton {
 
@@ -24,3 +24,4 @@ class RoundButton: IGBaseButton {
         super.init(coder: aDecoder)
     }
 }
+*/

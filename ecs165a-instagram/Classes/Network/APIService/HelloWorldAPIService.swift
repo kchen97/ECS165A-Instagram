@@ -6,7 +6,7 @@
 //  Copyright © 2019 Korman Chen. All rights reserved.
 //
 
-import Foundation
+/*import Foundation
 
 class HelloWorldAPIService: IGBaseAPIService {
 
@@ -33,3 +33,4 @@ class HelloWorldAPIService: IGBaseAPIService {
         })
     }
 }
+*/

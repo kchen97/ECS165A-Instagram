@@ -6,7 +6,7 @@
 //  Copyright © 2019 Korman Chen. All rights reserved.
 //
 
-import UIKit
+/*import UIKit
 
 class HomeTableViewCell: IGBaseTableViewCell {
 
@@ -42,3 +42,4 @@ class HomeTableViewCell: IGBaseTableViewCell {
         return imageView
     }()
 }
+*/

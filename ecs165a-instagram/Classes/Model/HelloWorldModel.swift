@@ -6,7 +6,7 @@
 //  Copyright © 2019 Korman Chen. All rights reserved.
 //
 
-import ObjectMapper
+/*import ObjectMapper
 
 class HelloWorldModel: IGBaseModel {
 
@@ -16,3 +16,4 @@ class HelloWorldModel: IGBaseModel {
         name <- map["name"]
     }
 }
+*/

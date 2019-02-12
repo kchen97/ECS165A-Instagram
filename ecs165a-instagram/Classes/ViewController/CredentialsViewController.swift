@@ -25,7 +25,7 @@ class CredentialsViewController: InputViewController {
     }
 
     @objc internal func buttonTapped() {
-        debugPrint("create tapped")
+        navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
 }
 
