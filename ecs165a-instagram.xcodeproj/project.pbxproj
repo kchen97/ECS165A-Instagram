@@ -38,11 +38,13 @@
 		8ED15AE9220BE69B001AC530 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED15AE8220BE69B001AC530 /* LoginViewController.swift */; };
 		8ED15AEB220BE79B001AC530 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED15AEA220BE79B001AC530 /* CreateAccountViewController.swift */; };
 		8ED15AED220BEB6A001AC530 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED15AEC220BEB6A001AC530 /* UserInfoViewModel.swift */; };
-		8ED7FEB022000CF500859BE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ED7FEAF22000CF500859BE1 /* GoogleService-Info.plist */; };
 		8ED7FEB22200580700859BE1 /* IGBaseAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FEB12200580700859BE1 /* IGBaseAPIService.swift */; };
 		8ED7FEB5220059C800859BE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FEB4220059C800859BE1 /* Constants.swift */; };
 		8ED7FEBB2200667700859BE1 /* APIStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FEBA2200667700859BE1 /* APIStorage.swift */; };
 		970184B3E8A4576D6672F50C /* Pods_ecs165a_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14E89B7B3212D500D5A045C /* Pods_ecs165a_instagram.framework */; };
+		FAE3E7B92212560100C5AA50 /* ProfilePictureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7B82212560100C5AA50 /* ProfilePictureTableViewCell.swift */; };
+		FAE3E7BC2212567100C5AA50 /* ProfileChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7BA2212567100C5AA50 /* ProfileChangeViewController.swift */; };
+		FAE3E7BD2212567100C5AA50 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7BB2212567100C5AA50 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,11 +83,13 @@
 		8ED15AE8220BE69B001AC530 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8ED15AEA220BE79B001AC530 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		8ED15AEC220BEB6A001AC530 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
-		8ED7FEAF22000CF500859BE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8ED7FEB12200580700859BE1 /* IGBaseAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGBaseAPIService.swift; sourceTree = "<group>"; };
 		8ED7FEB4220059C800859BE1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8ED7FEBA2200667700859BE1 /* APIStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStorage.swift; sourceTree = "<group>"; };
 		C14E89B7B3212D500D5A045C /* Pods_ecs165a_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ecs165a_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAE3E7B82212560100C5AA50 /* ProfilePictureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePictureTableViewCell.swift; sourceTree = "<group>"; };
+		FAE3E7BA2212567100C5AA50 /* ProfileChangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileChangeViewController.swift; sourceTree = "<group>"; };
+		FAE3E7BB2212567100C5AA50 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 		8E5DF0B52201344500A82F29 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				FAE3E7B82212560100C5AA50 /* ProfilePictureTableViewCell.swift */,
 				8E5DF0AF2201338700A82F29 /* HomeTableViewCell.swift */,
 				8E5DF0B12201339C00A82F29 /* IGBaseTableViewCell.swift */,
 				8E84DC9F220A7103002BDA76 /* TextFieldTableViewCell.swift */,
@@ -247,6 +252,8 @@
 		8E94C34221F7EED5004BB77A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				FAE3E7BA2212567100C5AA50 /* ProfileChangeViewController.swift */,
+				FAE3E7BB2212567100C5AA50 /* ProfileViewController.swift */,
 				8ED15AEA220BE79B001AC530 /* CreateAccountViewController.swift */,
 				8ED15AE6220BDB6C001AC530 /* CredentialsViewController.swift */,
 				8E94C32F21F7EEB9004BB77A /* IGBaseViewController.swift */,
@@ -292,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				8E94C33921F7EEBA004BB77A /* Info.plist */,
-				8ED7FEAF22000CF500859BE1 /* GoogleService-Info.plist */,
 			);
 			path = PropertyLists;
 			sourceTree = "<group>";
@@ -392,7 +398,6 @@
 			files = (
 				8E94C33821F7EEBA004BB77A /* LaunchScreen.storyboard in Resources */,
 				8E94C33521F7EEBA004BB77A /* Assets.xcassets in Resources */,
-				8ED7FEB022000CF500859BE1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +479,7 @@
 				8E5DF0B02201338700A82F29 /* HomeTableViewCell.swift in Sources */,
 				8E6148F221FA93D400E35EBD /* Endpoint.swift in Sources */,
 				8E6148ED21FA92E700E35EBD /* DataClient.swift in Sources */,
+				FAE3E7BC2212567100C5AA50 /* ProfileChangeViewController.swift in Sources */,
 				8E66CC8822118C6100DA957C /* ServiceResponse.swift in Sources */,
 				8ED15AED220BEB6A001AC530 /* UserInfoViewModel.swift in Sources */,
 				8E66CC8122118B2700DA957C /* CredentialsViewService.swift in Sources */,
@@ -484,10 +490,12 @@
 				8ED7FEB5220059C800859BE1 /* Constants.swift in Sources */,
 				8E94C34B21F7F098004BB77A /* IGBaseViewModel.swift in Sources */,
 				8E5DF0AB22012EA700A82F29 /* Post.swift in Sources */,
+				FAE3E7B92212560100C5AA50 /* ProfilePictureTableViewCell.swift in Sources */,
 				8E6148EF21FA93A500E35EBD /* NetworkDataClient.swift in Sources */,
 				8E5DF0B92201361F00A82F29 /* RoundButton.swift in Sources */,
 				8E94C32E21F7EEB9004BB77A /* AppDelegate.swift in Sources */,
 				8ED7FEB22200580700859BE1 /* IGBaseAPIService.swift in Sources */,
+				FAE3E7BD2212567100C5AA50 /* ProfileViewController.swift in Sources */,
 				8E66CC7B22116A1900DA957C /* AuthToken.swift in Sources */,
 				8E84DC9C220A6D61002BDA76 /* UIColor+Extensions.swift in Sources */,
 			);

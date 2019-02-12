@@ -12,6 +12,7 @@ class InputViewController: IGBaseViewController {
 
     let textFieldCellId = "textFieldCellId"
     let buttonFieldCellId = "buttonFieldCellId"
+    let profileFieldCellId = "profileFieldCellId"
 
     let viewModel = InputViewModel()
     let tableview = UITableView()
