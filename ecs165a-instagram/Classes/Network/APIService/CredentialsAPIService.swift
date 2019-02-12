@@ -22,13 +22,15 @@ class CredentialsAPIService: IGBaseAPIService {
     private func signUp(user: User,
                         completion: @escaping (ServiceResponse, AuthToken?) -> Void) {
 
-        if let signUpAPI = APIStorage.storage.signUpAPI {
+        if let signUpAPI = APIStorage.shared.signUpAPI {
 
             signUpAPI.request(info: user.toJSON(),
                               success: { (token: AuthToken?) in
 
                 let response = ServiceResponse()
                 response.status = .success
+
+                UserInfo.shared.username = token?.username
 
                 completion(response, token)
             },
@@ -55,12 +57,14 @@ class CredentialsAPIService: IGBaseAPIService {
     private func login(user: User,
                        completion: @escaping (ServiceResponse, AuthToken?) -> Void) {
 
-        if let loginAPI = APIStorage.storage.loginAPI {
+        if let loginAPI = APIStorage.shared.loginAPI {
 
             loginAPI.request(info: user.toJSON(), success: { (token: AuthToken?) in
 
                 let response = ServiceResponse()
                 response.status = .success
+
+                UserInfo.shared.username = token?.username
 
                 completion(response, token)
             },

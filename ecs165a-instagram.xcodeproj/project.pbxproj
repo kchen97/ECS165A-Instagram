@@ -10,6 +10,8 @@
 		8E4458832212502A00986E68 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4458822212502A00986E68 /* UIView+Extensions.swift */; };
 		8E445885221250FC00986E68 /* ProfileAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E445884221250FC00986E68 /* ProfileAPIService.swift */; };
 		8E4458872212512200986E68 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4458862212512200986E68 /* Profile.swift */; };
+		8E4458892212781F00986E68 /* ProfileViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4458882212781F00986E68 /* ProfileViewService.swift */; };
+		8E44588B22128B9800986E68 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E44588A22128B9800986E68 /* UserInfo.swift */; };
 		8E5DF0AB22012EA700A82F29 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0AA22012EA700A82F29 /* Post.swift */; };
 		8E5DF0AE22012FAB00A82F29 /* FormatterUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0AD22012FAB00A82F29 /* FormatterUtility.swift */; };
 		8E5DF0B02201338700A82F29 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0AF2201338700A82F29 /* HomeTableViewCell.swift */; };
@@ -53,6 +55,8 @@
 		8E4458822212502A00986E68 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		8E445884221250FC00986E68 /* ProfileAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPIService.swift; sourceTree = "<group>"; };
 		8E4458862212512200986E68 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		8E4458882212781F00986E68 /* ProfileViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewService.swift; sourceTree = "<group>"; };
+		8E44588A22128B9800986E68 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		8E5DF0AA22012EA700A82F29 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8E5DF0AD22012FAB00A82F29 /* FormatterUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterUtility.swift; sourceTree = "<group>"; };
 		8E5DF0AF2201338700A82F29 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 			children = (
 				8E66CC8022118B2700DA957C /* CredentialsViewService.swift */,
 				8E66CC8222118B3C00DA957C /* IGBaseViewService.swift */,
+				8E4458882212781F00986E68 /* ProfileViewService.swift */,
 			);
 			path = ViewService;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 				8E5DF0AA22012EA700A82F29 /* Post.swift */,
 				8E66CC78221104F000DA957C /* User.swift */,
 				8E4458862212512200986E68 /* Profile.swift */,
+				8E44588A22128B9800986E68 /* UserInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -473,6 +479,7 @@
 				8ED15AEB220BE79B001AC530 /* CreateAccountViewController.swift in Sources */,
 				8E5DF0B02201338700A82F29 /* HomeTableViewCell.swift in Sources */,
 				8E6148F221FA93D400E35EBD /* Endpoint.swift in Sources */,
+				8E4458892212781F00986E68 /* ProfileViewService.swift in Sources */,
 				8E6148ED21FA92E700E35EBD /* DataClient.swift in Sources */,
 				8E66CC8822118C6100DA957C /* ServiceResponse.swift in Sources */,
 				8ED15AED220BEB6A001AC530 /* UserInfoViewModel.swift in Sources */,
@@ -487,6 +494,7 @@
 				8E5DF0AB22012EA700A82F29 /* Post.swift in Sources */,
 				8E6148EF21FA93A500E35EBD /* NetworkDataClient.swift in Sources */,
 				8E5DF0B92201361F00A82F29 /* RoundButton.swift in Sources */,
+				8E44588B22128B9800986E68 /* UserInfo.swift in Sources */,
 				8E94C32E21F7EEB9004BB77A /* AppDelegate.swift in Sources */,
 				8E4458872212512200986E68 /* Profile.swift in Sources */,
 				8ED7FEB22200580700859BE1 /* IGBaseAPIService.swift in Sources */,

@@ -16,6 +16,7 @@ class ServiceResponse {
 
     var errorMessage: String?
     var status: Status!
+    var error: Error?
 
     var isSuccess: Bool {
         return status == .success
