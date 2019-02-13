@@ -47,11 +47,9 @@
 		8ED7FEB5220059C800859BE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FEB4220059C800859BE1 /* Constants.swift */; };
 		8ED7FEBB2200667700859BE1 /* APIStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FEBA2200667700859BE1 /* APIStorage.swift */; };
 		970184B3E8A4576D6672F50C /* Pods_ecs165a_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14E89B7B3212D500D5A045C /* Pods_ecs165a_instagram.framework */; };
-		FA8CF3B922128AD800B81270 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8CF3B822128AD800B81270 /* ProfilePageViewController.swift */; };
+		FA8CF3B922128AD800B81270 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8CF3B822128AD800B81270 /* ProfileViewController.swift */; };
 		FAAAEDCC2213A629005B16D4 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAEDCB2213A629005B16D4 /* ProfileViewModel.swift */; };
-		FAE3E7B92212560100C5AA50 /* ProfilePictureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7B82212560100C5AA50 /* ProfilePictureTableViewCell.swift */; };
-		FAE3E7BC2212567100C5AA50 /* ProfileChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7BA2212567100C5AA50 /* ProfileChangeViewController.swift */; };
-		FAE3E7BD2212567100C5AA50 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7BB2212567100C5AA50 /* ProfileViewController.swift */; };
+		FAE3E7B92212560100C5AA50 /* ProfileInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7B82212560100C5AA50 /* ProfileInfoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,11 +97,9 @@
 		8ED7FEB4220059C800859BE1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8ED7FEBA2200667700859BE1 /* APIStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStorage.swift; sourceTree = "<group>"; };
 		C14E89B7B3212D500D5A045C /* Pods_ecs165a_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ecs165a_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA8CF3B822128AD800B81270 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
+		FA8CF3B822128AD800B81270 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FAAAEDCB2213A629005B16D4 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		FAE3E7B82212560100C5AA50 /* ProfilePictureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePictureTableViewCell.swift; sourceTree = "<group>"; };
-		FAE3E7BA2212567100C5AA50 /* ProfileChangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileChangeViewController.swift; sourceTree = "<group>"; };
-		FAE3E7BB2212567100C5AA50 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FAE3E7B82212560100C5AA50 /* ProfileInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInfoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,11 +125,11 @@
 		8E5DF0B52201344500A82F29 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				FAE3E7B82212560100C5AA50 /* ProfilePictureTableViewCell.swift */,
+				8E84DCA1220A7502002BDA76 /* ButtonTableViewCell.swift */,
 				8E5DF0AF2201338700A82F29 /* HomeTableViewCell.swift */,
 				8E5DF0B12201339C00A82F29 /* IGBaseTableViewCell.swift */,
+				FAE3E7B82212560100C5AA50 /* ProfileInfoTableViewCell.swift */,
 				8E84DC9F220A7103002BDA76 /* TextFieldTableViewCell.swift */,
-				8E84DCA1220A7502002BDA76 /* ButtonTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -273,9 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				8E94C32F21F7EEB9004BB77A /* IGBaseViewController.swift */,
-				FAE3E7BA2212567100C5AA50 /* ProfileChangeViewController.swift */,
-				FAE3E7BB2212567100C5AA50 /* ProfileViewController.swift */,
-				FA8CF3B822128AD800B81270 /* ProfilePageViewController.swift */,
+				FA8CF3B822128AD800B81270 /* ProfileViewController.swift */,
 				8ED15AEA220BE79B001AC530 /* CreateAccountViewController.swift */,
 				8ED15AE6220BDB6C001AC530 /* CredentialsViewController.swift */,
 				8ED15AE3220BD570001AC530 /* InputViewController.swift */,
@@ -454,6 +448,7 @@
 				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
@@ -463,6 +458,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
@@ -497,12 +493,11 @@
 				8E6148F221FA93D400E35EBD /* Endpoint.swift in Sources */,
 				8E4458892212781F00986E68 /* ProfileViewService.swift in Sources */,
 				8E6148ED21FA92E700E35EBD /* DataClient.swift in Sources */,
-				FAE3E7BC2212567100C5AA50 /* ProfileChangeViewController.swift in Sources */,
 				8E66CC8822118C6100DA957C /* ServiceResponse.swift in Sources */,
 				8ED15AED220BEB6A001AC530 /* UserInfoViewModel.swift in Sources */,
 				8E66CC8122118B2700DA957C /* CredentialsViewService.swift in Sources */,
 				8E94C34D21F7F0BC004BB77A /* IGBaseView.swift in Sources */,
-				FA8CF3B922128AD800B81270 /* ProfilePageViewController.swift in Sources */,
+				FA8CF3B922128AD800B81270 /* ProfileViewController.swift in Sources */,
 				8ED15AE7220BDB6C001AC530 /* CredentialsViewController.swift in Sources */,
 				8E4458832212502A00986E68 /* UIView+Extensions.swift in Sources */,
 				8E84DCA2220A7502002BDA76 /* ButtonTableViewCell.swift in Sources */,
@@ -510,14 +505,13 @@
 				8ED7FEB5220059C800859BE1 /* Constants.swift in Sources */,
 				8E94C34B21F7F098004BB77A /* IGBaseViewModel.swift in Sources */,
 				8E5DF0AB22012EA700A82F29 /* Post.swift in Sources */,
-				FAE3E7B92212560100C5AA50 /* ProfilePictureTableViewCell.swift in Sources */,
+				FAE3E7B92212560100C5AA50 /* ProfileInfoTableViewCell.swift in Sources */,
 				8E6148EF21FA93A500E35EBD /* NetworkDataClient.swift in Sources */,
 				8E5DF0B92201361F00A82F29 /* RoundButton.swift in Sources */,
 				8E44588B22128B9800986E68 /* UserInfo.swift in Sources */,
 				8E94C32E21F7EEB9004BB77A /* AppDelegate.swift in Sources */,
 				8E4458872212512200986E68 /* Profile.swift in Sources */,
 				8ED7FEB22200580700859BE1 /* IGBaseAPIService.swift in Sources */,
-				FAE3E7BD2212567100C5AA50 /* ProfileViewController.swift in Sources */,
 				8E66CC7B22116A1900DA957C /* AuthToken.swift in Sources */,
 				8E84DC9C220A6D61002BDA76 /* UIColor+Extensions.swift in Sources */,
 			);

@@ -18,6 +18,10 @@ class Profile: IGBaseModel {
     var followers: Int?
     var following: Int?
 
+    var fullName: String {
+        return (firstName ?? "") + " " + (lastName ?? "")
+    }
+
     override func mapping(map: Map) {
 
         super.mapping(map: map)

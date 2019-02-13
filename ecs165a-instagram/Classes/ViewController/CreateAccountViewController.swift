@@ -32,10 +32,16 @@ class CreateAccountViewController: CredentialsViewController {
 
         super.buttonTapped()
 
-        userInfoVM.signUp { serviceResponse in
-            debugPrint(serviceResponse)//success
+        showSpinner()
+
+        userInfoVM.signUp { [weak self] serviceResponse in
+
+            self?.stopSpinner()
+
+            if serviceResponse.isSuccess {
+                self?.navigationController?.pushViewController(ProfileViewController(), animated: true)
+            }
         }
-        navigationController?.pushViewController(ProfileChangeViewController(), animated: true)
     }
 }
 
