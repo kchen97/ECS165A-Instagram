@@ -28,9 +28,7 @@ class CredentialsViewController: InputViewController {
         super.viewDidAppear(animated)
     }
 
-    @objc internal func buttonTapped() {
-        navigationController?.pushViewController(ProfileChangeViewController(), animated: true)
-    }
+    @objc internal func buttonTapped() {}
 }
 
 extension CredentialsViewController {

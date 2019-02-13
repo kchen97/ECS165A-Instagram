@@ -9,12 +9,6 @@
 import UIKit
 
 class ProfileViewController: ProfileChangeViewController {
-    
-    override func configFields() {
-        viewModel.fields = [
-            ("E-mail", .button),
-        ]
-    }
 }
 
 extension ProfileViewController {

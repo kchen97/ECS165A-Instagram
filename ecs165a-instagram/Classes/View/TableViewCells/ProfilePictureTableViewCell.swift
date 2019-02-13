@@ -26,7 +26,7 @@ class ProfilePictureTableViewCell: IGBaseTableViewCell {
     
     private let username: UILabel = {
         let username = UILabel()
-        username.text = "username"
+        username.text = "sfdfd"
         return username
     }()
     

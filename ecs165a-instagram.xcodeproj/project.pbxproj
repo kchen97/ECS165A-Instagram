@@ -48,6 +48,7 @@
 		8ED7FEBB2200667700859BE1 /* APIStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7FEBA2200667700859BE1 /* APIStorage.swift */; };
 		970184B3E8A4576D6672F50C /* Pods_ecs165a_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14E89B7B3212D500D5A045C /* Pods_ecs165a_instagram.framework */; };
 		FA8CF3B922128AD800B81270 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8CF3B822128AD800B81270 /* ProfilePageViewController.swift */; };
+		FAAAEDCC2213A629005B16D4 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAEDCB2213A629005B16D4 /* ProfileViewModel.swift */; };
 		FAE3E7B92212560100C5AA50 /* ProfilePictureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7B82212560100C5AA50 /* ProfilePictureTableViewCell.swift */; };
 		FAE3E7BC2212567100C5AA50 /* ProfileChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7BA2212567100C5AA50 /* ProfileChangeViewController.swift */; };
 		FAE3E7BD2212567100C5AA50 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7BB2212567100C5AA50 /* ProfileViewController.swift */; };
@@ -99,6 +100,7 @@
 		8ED7FEBA2200667700859BE1 /* APIStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStorage.swift; sourceTree = "<group>"; };
 		C14E89B7B3212D500D5A045C /* Pods_ecs165a_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ecs165a_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8CF3B822128AD800B81270 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
+		FAAAEDCB2213A629005B16D4 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		FAE3E7B82212560100C5AA50 /* ProfilePictureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePictureTableViewCell.swift; sourceTree = "<group>"; };
 		FAE3E7BA2212567100C5AA50 /* ProfileChangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileChangeViewController.swift; sourceTree = "<group>"; };
 		FAE3E7BB2212567100C5AA50 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 			children = (
 				8E94C34A21F7F098004BB77A /* IGBaseViewModel.swift */,
 				8E84DC98220A6904002BDA76 /* InputViewModel.swift */,
+				FAAAEDCB2213A629005B16D4 /* ProfileViewModel.swift */,
 				8ED15AEC220BEB6A001AC530 /* UserInfoViewModel.swift */,
 			);
 			path = ViewModel;
@@ -269,12 +272,12 @@
 		8E94C34221F7EED5004BB77A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8E94C32F21F7EEB9004BB77A /* IGBaseViewController.swift */,
 				FAE3E7BA2212567100C5AA50 /* ProfileChangeViewController.swift */,
 				FAE3E7BB2212567100C5AA50 /* ProfileViewController.swift */,
+				FA8CF3B822128AD800B81270 /* ProfilePageViewController.swift */,
 				8ED15AEA220BE79B001AC530 /* CreateAccountViewController.swift */,
 				8ED15AE6220BDB6C001AC530 /* CredentialsViewController.swift */,
-				8E94C32F21F7EEB9004BB77A /* IGBaseViewController.swift */,
-				FA8CF3B822128AD800B81270 /* ProfilePageViewController.swift */,
 				8ED15AE3220BD570001AC530 /* InputViewController.swift */,
 				8ED15AE8220BE69B001AC530 /* LoginViewController.swift */,
 			);
@@ -481,6 +484,7 @@
 				8E66CC8322118B3C00DA957C /* IGBaseViewService.swift in Sources */,
 				8E445885221250FC00986E68 /* ProfileAPIService.swift in Sources */,
 				8E66CC79221104F000DA957C /* User.swift in Sources */,
+				FAAAEDCC2213A629005B16D4 /* ProfileViewModel.swift in Sources */,
 				8E66CC8522118BA000DA957C /* CredentialsAPIService.swift in Sources */,
 				8E84DC99220A6904002BDA76 /* InputViewModel.swift in Sources */,
 				8E84DCA0220A7103002BDA76 /* TextFieldTableViewCell.swift in Sources */,

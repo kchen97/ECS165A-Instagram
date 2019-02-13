@@ -33,8 +33,9 @@ class CreateAccountViewController: CredentialsViewController {
         super.buttonTapped()
 
         userInfoVM.signUp { serviceResponse in
-            debugPrint(serviceResponse)
+            debugPrint(serviceResponse)//success
         }
+        navigationController?.pushViewController(ProfileChangeViewController(), animated: true)
     }
 }
 

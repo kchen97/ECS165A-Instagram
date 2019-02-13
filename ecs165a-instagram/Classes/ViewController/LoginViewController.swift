@@ -30,6 +30,7 @@ class LoginViewController: CredentialsViewController {
         userInfoVM.login { serviceResponse in
             debugPrint(serviceResponse)
         }
+        navigationController?.pushViewController(ProfileChangeViewController(), animated: true)
     }
 
     @objc private func signUpTapped() {

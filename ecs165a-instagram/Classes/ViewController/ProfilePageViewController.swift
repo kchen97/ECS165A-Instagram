@@ -12,7 +12,7 @@ class ProfilePageViewController: IGBaseViewController {
     
     let profileFieldCellId = "profileFieldCellId"
     
-    let viewModel = InputViewModel()
+    let viewModel = ProfileViewModel()
     let tableview = UITableView()
     
     private let ROW_HEIGHT: CGFloat = 100
