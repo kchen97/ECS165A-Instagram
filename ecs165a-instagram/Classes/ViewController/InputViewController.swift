@@ -52,7 +52,7 @@ extension InputViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.fields[indexPath.row].type == .button
             ? buttonFieldCellId : textFieldCellId,
                                                  for: indexPath)

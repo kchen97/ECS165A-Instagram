@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -37,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func config() {
+
+        SVProgressHUD.setForegroundColor(.themeBlue)
 
         window = UIWindow()
         window?.makeKeyAndVisible()

@@ -27,8 +27,15 @@ class LoginViewController: CredentialsViewController {
 
         super.buttonTapped()
 
-        userInfoVM.login { serviceResponse in
-            debugPrint(serviceResponse)
+        showSpinner()
+
+        userInfoVM.login { [weak self] serviceResponse in
+
+            self?.stopSpinner()
+
+            if serviceResponse.isSuccess {
+                self?.navigationController?.pushViewController(ProfileViewController(), animated: true)
+            }
         }
     }
 

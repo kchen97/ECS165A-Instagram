@@ -28,9 +28,7 @@ class CredentialsViewController: InputViewController {
         super.viewDidAppear(animated)
     }
 
-    @objc internal func buttonTapped() {
-        debugPrint("create tapped")
-    }
+    @objc internal func buttonTapped() {}
 }
 
 extension CredentialsViewController {

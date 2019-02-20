@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class IGBaseViewController: UIViewController {
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
 
         setup()
@@ -19,6 +21,14 @@ class IGBaseViewController: UIViewController {
     internal func setup() {
 
         view.backgroundColor = .white
+    }
+
+    func showSpinner() {
+        SVProgressHUD.show()
+    }
+
+    func stopSpinner() {
+        SVProgressHUD.dismiss()
     }
 }
 

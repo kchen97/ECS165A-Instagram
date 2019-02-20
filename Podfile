@@ -19,6 +19,9 @@ target 'ecs165a-instagram' do
   # SkyFloatingLabelTextField - https://github.com/Skyscanner/SkyFloatingLabelTextField
   pod 'SkyFloatingLabelTextField'
 
+  # SVProgressHUD - https://github.com/SVProgressHUD/SVProgressHUD
+  pod 'SVProgressHUD'
+
   #
   ## Network
   ###

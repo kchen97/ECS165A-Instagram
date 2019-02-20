@@ -15,6 +15,7 @@ class CreateAccountViewController: CredentialsViewController {
     private let USERNAME_ROW = 2
     private let EMAIL_ROW = 3
     private let PASSWORD_ROW = 4
+    private let CONFIRM_PASSWORD_ROW = 5
 
     override func configFields() {
 
@@ -24,6 +25,7 @@ class CreateAccountViewController: CredentialsViewController {
             ("Username", .generic),
             ("E-mail", .generic),
             ("Password", .password),
+            ("Confirm Password", .password),
             ("Create", .button)
         ]
     }
@@ -32,8 +34,15 @@ class CreateAccountViewController: CredentialsViewController {
 
         super.buttonTapped()
 
-        userInfoVM.signUp { serviceResponse in
-            debugPrint(serviceResponse)
+        showSpinner()
+
+        userInfoVM.signUp { [weak self] serviceResponse in
+
+            self?.stopSpinner()
+
+            if serviceResponse.isSuccess {
+                self?.navigationController?.pushViewController(ProfileViewController(), animated: true)
+            }
         }
     }
 }
@@ -82,6 +91,9 @@ extension CreateAccountViewController {
 
                 case self?.PASSWORD_ROW:
                     self?.userInfoVM.set(password: text)
+
+                case self?.CONFIRM_PASSWORD_ROW:
+                    self?.userInfoVM.set(confirmPassword: text)
 
                 default:
                     fatalError("Index out of range")
