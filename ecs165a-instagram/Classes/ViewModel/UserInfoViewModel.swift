@@ -13,6 +13,7 @@ class UserInfoViewModel: IGBaseViewModel {
     private var username: String?
     private var email: String?
     private var password: String?
+    private var confirmPassword: String?
     private var firstName: String?
     private var lastName: String?
 
@@ -31,6 +32,11 @@ class UserInfoViewModel: IGBaseViewModel {
     func set(password: String?) {
 
         self.password = validate(password: password) ? password : nil
+    }
+
+    func set(confirmPassword: String?) {
+
+        self.confirmPassword = confirmPassword
     }
 
     func set(firstName: String?) {
@@ -73,6 +79,7 @@ class UserInfoViewModel: IGBaseViewModel {
 
         return email != nil
             && password != nil
+            && confirmPassword == password
             && firstName != nil
             && lastName != nil
             && username != nil
