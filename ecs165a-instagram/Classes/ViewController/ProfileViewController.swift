@@ -9,7 +9,6 @@
 import UIKit
 
 class ProfileViewController: IGBaseViewController {
-    
 
     let profileVM = ProfileViewModel()
 
@@ -25,7 +24,7 @@ class ProfileViewController: IGBaseViewController {
 
         profileVM.getProfile { [weak self] serviceResponse in
 
-            self?.title = self?.profileVM.profile?.username
+            self?.navigationItem.title = self?.profileVM.profile?.username
 
             if serviceResponse.isSuccess {
                 self?.tableview.reloadData()
@@ -50,6 +49,8 @@ class ProfileViewController: IGBaseViewController {
         tableview.snp.makeConstraints { maker in
             maker.edges.equalTo(view.safeAreaLayoutGuide)
         }
+
+        setNavBarButtons()
     }
 }
 

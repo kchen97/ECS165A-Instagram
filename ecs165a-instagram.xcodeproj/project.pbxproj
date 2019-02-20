@@ -12,6 +12,11 @@
 		8E4458872212512200986E68 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4458862212512200986E68 /* Profile.swift */; };
 		8E4458892212781F00986E68 /* ProfileViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4458882212781F00986E68 /* ProfileViewService.swift */; };
 		8E44588B22128B9800986E68 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E44588A22128B9800986E68 /* UserInfo.swift */; };
+		8E5BEF11221D43CF00BBC1A2 /* IGMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BEF10221D43CF00BBC1A2 /* IGMainTabBarController.swift */; };
+		8E5BEF13221D442F00BBC1A2 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BEF12221D442F00BBC1A2 /* FeedViewController.swift */; };
+		8E5BEF15221D445800BBC1A2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BEF14221D445800BBC1A2 /* SearchViewController.swift */; };
+		8E5BEF19221D50CE00BBC1A2 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BEF18221D50CE00BBC1A2 /* UIViewController+Extensions.swift */; };
+		8E5BEF1B221D588A00BBC1A2 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BEF1A221D588A00BBC1A2 /* UIAlertController+Extensions.swift */; };
 		8E5DF0AB22012EA700A82F29 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0AA22012EA700A82F29 /* Post.swift */; };
 		8E5DF0AE22012FAB00A82F29 /* FormatterUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0AD22012FAB00A82F29 /* FormatterUtility.swift */; };
 		8E5DF0B02201338700A82F29 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0AF2201338700A82F29 /* HomeTableViewCell.swift */; };
@@ -60,6 +65,11 @@
 		8E4458862212512200986E68 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		8E4458882212781F00986E68 /* ProfileViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewService.swift; sourceTree = "<group>"; };
 		8E44588A22128B9800986E68 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		8E5BEF10221D43CF00BBC1A2 /* IGMainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGMainTabBarController.swift; sourceTree = "<group>"; };
+		8E5BEF12221D442F00BBC1A2 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		8E5BEF14221D445800BBC1A2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		8E5BEF18221D50CE00BBC1A2 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		8E5BEF1A221D588A00BBC1A2 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		8E5DF0AA22012EA700A82F29 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8E5DF0AD22012FAB00A82F29 /* FormatterUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterUtility.swift; sourceTree = "<group>"; };
 		8E5DF0AF2201338700A82F29 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -197,6 +207,8 @@
 			children = (
 				8E84DC9B220A6D61002BDA76 /* UIColor+Extensions.swift */,
 				8E4458822212502A00986E68 /* UIView+Extensions.swift */,
+				8E5BEF18221D50CE00BBC1A2 /* UIViewController+Extensions.swift */,
+				8E5BEF1A221D588A00BBC1A2 /* UIAlertController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -268,12 +280,15 @@
 		8E94C34221F7EED5004BB77A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8E94C32F21F7EEB9004BB77A /* IGBaseViewController.swift */,
-				FA8CF3B822128AD800B81270 /* ProfileViewController.swift */,
 				8ED15AEA220BE79B001AC530 /* CreateAccountViewController.swift */,
 				8ED15AE6220BDB6C001AC530 /* CredentialsViewController.swift */,
+				8E5BEF12221D442F00BBC1A2 /* FeedViewController.swift */,
+				8E94C32F21F7EEB9004BB77A /* IGBaseViewController.swift */,
+				8E5BEF10221D43CF00BBC1A2 /* IGMainTabBarController.swift */,
 				8ED15AE3220BD570001AC530 /* InputViewController.swift */,
 				8ED15AE8220BE69B001AC530 /* LoginViewController.swift */,
+				FA8CF3B822128AD800B81270 /* ProfileViewController.swift */,
+				8E5BEF14221D445800BBC1A2 /* SearchViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -489,6 +504,8 @@
 				8E94C34F21F7F0DA004BB77A /* IGBaseModel.swift in Sources */,
 				8E5DF0AE22012FAB00A82F29 /* FormatterUtility.swift in Sources */,
 				8ED15AEB220BE79B001AC530 /* CreateAccountViewController.swift in Sources */,
+				8E5BEF15221D445800BBC1A2 /* SearchViewController.swift in Sources */,
+				8E5BEF11221D43CF00BBC1A2 /* IGMainTabBarController.swift in Sources */,
 				8E5DF0B02201338700A82F29 /* HomeTableViewCell.swift in Sources */,
 				8E6148F221FA93D400E35EBD /* Endpoint.swift in Sources */,
 				8E4458892212781F00986E68 /* ProfileViewService.swift in Sources */,
@@ -497,9 +514,11 @@
 				8ED15AED220BEB6A001AC530 /* UserInfoViewModel.swift in Sources */,
 				8E66CC8122118B2700DA957C /* CredentialsViewService.swift in Sources */,
 				8E94C34D21F7F0BC004BB77A /* IGBaseView.swift in Sources */,
+				8E5BEF1B221D588A00BBC1A2 /* UIAlertController+Extensions.swift in Sources */,
 				FA8CF3B922128AD800B81270 /* ProfileViewController.swift in Sources */,
 				8ED15AE7220BDB6C001AC530 /* CredentialsViewController.swift in Sources */,
 				8E4458832212502A00986E68 /* UIView+Extensions.swift in Sources */,
+				8E5BEF19221D50CE00BBC1A2 /* UIViewController+Extensions.swift in Sources */,
 				8E84DCA2220A7502002BDA76 /* ButtonTableViewCell.swift in Sources */,
 				8ED7FEBB2200667700859BE1 /* APIStorage.swift in Sources */,
 				8ED7FEB5220059C800859BE1 /* Constants.swift in Sources */,
@@ -507,6 +526,7 @@
 				8E5DF0AB22012EA700A82F29 /* Post.swift in Sources */,
 				FAE3E7B92212560100C5AA50 /* ProfileInfoTableViewCell.swift in Sources */,
 				8E6148EF21FA93A500E35EBD /* NetworkDataClient.swift in Sources */,
+				8E5BEF13221D442F00BBC1A2 /* FeedViewController.swift in Sources */,
 				8E5DF0B92201361F00A82F29 /* RoundButton.swift in Sources */,
 				8E44588B22128B9800986E68 /* UserInfo.swift in Sources */,
 				8E94C32E21F7EEB9004BB77A /* AppDelegate.swift in Sources */,
