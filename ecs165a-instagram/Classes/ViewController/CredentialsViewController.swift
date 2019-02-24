@@ -14,6 +14,8 @@ class CredentialsViewController: InputViewController {
 
     internal let userInfoVM = UserInfoViewModel()
 
+    private let ROW_HEIGHT: CGFloat = 100
+
     override func setup() {
 
         super.setup()
@@ -24,14 +26,20 @@ class CredentialsViewController: InputViewController {
         tableview.register(ButtonTableViewCell.self, forCellReuseIdentifier: buttonFieldCellId)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func getCellIdForRow(row: Int) -> String {
+
+        return viewModel.fields[row].type == .button
+            ? buttonFieldCellId : textFieldCellId
     }
 
     @objc internal func buttonTapped() {}
 }
 
 extension CredentialsViewController {
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return ROW_HEIGHT
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 

@@ -24,3 +24,6 @@ let IG_SIGN_UP_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/signup", method:
 let IG_LOGIN_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/login", method: .post, encoding: JSONEncoding.default)
 
 let IG_PROFILE_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/profile", method: .get, encoding: URLEncoding.default)
+
+let IG_POST_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/posts", method: .post, encoding: JSONEncoding.default)
+let IG_GET_POST_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/posts", method: .post, encoding: URLEncoding.default)

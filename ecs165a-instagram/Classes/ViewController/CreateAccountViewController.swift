@@ -41,7 +41,7 @@ class CreateAccountViewController: CredentialsViewController {
             self?.stopSpinner()
 
             if serviceResponse.isSuccess {
-                self?.navigationController?.pushViewController(ProfileViewController(), animated: true)
+                self?.present(IGMainTabBarController(), animated: true, completion: nil)
             }
         }
     }

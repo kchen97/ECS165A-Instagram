@@ -12,6 +12,10 @@
 		8E4458872212512200986E68 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4458862212512200986E68 /* Profile.swift */; };
 		8E4458892212781F00986E68 /* ProfileViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4458882212781F00986E68 /* ProfileViewService.swift */; };
 		8E44588B22128B9800986E68 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E44588A22128B9800986E68 /* UserInfo.swift */; };
+		8E5BEF11221D43CF00BBC1A2 /* IGMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BEF10221D43CF00BBC1A2 /* IGMainTabBarController.swift */; };
+		8E5BEF13221D442F00BBC1A2 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BEF12221D442F00BBC1A2 /* FeedViewController.swift */; };
+		8E5BEF15221D445800BBC1A2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BEF14221D445800BBC1A2 /* SearchViewController.swift */; };
+		8E5BEF1B221D588A00BBC1A2 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BEF1A221D588A00BBC1A2 /* UIAlertController+Extensions.swift */; };
 		8E5DF0AB22012EA700A82F29 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0AA22012EA700A82F29 /* Post.swift */; };
 		8E5DF0AE22012FAB00A82F29 /* FormatterUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0AD22012FAB00A82F29 /* FormatterUtility.swift */; };
 		8E5DF0B02201338700A82F29 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0AF2201338700A82F29 /* HomeTableViewCell.swift */; };
@@ -27,6 +31,13 @@
 		8E66CC8322118B3C00DA957C /* IGBaseViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E66CC8222118B3C00DA957C /* IGBaseViewService.swift */; };
 		8E66CC8522118BA000DA957C /* CredentialsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E66CC8422118BA000DA957C /* CredentialsAPIService.swift */; };
 		8E66CC8822118C6100DA957C /* ServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E66CC8722118C6100DA957C /* ServiceResponse.swift */; };
+		8E7E1FA4222226DD0099D5A8 /* IGMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E1FA3222226DD0099D5A8 /* IGMainViewController.swift */; };
+		8E7E1FA6222229610099D5A8 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E1FA5222229610099D5A8 /* CreatePostViewController.swift */; };
+		8E7E1FA8222233200099D5A8 /* ImageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E1FA7222233200099D5A8 /* ImageHeaderView.swift */; };
+		8E7E1FAA222233C10099D5A8 /* PlainTextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E1FA9222233C10099D5A8 /* PlainTextViewTableViewCell.swift */; };
+		8E7E1FAC2222662D0099D5A8 /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E1FAB2222662D0099D5A8 /* CreatePostViewModel.swift */; };
+		8E7E1FAE222270A40099D5A8 /* PostsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E1FAD222270A40099D5A8 /* PostsAPIService.swift */; };
+		8E7E1FB0222279720099D5A8 /* CreatePostViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E1FAF222279720099D5A8 /* CreatePostViewService.swift */; };
 		8E84DC99220A6904002BDA76 /* InputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E84DC98220A6904002BDA76 /* InputViewModel.swift */; };
 		8E84DC9C220A6D61002BDA76 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E84DC9B220A6D61002BDA76 /* UIColor+Extensions.swift */; };
 		8E84DCA0220A7103002BDA76 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E84DC9F220A7103002BDA76 /* TextFieldTableViewCell.swift */; };
@@ -60,6 +71,10 @@
 		8E4458862212512200986E68 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		8E4458882212781F00986E68 /* ProfileViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewService.swift; sourceTree = "<group>"; };
 		8E44588A22128B9800986E68 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		8E5BEF10221D43CF00BBC1A2 /* IGMainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGMainTabBarController.swift; sourceTree = "<group>"; };
+		8E5BEF12221D442F00BBC1A2 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		8E5BEF14221D445800BBC1A2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		8E5BEF1A221D588A00BBC1A2 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		8E5DF0AA22012EA700A82F29 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8E5DF0AD22012FAB00A82F29 /* FormatterUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterUtility.swift; sourceTree = "<group>"; };
 		8E5DF0AF2201338700A82F29 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -75,6 +90,13 @@
 		8E66CC8222118B3C00DA957C /* IGBaseViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGBaseViewService.swift; sourceTree = "<group>"; };
 		8E66CC8422118BA000DA957C /* CredentialsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsAPIService.swift; sourceTree = "<group>"; };
 		8E66CC8722118C6100DA957C /* ServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceResponse.swift; sourceTree = "<group>"; };
+		8E7E1FA3222226DD0099D5A8 /* IGMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGMainViewController.swift; sourceTree = "<group>"; };
+		8E7E1FA5222229610099D5A8 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
+		8E7E1FA7222233200099D5A8 /* ImageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHeaderView.swift; sourceTree = "<group>"; };
+		8E7E1FA9222233C10099D5A8 /* PlainTextViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainTextViewTableViewCell.swift; sourceTree = "<group>"; };
+		8E7E1FAB2222662D0099D5A8 /* CreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewModel.swift; sourceTree = "<group>"; };
+		8E7E1FAD222270A40099D5A8 /* PostsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsAPIService.swift; sourceTree = "<group>"; };
+		8E7E1FAF222279720099D5A8 /* CreatePostViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewService.swift; sourceTree = "<group>"; };
 		8E84DC98220A6904002BDA76 /* InputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewModel.swift; sourceTree = "<group>"; };
 		8E84DC9B220A6D61002BDA76 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		8E84DC9F220A7103002BDA76 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
@@ -128,6 +150,7 @@
 				8E84DCA1220A7502002BDA76 /* ButtonTableViewCell.swift */,
 				8E5DF0AF2201338700A82F29 /* HomeTableViewCell.swift */,
 				8E5DF0B12201339C00A82F29 /* IGBaseTableViewCell.swift */,
+				8E7E1FA9222233C10099D5A8 /* PlainTextViewTableViewCell.swift */,
 				FAE3E7B82212560100C5AA50 /* ProfileInfoTableViewCell.swift */,
 				8E84DC9F220A7103002BDA76 /* TextFieldTableViewCell.swift */,
 			);
@@ -151,6 +174,7 @@
 			children = (
 				8E66CC8422118BA000DA957C /* CredentialsAPIService.swift */,
 				8ED7FEB12200580700859BE1 /* IGBaseAPIService.swift */,
+				8E7E1FAD222270A40099D5A8 /* PostsAPIService.swift */,
 				8E445884221250FC00986E68 /* ProfileAPIService.swift */,
 			);
 			path = APIService;
@@ -177,6 +201,7 @@
 		8E66CC7F22118B0C00DA957C /* ViewService */ = {
 			isa = PBXGroup;
 			children = (
+				8E7E1FAF222279720099D5A8 /* CreatePostViewService.swift */,
 				8E66CC8022118B2700DA957C /* CredentialsViewService.swift */,
 				8E66CC8222118B3C00DA957C /* IGBaseViewService.swift */,
 				8E4458882212781F00986E68 /* ProfileViewService.swift */,
@@ -197,6 +222,7 @@
 			children = (
 				8E84DC9B220A6D61002BDA76 /* UIColor+Extensions.swift */,
 				8E4458822212502A00986E68 /* UIView+Extensions.swift */,
+				8E5BEF1A221D588A00BBC1A2 /* UIAlertController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -248,6 +274,7 @@
 			children = (
 				8E5DF0BA220136BE00A82F29 /* IGBaseButton.swift */,
 				8E94C34C21F7F0BC004BB77A /* IGBaseView.swift */,
+				8E7E1FA7222233200099D5A8 /* ImageHeaderView.swift */,
 				8E5DF0B82201361F00A82F29 /* RoundButton.swift */,
 				8E5DF0B52201344500A82F29 /* TableViewCells */,
 			);
@@ -257,6 +284,7 @@
 		8E94C34121F7EED1004BB77A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8E7E1FAB2222662D0099D5A8 /* CreatePostViewModel.swift */,
 				8E94C34A21F7F098004BB77A /* IGBaseViewModel.swift */,
 				8E84DC98220A6904002BDA76 /* InputViewModel.swift */,
 				FAAAEDCB2213A629005B16D4 /* ProfileViewModel.swift */,
@@ -268,12 +296,17 @@
 		8E94C34221F7EED5004BB77A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8E94C32F21F7EEB9004BB77A /* IGBaseViewController.swift */,
-				FA8CF3B822128AD800B81270 /* ProfileViewController.swift */,
 				8ED15AEA220BE79B001AC530 /* CreateAccountViewController.swift */,
+				8E7E1FA5222229610099D5A8 /* CreatePostViewController.swift */,
 				8ED15AE6220BDB6C001AC530 /* CredentialsViewController.swift */,
+				8E5BEF12221D442F00BBC1A2 /* FeedViewController.swift */,
+				8E94C32F21F7EEB9004BB77A /* IGBaseViewController.swift */,
+				8E5BEF10221D43CF00BBC1A2 /* IGMainTabBarController.swift */,
+				8E7E1FA3222226DD0099D5A8 /* IGMainViewController.swift */,
 				8ED15AE3220BD570001AC530 /* InputViewController.swift */,
 				8ED15AE8220BE69B001AC530 /* LoginViewController.swift */,
+				FA8CF3B822128AD800B81270 /* ProfileViewController.swift */,
+				8E5BEF14221D445800BBC1A2 /* SearchViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -448,6 +481,8 @@
 				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RSKGrowingTextView/RSKGrowingTextView.framework",
+				"${BUILT_PRODUCTS_DIR}/RSKPlaceholderTextView/RSKPlaceholderTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -458,6 +493,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKGrowingTextView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKPlaceholderTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -478,10 +515,12 @@
 				8ED15AE4220BD570001AC530 /* InputViewController.swift in Sources */,
 				8E5DF0BB220136BE00A82F29 /* IGBaseButton.swift in Sources */,
 				8E66CC8322118B3C00DA957C /* IGBaseViewService.swift in Sources */,
+				8E7E1FA8222233200099D5A8 /* ImageHeaderView.swift in Sources */,
 				8E445885221250FC00986E68 /* ProfileAPIService.swift in Sources */,
 				8E66CC79221104F000DA957C /* User.swift in Sources */,
 				FAAAEDCC2213A629005B16D4 /* ProfileViewModel.swift in Sources */,
 				8E66CC8522118BA000DA957C /* CredentialsAPIService.swift in Sources */,
+				8E7E1FA6222229610099D5A8 /* CreatePostViewController.swift in Sources */,
 				8E84DC99220A6904002BDA76 /* InputViewModel.swift in Sources */,
 				8E84DCA0220A7103002BDA76 /* TextFieldTableViewCell.swift in Sources */,
 				8E5DF0B22201339C00A82F29 /* IGBaseTableViewCell.swift in Sources */,
@@ -489,14 +528,18 @@
 				8E94C34F21F7F0DA004BB77A /* IGBaseModel.swift in Sources */,
 				8E5DF0AE22012FAB00A82F29 /* FormatterUtility.swift in Sources */,
 				8ED15AEB220BE79B001AC530 /* CreateAccountViewController.swift in Sources */,
+				8E5BEF15221D445800BBC1A2 /* SearchViewController.swift in Sources */,
+				8E5BEF11221D43CF00BBC1A2 /* IGMainTabBarController.swift in Sources */,
 				8E5DF0B02201338700A82F29 /* HomeTableViewCell.swift in Sources */,
 				8E6148F221FA93D400E35EBD /* Endpoint.swift in Sources */,
 				8E4458892212781F00986E68 /* ProfileViewService.swift in Sources */,
+				8E7E1FA4222226DD0099D5A8 /* IGMainViewController.swift in Sources */,
 				8E6148ED21FA92E700E35EBD /* DataClient.swift in Sources */,
 				8E66CC8822118C6100DA957C /* ServiceResponse.swift in Sources */,
 				8ED15AED220BEB6A001AC530 /* UserInfoViewModel.swift in Sources */,
 				8E66CC8122118B2700DA957C /* CredentialsViewService.swift in Sources */,
 				8E94C34D21F7F0BC004BB77A /* IGBaseView.swift in Sources */,
+				8E5BEF1B221D588A00BBC1A2 /* UIAlertController+Extensions.swift in Sources */,
 				FA8CF3B922128AD800B81270 /* ProfileViewController.swift in Sources */,
 				8ED15AE7220BDB6C001AC530 /* CredentialsViewController.swift in Sources */,
 				8E4458832212502A00986E68 /* UIView+Extensions.swift in Sources */,
@@ -504,14 +547,19 @@
 				8ED7FEBB2200667700859BE1 /* APIStorage.swift in Sources */,
 				8ED7FEB5220059C800859BE1 /* Constants.swift in Sources */,
 				8E94C34B21F7F098004BB77A /* IGBaseViewModel.swift in Sources */,
+				8E7E1FAA222233C10099D5A8 /* PlainTextViewTableViewCell.swift in Sources */,
 				8E5DF0AB22012EA700A82F29 /* Post.swift in Sources */,
+				8E7E1FAE222270A40099D5A8 /* PostsAPIService.swift in Sources */,
 				FAE3E7B92212560100C5AA50 /* ProfileInfoTableViewCell.swift in Sources */,
 				8E6148EF21FA93A500E35EBD /* NetworkDataClient.swift in Sources */,
+				8E7E1FB0222279720099D5A8 /* CreatePostViewService.swift in Sources */,
+				8E5BEF13221D442F00BBC1A2 /* FeedViewController.swift in Sources */,
 				8E5DF0B92201361F00A82F29 /* RoundButton.swift in Sources */,
 				8E44588B22128B9800986E68 /* UserInfo.swift in Sources */,
 				8E94C32E21F7EEB9004BB77A /* AppDelegate.swift in Sources */,
 				8E4458872212512200986E68 /* Profile.swift in Sources */,
 				8ED7FEB22200580700859BE1 /* IGBaseAPIService.swift in Sources */,
+				8E7E1FAC2222662D0099D5A8 /* CreatePostViewModel.swift in Sources */,
 				8E66CC7B22116A1900DA957C /* AuthToken.swift in Sources */,
 				8E84DC9C220A6D61002BDA76 /* UIColor+Extensions.swift in Sources */,
 			);

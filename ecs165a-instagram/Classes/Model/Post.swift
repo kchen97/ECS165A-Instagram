@@ -12,22 +12,19 @@ class Post: IGBaseModel {
 
     var username: String?
     var caption: String?
-    var views: Int?
+    var tags: [String]?
     var likes : Int?
     var comments: Int?
-    var datePosted: Date?
+    var date: String?
 
     override func mapping(map: Map) {
         super.mapping(map: map)
 
         username <- map["username"]
         caption <- map["caption"]
-        views <- map["views"]
+        tags <- map["tags"]
         likes <- map["likes"]
         comments <- map["comments"]
-
-        if let stringDate = map["datePosted"].currentValue as? String {
-            datePosted = FormatterUtility().toDate(date: stringDate)
-        }
+        date <- map["date"]
     }
 }
