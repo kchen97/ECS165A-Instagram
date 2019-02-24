@@ -14,4 +14,6 @@ extension UIColor {
     static let themeBlue = UIColor("1cb3c8")!
 
     static let themeDarkGray = UIColor("2b2726")!
+
+    static let themeLightGray = UIColor("d9d9d9")!
 }

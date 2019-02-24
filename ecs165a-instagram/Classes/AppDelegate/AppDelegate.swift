@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow()
         window?.makeKeyAndVisible()
-        window?.rootViewController = IGMainTabBarController()
+        window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
     }
 }
 

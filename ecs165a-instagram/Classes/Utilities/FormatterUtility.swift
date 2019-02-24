@@ -20,4 +20,13 @@ class FormatterUtility {
 
         return formatter.date(from: date)
     }
+
+    func toString(date: Date, format: String = kDefaultDateFormat) -> String {
+
+        let formatter = DateFormatter()
+        formatter.locale = Calendar.current.locale
+        formatter.dateFormat = format
+
+        return formatter.string(from: date)
+    }
 }

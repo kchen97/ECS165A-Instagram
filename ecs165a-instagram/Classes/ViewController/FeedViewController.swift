@@ -8,14 +8,12 @@
 
 import UIKit
 
-class FeedViewController: IGBaseViewController {
+class FeedViewController: IGMainViewController {
 
     override func setup() {
 
         super.setup()
 
         view.backgroundColor = .red
-
-        setNavBarButtons()
     }
 }

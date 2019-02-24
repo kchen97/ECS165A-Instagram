@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: IGBaseViewController {
+class ProfileViewController: IGMainViewController {
 
     let profileVM = ProfileViewModel()
 
@@ -49,8 +49,6 @@ class ProfileViewController: IGBaseViewController {
         tableview.snp.makeConstraints { maker in
             maker.edges.equalTo(view.safeAreaLayoutGuide)
         }
-
-        setNavBarButtons()
     }
 }
 

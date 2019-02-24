@@ -26,6 +26,23 @@ class NetworkDataClient: DataClient {
         self.pathTemplate = endpoint.path
     }
 
+    func request(info: Any, success: @escaping () -> Void, failure: @escaping () -> Void) {
+
+        process(info: info)
+
+        getDataRequest().validate().responseJSON { response in
+
+            switch response.result {
+
+            case .success:
+                success()
+
+            case .failure:
+                failure()
+            }
+        }
+    }
+
     func request<T: Mappable>(info: Any,
                               success: @escaping (T?) -> Void,
                               failure: @escaping () -> Void) {

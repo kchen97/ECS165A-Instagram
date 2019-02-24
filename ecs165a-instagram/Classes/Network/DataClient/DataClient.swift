@@ -18,5 +18,9 @@ protocol DataClient {
                               success: @escaping ([T]?) -> Void,
                               failure: @escaping () -> Void)
 
+    func request(info: Any,
+                 success: @escaping () -> Void,
+                 failure: @escaping () -> Void)
+
     func process(info: Any)
 }

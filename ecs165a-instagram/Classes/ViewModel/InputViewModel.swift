@@ -9,7 +9,7 @@
 import Foundation
 
 enum InputType {
-    case generic, password, button
+    case generic, password, button, image
 }
 
 typealias InputField = (title: String, type: InputType)

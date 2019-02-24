@@ -11,6 +11,9 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.8.3):
     - PromiseKit/CorePromise
+  - RSKGrowingTextView (4.0.5):
+    - RSKPlaceholderTextView (= 4.0.0)
+  - RSKPlaceholderTextView (4.0.0)
   - SkyFloatingLabelTextField (3.6.0)
   - SnapKit (4.2.0)
   - SVProgressHUD (2.2.5)
@@ -21,6 +24,7 @@ DEPENDENCIES:
   - HexColors
   - ObjectMapper
   - PromiseKit
+  - RSKGrowingTextView
   - SkyFloatingLabelTextField
   - SnapKit
   - SVProgressHUD
@@ -32,6 +36,8 @@ SPEC REPOS:
     - HexColors
     - ObjectMapper
     - PromiseKit
+    - RSKGrowingTextView
+    - RSKPlaceholderTextView
     - SkyFloatingLabelTextField
     - SnapKit
     - SVProgressHUD
@@ -42,11 +48,13 @@ SPEC CHECKSUMS:
   HexColors: f8c66339541a74bb08905bfe7cd4f8cc85e9e173
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
+  RSKGrowingTextView: aade5bc3ae2a202bd3d70674d605b76117034040
+  RSKPlaceholderTextView: 15f1dc1883e103ea605874b863f19ff6b08496d5
   SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
 
-PODFILE CHECKSUM: 9b11dfc545150a50d4bba72fafb01cd8eca51b55
+PODFILE CHECKSUM: fb7b3559051cb8ec23a533a54c115887cb46dbeb
 
 COCOAPODS: 1.6.0.rc.2

@@ -8,14 +8,12 @@
 
 import UIKit
 
-class SearchViewController: IGBaseViewController {
+class SearchViewController: IGMainViewController {
 
     override func setup() {
 
         super.setup()
 
         view.backgroundColor = .green
-
-        setNavBarButtons()
     }
 }
