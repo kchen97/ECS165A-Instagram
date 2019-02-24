@@ -10,12 +10,18 @@ import UIKit
 
 class ProfileInfoTableViewCell: IGBaseTableViewCell {
     
-    private let profilePicture: UIImageView = {
+    private let profilePicture: UIButton = {
         
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFit
-        view.image = UIImage(named: "default")
-        return view
+        let button = UIButton()
+        
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.gray.cgColor
+        if let Image = UIImage(named: "default") {
+            button.setImage(Image, for: .normal)
+        }
+        button.layer.cornerRadius = 45
+        button.layer.masksToBounds = true
+        return button
     }()
     
     private let nameLabel: UILabel = {
@@ -123,6 +129,10 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         followingCountLabel.text = "\(following ?? 0)"
     }
     
+    func frameData() -> CGFloat {
+        return followingLabel.frame.origin.x
+    }
+    
     private func setup() {
 
         contentView.addMultipleSubviews(views: [profilePicture,
@@ -136,11 +146,11 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
                                                 captionLabel])
         
         profilePicture.snp.makeConstraints { maker in
-            
+
             maker.top.equalToSuperview().inset(10)
             maker.leading.equalToSuperview().inset(10)
-            maker.width.equalTo(100)
-            maker.bottom.equalToSuperview().inset(60)
+            maker.width.equalTo(90)
+            maker.height.equalTo(90)
         }
 
         nameLabel.snp.makeConstraints { maker in
@@ -158,52 +168,52 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
             maker.trailing.equalTo(contentView.snp.centerX)
             maker.height.equalTo(30)
         }
-
+        
+        followingLabel.snp.makeConstraints { maker in
+            
+            maker.top.equalTo(profilePicture.snp.top)
+            maker.trailing.equalToSuperview().inset(10)
+            maker.width.equalTo(64)
+            maker.height.equalTo(14)
+        }
+        
+        followingCountLabel.snp.makeConstraints { maker in
+            
+            maker.top.equalTo(followingLabel.snp.bottom).offset(8)
+            maker.leading.equalTo(followingLabel.snp.leading)
+            maker.centerX.equalTo(followingLabel.snp.centerX)
+            maker.height.equalTo(14)
+        }
+        
+        followersLabel.snp.makeConstraints { maker in
+            
+            maker.top.equalTo(profilePicture.snp.top)
+            maker.trailing.equalTo(followingLabel.snp.leading).inset(-10)
+            maker.width.equalTo(60)
+            maker.height.equalTo(14)
+        }
+        
+        followerCountLabel.snp.makeConstraints { maker in
+            
+            maker.top.equalTo(followingCountLabel.snp.top)
+            maker.leading.equalTo(followersLabel.snp.leading)
+            maker.centerX.equalTo(followersLabel.snp.centerX)
+            maker.height.equalTo(14)
+        }
+        
         postsLabel.snp.makeConstraints { maker in
 
             maker.top.equalTo(profilePicture.snp.top)
-            maker.leading.equalTo(contentView.snp.centerX).inset(-20)
+            maker.trailing.equalTo(followersLabel.snp.leading).inset(-10)
             maker.width.equalTo(40)
             maker.height.equalTo(14)
         }
 
         postsCountLabel.snp.makeConstraints { maker in
 
-            maker.top.equalTo(postsLabel.snp.bottom).offset(8)
+            maker.top.equalTo(followingCountLabel.snp.top)
             maker.leading.equalTo(postsLabel.snp.leading)
             maker.centerX.equalTo(postsLabel.snp.centerX)
-            maker.height.equalTo(14)
-        }
-
-        followersLabel.snp.makeConstraints { maker in
-
-            maker.top.equalTo(profilePicture.snp.top)
-            maker.leading.equalTo(postsLabel.snp.trailing).offset(10)
-            maker.width.equalTo(60)
-            maker.height.equalTo(14)
-        }
-
-        followerCountLabel.snp.makeConstraints { maker in
-
-            maker.top.equalTo(postsCountLabel.snp.top)
-            maker.leading.equalTo(followersLabel.snp.leading)
-            maker.centerX.equalTo(followersLabel.snp.centerX)
-            maker.height.equalTo(14)
-        }
-
-        followingLabel.snp.makeConstraints { maker in
-
-            maker.top.equalTo(profilePicture.snp.top)
-            maker.leading.equalTo(followersLabel.snp.trailing).offset(10)
-            maker.width.equalTo(64)
-            maker.height.equalTo(14)
-        }
-
-        followingCountLabel.snp.makeConstraints { maker in
-
-            maker.top.equalTo(postsCountLabel.snp.top)
-            maker.leading.equalTo(followingLabel.snp.leading)
-            maker.centerX.equalTo(followingLabel.snp.centerX)
             maker.height.equalTo(14)
         }
     }

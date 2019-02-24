@@ -17,6 +17,8 @@ class Profile: IGBaseModel {
     var posts: Int?
     var followers: Int?
     var following: Int?
+    var profileImage: UIImage?
+    var profileImagesFeed: Array<UIImage?> = []
 
     var fullName: String {
         return (firstName ?? "") + " " + (lastName ?? "")
