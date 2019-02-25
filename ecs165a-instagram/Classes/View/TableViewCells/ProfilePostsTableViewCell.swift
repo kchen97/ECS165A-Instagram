@@ -9,13 +9,13 @@
 import UIKit
 
 class ProfilePostsTableViewCell: IGBaseTableViewCell {
-    
+        
     private let post1: UIButton = {
         
         let button = UIButton()
         
         if let Image = UIImage(named: "default") {
-            button.setImage(Image, for: .normal)
+            button.setBackgroundImage(Image, for: .normal)
         }
         return button
     }()
@@ -25,7 +25,7 @@ class ProfilePostsTableViewCell: IGBaseTableViewCell {
         let button2 = UIButton()
         
         if let Image = UIImage(named: "default") {
-            button2.setImage(Image, for: .normal)
+            button2.setBackgroundImage(Image, for: .normal)
         }
         return button2
     }()
@@ -35,7 +35,7 @@ class ProfilePostsTableViewCell: IGBaseTableViewCell {
         let button3 = UIButton()
         
         if let Image = UIImage(named: "default") {
-            button3.setImage(Image, for: .normal)
+            button3.setBackgroundImage(Image, for: .normal)
         }
         return button3
     }()
@@ -59,20 +59,22 @@ class ProfilePostsTableViewCell: IGBaseTableViewCell {
         contentView.addMultipleSubviews(views: [post1, post2, post3])
         
         post1.snp.makeConstraints { maker in
-            maker.leading.equalTo(self.contentView.safeAreaLayoutGuide.snp.leading)
-            maker.top.equalTo(contentView.snp_topMargin)
+            maker.top.equalToSuperview()
+            maker.height.equalToSuperview().inset(1)
+            maker.leading.equalToSuperview()
+            maker.trailing.equalTo(post2.snp.leading).inset(-1)
         }
-
         post2.snp.makeConstraints { maker in
             maker.top.equalTo(post1.snp.top)
             maker.bottom.equalTo(post1.snp.bottom)
-            maker.centerX.equalTo(contentView.snp.centerX)
+            maker.centerX.equalToSuperview()
+            maker.width.equalTo(post1.snp.width).inset(2)
         }
-        
         post3.snp.makeConstraints { maker in
             maker.top.equalTo(post2.snp.top)
             maker.bottom.equalTo(post2.snp.bottom)
-            maker.trailing.equalTo(self.contentView.safeAreaLayoutGuide.snp.trailing)
+            maker.leading.equalTo(post2.snp.trailing).inset(-1)
+            maker.trailing.equalToSuperview()
         }
     }
 }

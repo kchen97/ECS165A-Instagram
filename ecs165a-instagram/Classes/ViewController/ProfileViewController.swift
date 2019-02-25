@@ -65,7 +65,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         if let postCount = profileVM.profile?.posts {
             return (postCount / 3) + 1
         } else {
-            return 1
+            return 4
         }
     }
     
@@ -84,14 +84,19 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                             followers: profileVM.profile?.followers,
                             following: profileVM.profile?.following)
             }
+            
             return cell
+            
         } else {
+            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: profilePostsTableViewCellId) else {
                 return UITableViewCell()
             }
+            
             if let cell = cell as? ProfilePostsTableViewCell {
                 cell.config()
             }
+            
             return cell
         }
     }

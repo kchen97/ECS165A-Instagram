@@ -17,9 +17,9 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.gray.cgColor
         if let Image = UIImage(named: "default") {
-            button.setImage(Image, for: .normal)
+            button.setBackgroundImage(Image, for: .normal)
         }
-        button.layer.cornerRadius = 45
+        button.layer.cornerRadius = 50
         button.layer.masksToBounds = true
         return button
     }()
@@ -28,15 +28,15 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
 
         let label = UILabel()
         label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 14)
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
 
     private let captionLabel: UILabel = {
 
         let label = UILabel()
-        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 14)
+        label.font = UIFont(name: "TimesNewRomanPSMT", size: 14)
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
         return label
@@ -45,30 +45,33 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
     private let followerCountLabel: UILabel = {
 
         let label = UILabel()
-        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 12)
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
+        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
+        //label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 1
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
     private let followingCountLabel: UILabel = {
 
         let label = UILabel()
-        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 12)
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
+        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
+        //label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 1
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
 
     private let postsCountLabel: UILabel = {
 
         let label = UILabel()
-        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 12)
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
+        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
+        //label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 1
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
 
@@ -76,10 +79,11 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
 
         let label = UILabel()
         label.text = "Followers"
-        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 14)
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
+        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
+        //label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 1
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
 
@@ -87,10 +91,11 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
 
         let label = UILabel()
         label.text = "Following"
-        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 14)
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
+        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
+        //label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 1
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
 
@@ -98,10 +103,11 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
 
         let label = UILabel()
         label.text = "Posts"
-        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 14)
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
+        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
+        //label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 1
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -149,72 +155,68 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
 
             maker.top.equalToSuperview().inset(10)
             maker.leading.equalToSuperview().inset(10)
-            maker.width.equalTo(90)
-            maker.height.equalTo(90)
+            maker.width.equalToSuperview().multipliedBy(0.3)
+            maker.height.equalTo(profilePicture.snp.width)
         }
 
         nameLabel.snp.makeConstraints { maker in
 
-            maker.top.equalTo(profilePicture.snp.bottom)
-            maker.centerX.equalTo(profilePicture.snp.centerX)
+            maker.top.equalTo(profilePicture.snp.bottom).offset(3)
             maker.leading.equalTo(profilePicture.snp.leading)
             maker.height.equalTo(30)
+            maker.trailing.equalTo(contentView.snp.centerX)
         }
 
         captionLabel.snp.makeConstraints { maker in
 
             maker.top.equalTo(nameLabel.snp.bottom)
             maker.leading.equalTo(profilePicture.snp.leading)
-            maker.trailing.equalTo(contentView.snp.centerX)
-            maker.height.equalTo(30)
-        }
+            maker.trailing.equalToSuperview().inset(10)
+            maker.bottom.equalToSuperview()
+        }// Will need to set a max caption size of 3 lines
         
         followingLabel.snp.makeConstraints { maker in
             
             maker.top.equalTo(profilePicture.snp.top)
             maker.trailing.equalToSuperview().inset(10)
-            maker.width.equalTo(64)
-            maker.height.equalTo(14)
+            maker.leading.equalTo(followersLabel.snp.trailing).inset(-10)
         }
         
         followingCountLabel.snp.makeConstraints { maker in
             
-            maker.top.equalTo(followingLabel.snp.bottom).offset(8)
-            maker.leading.equalTo(followingLabel.snp.leading)
+            maker.top.equalTo(followingLabel.snp.bottom).offset(5)
             maker.centerX.equalTo(followingLabel.snp.centerX)
-            maker.height.equalTo(14)
+            maker.width.equalTo(followingLabel.snp.width).multipliedBy(0.14)
         }
         
         followersLabel.snp.makeConstraints { maker in
             
             maker.top.equalTo(profilePicture.snp.top)
             maker.trailing.equalTo(followingLabel.snp.leading).inset(-10)
-            maker.width.equalTo(60)
-            maker.height.equalTo(14)
+            maker.leading.equalTo(postsLabel.snp.trailing).inset(-15)
+            maker.width.equalTo(followingLabel.snp.width).multipliedBy(1.05)
         }
         
         followerCountLabel.snp.makeConstraints { maker in
             
             maker.top.equalTo(followingCountLabel.snp.top)
-            maker.leading.equalTo(followersLabel.snp.leading)
             maker.centerX.equalTo(followersLabel.snp.centerX)
-            maker.height.equalTo(14)
+            maker.width.equalTo(followingLabel.snp.width).multipliedBy(0.14)
         }
         
         postsLabel.snp.makeConstraints { maker in
 
             maker.top.equalTo(profilePicture.snp.top)
-            maker.trailing.equalTo(followersLabel.snp.leading).inset(-10)
-            maker.width.equalTo(40)
-            maker.height.equalTo(14)
+            maker.trailing.equalTo(followersLabel.snp.leading).inset(-15)
+            maker.trailing.equalTo(contentView.snp.centerX)
+            maker.width.equalTo(followersLabel.snp.width).multipliedBy(0.55)
         }
 
         postsCountLabel.snp.makeConstraints { maker in
 
             maker.top.equalTo(followingCountLabel.snp.top)
-            maker.leading.equalTo(postsLabel.snp.leading)
             maker.centerX.equalTo(postsLabel.snp.centerX)
-            maker.height.equalTo(14)
+            maker.width.equalTo(followingLabel.snp.width).multipliedBy(0.14)
         }
     }
 }
