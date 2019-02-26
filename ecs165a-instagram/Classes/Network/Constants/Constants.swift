@@ -8,5 +8,4 @@
 
 import Foundation
 
-//let kParameterKey = "kParameterKey"
-//let kPathManipulationKey = "kPathManipulationKey"
+let kImageParameterKey = "kImageParameterKey"

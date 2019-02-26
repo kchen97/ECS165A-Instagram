@@ -10,19 +10,16 @@ import UIKit
 
 class InputViewController: IGBaseViewController {
 
-    let textFieldCellId = "textFieldCellId"
-    let buttonFieldCellId = "buttonFieldCellId"
+    lazy var textFieldCellId = "textFieldCellId"
+    lazy var plainTextViewCellId = "plainTextViewCellId"
+    lazy var buttonFieldCellId = "buttonFieldCellId"
+    lazy var imageFieldCellId = "imageFieldCellId"
 
     let viewModel = InputViewModel()
-    let tableview = UITableView()
-
-    private let ROW_HEIGHT: CGFloat = 100
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    let tableview = UITableView(frame: .zero, style: .grouped)
 
     override func setup() {
+
         super.setup()
 
         tableview.delegate = self
@@ -30,6 +27,9 @@ class InputViewController: IGBaseViewController {
         tableview.separatorStyle = .none
         tableview.tableFooterView = UIView(frame: .zero)
         tableview.showsVerticalScrollIndicator = false
+        tableview.estimatedRowHeight = 10.0
+        tableview.rowHeight = UITableView.automaticDimension
+        tableview.backgroundColor = .white
 
         view.addSubview(tableview)
 
@@ -38,14 +38,15 @@ class InputViewController: IGBaseViewController {
         }
     }
 
+    // Must override
+    internal func getCellIdForRow(row: Int) -> String {
+        return ""
+    }
+
     internal func configFields() {}
 }
 
 extension InputViewController: UITableViewDelegate, UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return ROW_HEIGHT
-    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.fields.count
@@ -53,8 +54,7 @@ extension InputViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.fields[indexPath.row].type == .button
-            ? buttonFieldCellId : textFieldCellId,
+        let cell = tableView.dequeueReusableCell(withIdentifier: getCellIdForRow(row: indexPath.row),
                                                  for: indexPath)
         cell.selectionStyle = .none
         return cell

@@ -26,9 +26,28 @@ class NetworkDataClient: DataClient {
         self.pathTemplate = endpoint.path
     }
 
+    func request(info: Any,
+                 success: @escaping () -> Void,
+                 failure: @escaping (ServiceResponse) -> Void) {
+
+        process(info: info)
+
+        getDataRequest().validate().responseJSON { response in
+
+            switch response.result {
+
+            case .success:
+                success()
+
+            case .failure:
+                failure(self.getErrorServiceResponse(data: response.result.value))
+            }
+        }
+    }
+
     func request<T: Mappable>(info: Any,
                               success: @escaping (T?) -> Void,
-                              failure: @escaping () -> Void) {
+                              failure: @escaping (ServiceResponse) -> Void) {
         process(info: info)
 
         getDataRequest().validate().responseJSON { response in
@@ -39,7 +58,7 @@ class NetworkDataClient: DataClient {
                 success(self.parse(data: response.result.value))
 
             case .failure:
-                failure()
+                failure(self.getErrorServiceResponse(data: response.result.value))
 
             }
         }
@@ -47,7 +66,7 @@ class NetworkDataClient: DataClient {
 
     func request<T: Mappable>(info: Any,
                               success: @escaping ([T]?) -> Void,
-                              failure: @escaping () -> Void) {
+                              failure: @escaping (ServiceResponse) -> Void) {
 
         process(info: info)
 
@@ -59,8 +78,57 @@ class NetworkDataClient: DataClient {
                 success(self.parseArray(data: response.result.value))
 
             case .failure:
-                failure()
+                failure(self.getErrorServiceResponse(data: response.result.value))
 
+            }
+        }
+    }
+
+    func upload(info: Any,
+                success: @escaping () -> Void,
+                failure: @escaping (ServiceResponse) -> Void) {
+
+        process(info: info)
+
+        Alamofire.upload(multipartFormData: { multipartFormData in
+
+            if let parameters = self.parameters {
+
+                for (key, val) in parameters {
+
+                    if let data = val as? Data {
+                        multipartFormData.append(data, withName: key, fileName: UUID().uuidString + ".jpg", mimeType: "image/jpg")
+                    }
+                    else {
+                        multipartFormData.append("\(val)".data(using: String.Encoding.utf8)!, withName: key)
+                    }
+                }
+            }
+        },
+        usingThreshold: UInt64.init(),
+        to: endpoint.path,
+        method: endpoint.method,
+        headers: headers) { encodingResult in
+
+            switch encodingResult {
+
+            case .success(let upload, _, _):
+
+                upload.validate().responseJSON { response in
+
+                    switch response.result {
+
+                    case .success:
+                        success()
+
+                    case .failure:
+                        failure(self.getErrorServiceResponse(data: response.result.value))
+                    }
+                }
+
+            case .failure:
+
+                failure(self.getErrorServiceResponse(data: nil))
             }
         }
     }
@@ -68,7 +136,7 @@ class NetworkDataClient: DataClient {
     func process(info: Any) {
 
         if let info = info as? Parameters {
-            parameters = info;
+            parameters = info
         }
     }
 
@@ -97,5 +165,18 @@ class NetworkDataClient: DataClient {
         }
 
         return nil
+    }
+
+    private func getErrorServiceResponse(data: Any?) -> ServiceResponse {
+        
+        let response = ServiceResponse()
+        response.status = .failure
+        response.errorMessage = "Your request could not be completed at this time."
+
+        if let data = data as? [String: Any] {
+            response.errorMessage = data["errorMessage"] as? String
+        }
+
+        return response
     }
 }

@@ -32,11 +32,7 @@ class ProfileAPIService: IGBaseAPIService {
                 completion(response, profile)
 
             },
-            failure: {
-
-                let response = ServiceResponse()
-                response.status = .failure
-                response.errorMessage = "We were unable to connect at this moment. Please try again later."
+            failure: { response in
 
                 completion(response, nil)
             })

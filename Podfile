@@ -22,6 +22,12 @@ target 'ecs165a-instagram' do
   # SVProgressHUD - https://github.com/SVProgressHUD/SVProgressHUD
   pod 'SVProgressHUD'
 
+  # RSKGrowingTextView - https://github.com/ruslanskorb/RSKGrowingTextView
+  pod 'RSKGrowingTextView'
+
+  # SwiftMessages - https://github.com/SwiftKickMobile/SwiftMessages
+  pod 'SwiftMessages'
+
   #
   ## Network
   ###

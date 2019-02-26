@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: IGBaseViewController {
-    
+class ProfileViewController: IGMainViewController {
 
     let profileVM = ProfileViewModel()
 
@@ -26,10 +25,15 @@ class ProfileViewController: IGBaseViewController {
 
         profileVM.getProfile { [weak self] serviceResponse in
 
-            self?.title = self?.profileVM.profile?.username
+            self?.navigationItem.title = self?.profileVM.profile?.username
 
             if serviceResponse.isSuccess {
                 self?.tableview.reloadData()
+            }
+            else {
+                self?.showMessage(body: serviceResponse.errorMessage ?? "",
+                                  theme: .error,
+                                  style: .bottom)
             }
         }
     }

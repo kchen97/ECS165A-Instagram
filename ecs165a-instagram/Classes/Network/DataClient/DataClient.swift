@@ -12,11 +12,19 @@ protocol DataClient {
 
     func request<T: Mappable>(info: Any,
                               success: @escaping (T?) -> Void,
-                              failure: @escaping () -> Void)
+                              failure: @escaping (ServiceResponse) -> Void)
 
     func request<T: Mappable>(info: Any,
                               success: @escaping ([T]?) -> Void,
-                              failure: @escaping () -> Void)
+                              failure: @escaping (ServiceResponse) -> Void)
+
+    func request(info: Any,
+                 success: @escaping () -> Void,
+                 failure: @escaping (ServiceResponse) -> Void)
+
+    func upload(info: Any,
+                success: @escaping () -> Void,
+                failure: @escaping (ServiceResponse) -> Void)
 
     func process(info: Any)
 }
