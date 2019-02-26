@@ -11,7 +11,8 @@ import UIKit
 class ProfileViewController: IGMainViewController {
 
     let profileVM = ProfileViewModel()
-
+    
+    private var profileInfoTableViewCell: ProfileInfoTableViewCell?
     private let profileInfoCellId = "profileInfoCellId"
     private let profilePostsTableViewCellId = "profilePostsTableViewCellId"
     
@@ -57,9 +58,61 @@ class ProfileViewController: IGMainViewController {
             maker.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
+    
+    @objc func profilePictureTapped() {
+            
+        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { [weak self] action in
+            self?.presentImagePicker(source: .camera)
+        })
+            
+        let photoAlbumAction = UIAlertAction(title: "Photo Album", style: .default, handler:{ [weak  self] action in
+            self?.presentImagePicker(source: .photoLibrary)
+        })
+            
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+            
+        let actionSheet = UIAlertController(title: nil, message: "Choose an option", preferredStyle: .actionSheet)
+        actionSheet.addAction(actions: [cameraAction, photoAlbumAction, cancelAction])
+            
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    @objc func post1Tapped() {
+        print("post1 tapped")
+    }
+    
+    @objc func post2Tapped() {
+        print("post2 tapped")
+    }
+    
+    @objc func post3Tapped() {
+        print("post3 tapped")
+    }
+    
+    @objc func followButtonTapped() {
+        print("Follow Button Tapped")
+    }
+    
+    private func presentImagePicker(source: UIImagePickerController.SourceType) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(source) {
+            
+            let controller = UIImagePickerController()
+            controller.sourceType = source
+            controller.delegate = self
+            
+            present(controller, animated: true, completion: nil)
+        }
+    }
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    override func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        profileInfoTableViewCell?.profilePicture.setBackgroundImage(info[UIImagePickerController.InfoKey.originalImage] as? UIImage, for: .normal)
+        dismiss(animated: true, completion: nil)
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return ROW_HEIGHT
@@ -67,9 +120,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let postCount = profileVM.profile?.posts {
-            return (postCount / 3) + 1
+            return (postCount / 3) + 2
         } else {
-            return 4
+            return 1
         }
     }
     
@@ -86,7 +139,16 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                             caption: profileVM.profile?.biography,
                             posts: profileVM.profile?.posts,
                             followers: profileVM.profile?.followers,
-                            following: profileVM.profile?.following)
+                            following: profileVM.profile?.following,
+                            profileImage: profileVM.profile?.profileImage)
+                cell.addTarget(target: self, selector: #selector(profilePictureTapped))
+                //fix button
+                if profileVM.validate(currentUserPage: profileVM.profile?.username) {
+                    cell.activateFollowButton(target: self, selector: #selector(followButtonTapped))
+                } else {
+                    cell.deactivateFollowButton()
+                }
+                profileInfoTableViewCell = cell
             }
             
             return cell
@@ -99,6 +161,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             
             if let cell = cell as? ProfilePostsTableViewCell {
                 cell.config()
+                cell.addTarget1(target: self, selector: #selector(post1Tapped))
+                cell.addTarget2(target: self, selector: #selector(post2Tapped))
+                cell.addTarget3(target: self, selector: #selector(post3Tapped))
             }
             
             return cell

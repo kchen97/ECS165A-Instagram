@@ -55,6 +55,16 @@ class ProfilePostsTableViewCell: IGBaseTableViewCell {
         
     }
     
+    func addTarget1(target: Any, selector: Selector) {
+        post1.addTarget(target, action: selector, for: .touchUpInside)
+    }
+    func addTarget2(target: Any, selector: Selector) {
+        post2.addTarget(target, action: selector, for: .touchUpInside)
+    }
+    func addTarget3(target: Any, selector: Selector) {
+        post3.addTarget(target, action: selector, for: .touchUpInside)
+    }
+    
     private func setup() {
         contentView.addMultipleSubviews(views: [post1, post2, post3])
         

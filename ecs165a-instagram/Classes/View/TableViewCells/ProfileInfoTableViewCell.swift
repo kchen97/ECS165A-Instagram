@@ -10,17 +10,27 @@ import UIKit
 
 class ProfileInfoTableViewCell: IGBaseTableViewCell {
     
-    private let profilePicture: UIButton = {
+    let profilePicture: UIButton = {
         
         let button = UIButton()
         
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.gray.cgColor
-        if let Image = UIImage(named: "default") {
-            button.setBackgroundImage(Image, for: .normal)
-        }
         button.layer.cornerRadius = 50
         button.layer.masksToBounds = true
+        return button
+    }()
+    
+    private let followingButton: UIButton = {
+        
+        let button = UIButton()
+        
+        button.setTitle("FOLLOW", for: .normal)
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.themeBlue.cgColor
+        button.setTitleColor(.themeBlue, for: .normal)
+        button.layer.cornerRadius = 10
+        
         return button
     }()
     
@@ -126,17 +136,33 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
                 caption: String?,
                 posts: Int?,
                 followers: Int?,
-                following: Int?) {
+                following: Int?,
+                profileImage: UIImage?) {
 
         nameLabel.text = name
         captionLabel.text = caption
         postsCountLabel.text = "\(posts ?? 0)"
         followerCountLabel.text = "\(followers ?? 0)"
         followingCountLabel.text = "\(following ?? 0)"
+        if let image = profileImage {
+            profilePicture.setBackgroundImage(image, for: .normal)
+        } else if let image = UIImage(named: "default") {
+            profilePicture.setBackgroundImage(image, for: .normal)
+        }
     }
     
-    func frameData() -> CGFloat {
-        return followingLabel.frame.origin.x
+    func addTarget(target: Any, selector: Selector) {
+        profilePicture.addTarget(target, action: selector, for: .touchUpInside)
+    }
+    
+    func activateFollowButton(target: Any?, selector: Selector) {
+        followingButton.addTarget(target, action: selector, for: .touchUpInside)
+        followingButton.isHidden = false
+    }
+    
+    func deactivateFollowButton() {
+        followingButton.removeTarget(nil, action: nil, for: .allEvents)
+        followingButton.isHidden = true
     }
     
     private func setup() {
@@ -149,7 +175,8 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
                                                 followersLabel,
                                                 postsLabel,
                                                 postsCountLabel,
-                                                captionLabel])
+                                                captionLabel,
+                                                followingButton])
         
         profilePicture.snp.makeConstraints { maker in
 
@@ -217,6 +244,14 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
             maker.top.equalTo(followingCountLabel.snp.top)
             maker.centerX.equalTo(postsLabel.snp.centerX)
             maker.width.equalTo(followingLabel.snp.width).multipliedBy(0.14)
+        }
+        
+        followingButton.snp.makeConstraints { maker in
+            
+            maker.leading.equalTo(postsLabel.snp.leading)
+            maker.trailing.equalTo(followingLabel.snp.trailing)
+            maker.top.equalTo(followerCountLabel.snp.bottom).offset(20)
+            maker.bottom.equalTo(nameLabel.snp.bottom)
         }
     }
 }

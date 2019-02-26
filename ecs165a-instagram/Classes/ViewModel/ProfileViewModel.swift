@@ -7,10 +7,16 @@
 //
 
 import Foundation
+import UIKit
 
 class ProfileViewModel: IGBaseViewModel{
     
     var profile: Profile?
+    
+    func validate(currentUserPage: String?) -> Bool {
+        let text = profile?.username ?? ""
+        return text != currentUserPage
+    }
     
     func getProfile(completion: @escaping (ServiceResponse) -> Void) {
         
