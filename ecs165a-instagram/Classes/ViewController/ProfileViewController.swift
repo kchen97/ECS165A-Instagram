@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileViewController: IGMainViewController {
 
-    let profileVM = ProfileViewModel()
+    var profileVM = ProfileViewModel()
 
     private let profileInfoCellId = "profileInfoCellId"
 
@@ -53,6 +53,13 @@ class ProfileViewController: IGMainViewController {
         
         tableview.snp.makeConstraints { maker in
             maker.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+
+        if profileVM.isOwnerProfile {
+            setNavBarButtons()
+        }
+        else {
+            navigationController?.navigationBar.tintColor = .themeDarkGray
         }
     }
 }

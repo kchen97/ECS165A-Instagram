@@ -10,14 +10,7 @@ import UIKit
 
 class IGMainViewController: IGBaseViewController {
 
-    override func setup() {
-
-        super.setup()
-
-        setNavBarButtons()
-    }
-
-    private func setNavBarButtons() {
+    func setNavBarButtons() {
 
         let settingsButton = UIBarButtonItem(image: UIImage(named: "settings"),
                                              style: .plain,
