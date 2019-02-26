@@ -25,6 +25,9 @@ target 'ecs165a-instagram' do
   # RSKGrowingTextView - https://github.com/ruslanskorb/RSKGrowingTextView
   pod 'RSKGrowingTextView'
 
+  # SwiftMessages - https://github.com/SwiftKickMobile/SwiftMessages
+  pod 'SwiftMessages'
+
   #
   ## Network
   ###

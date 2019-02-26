@@ -29,6 +29,11 @@ class ProfileViewController: IGMainViewController {
             if serviceResponse.isSuccess {
                 self?.tableview.reloadData()
             }
+            else {
+                self?.showMessage(body: serviceResponse.errorMessage ?? "",
+                                  theme: .error,
+                                  style: .bottom)
+            }
         }
     }
     

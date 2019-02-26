@@ -71,6 +71,11 @@ class CreatePostViewController: InputViewController {
             if serviceResponse.isSuccess {
                 self?.navigationController?.popViewController(animated: true)
             }
+            else {
+                self?.showMessage(body: serviceResponse.errorMessage ?? "",
+                                  theme: .error,
+                                  style: .bottom)
+            }
         }
     }
 

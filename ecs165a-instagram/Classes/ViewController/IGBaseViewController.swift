@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import SwiftMessages
 
 class IGBaseViewController: UIViewController {
 
@@ -29,6 +30,21 @@ class IGBaseViewController: UIViewController {
 
     func stopSpinner() {
         SVProgressHUD.dismiss()
+    }
+
+    func showMessage(title: String = "",
+                     body: String,
+                     theme: IGMessageTheme,
+                     style: SwiftMessages.PresentationStyle) {
+
+        let view = MessageView.viewFromNib(layout: .cardView)
+        var config = SwiftMessages.Config()
+
+        view.config(title: title, body: body, theme: theme)
+        config.presentationStyle = style
+        config.duration = .forever
+
+        SwiftMessages.show(config: config, view: view)
     }
 }
 

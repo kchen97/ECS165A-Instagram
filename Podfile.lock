@@ -18,6 +18,9 @@ PODS:
   - SnapKit (4.2.0)
   - SVProgressHUD (2.2.5)
   - SwiftLint (0.30.1)
+  - SwiftMessages (6.0.2):
+    - SwiftMessages/App (= 6.0.2)
+  - SwiftMessages/App (6.0.2)
 
 DEPENDENCIES:
   - Alamofire
@@ -29,6 +32,7 @@ DEPENDENCIES:
   - SnapKit
   - SVProgressHUD
   - SwiftLint (~> 0.27)
+  - SwiftMessages
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -42,6 +46,7 @@ SPEC REPOS:
     - SnapKit
     - SVProgressHUD
     - SwiftLint
+    - SwiftMessages
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
@@ -54,7 +59,8 @@ SPEC CHECKSUMS:
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
+  SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
 
-PODFILE CHECKSUM: fb7b3559051cb8ec23a533a54c115887cb46dbeb
+PODFILE CHECKSUM: 4bbb46ffd16393e220e943886fc59161e1813496
 
 COCOAPODS: 1.6.0.rc.2

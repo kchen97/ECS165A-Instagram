@@ -33,13 +33,9 @@ class PostsAPIService: IGBaseAPIService {
 
                 completion(serviceResponse)
             },
-            failure: {
+            failure: { response in
 
-                let serviceResponse = ServiceResponse()
-                serviceResponse.status = .failure
-                serviceResponse.errorMessage = "Unable to create the post. Please try again."
-
-                completion(serviceResponse)
+                completion(response)
             })
         }
     }

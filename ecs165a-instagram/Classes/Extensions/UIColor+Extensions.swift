@@ -16,4 +16,12 @@ extension UIColor {
     static let themeDarkGray = UIColor("2b2726")!
 
     static let themeLightGray = UIColor("d9d9d9")!
+
+    static let infoColor = UIColor("1f3c88")!
+
+    static let successColor = UIColor("0b8457")!
+
+    static let errorColor = UIColor("c82121")!
+
+    static let warningColor = UIColor("ffc60b")!
 }

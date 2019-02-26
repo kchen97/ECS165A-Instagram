@@ -43,6 +43,11 @@ class CreateAccountViewController: CredentialsViewController {
             if serviceResponse.isSuccess {
                 self?.present(IGMainTabBarController(), animated: true, completion: nil)
             }
+            else {
+                self?.showMessage(body: serviceResponse.errorMessage ?? "",
+                                  theme: .error,
+                                  style: .bottom)
+            }
         }
     }
 }
