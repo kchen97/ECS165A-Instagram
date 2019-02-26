@@ -64,7 +64,7 @@ class CreatePostViewController: InputViewController {
 
         showSpinner()
 
-        createPostVM.create { [weak self] serviceResponse in
+        createPostVM.createPost(image: headerView.image) { [weak self] serviceResponse in
 
             self?.stopSpinner()
 

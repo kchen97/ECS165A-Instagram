@@ -10,11 +10,11 @@ import PromiseKit
 
 class CreatePostViewService: IGBaseViewService {
 
-    func createPost(post: Post, completion: @escaping (ServiceResponse) -> Void) {
+    func createPost(post: Post, data: Data, completion: @escaping (ServiceResponse) -> Void) {
 
         DispatchQueue.global(qos: .userInitiated).async {
 
-            PostsAPIService().createPost(post: post)
+            PostsAPIService().createPost(post: post, data: data)
                 .done { serviceResponse in
 
                     DispatchQueue.main.async {

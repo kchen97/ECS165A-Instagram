@@ -22,5 +22,9 @@ protocol DataClient {
                  success: @escaping () -> Void,
                  failure: @escaping () -> Void)
 
+    func upload(info: Any,
+                success: @escaping () -> Void,
+                failure: @escaping () -> Void)
+
     func process(info: Any)
 }
