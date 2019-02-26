@@ -23,6 +23,10 @@
 		8E5DF0B92201361F00A82F29 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0B82201361F00A82F29 /* RoundButton.swift */; };
 		8E5DF0BB220136BE00A82F29 /* IGBaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DF0BA220136BE00A82F29 /* IGBaseButton.swift */; };
 		8E5F91C72224DE7800AC23B3 /* MessageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F91C62224DE7800AC23B3 /* MessageView+Extensions.swift */; };
+		8E5F91C922251B4100AC23B3 /* SearchAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F91C822251B4100AC23B3 /* SearchAPIService.swift */; };
+		8E5F91CB2225215B00AC23B3 /* SearchViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F91CA2225215B00AC23B3 /* SearchViewService.swift */; };
+		8E5F91CD22252AC100AC23B3 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F91CC22252AC100AC23B3 /* SearchViewModel.swift */; };
+		8E5F91CF2225306100AC23B3 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F91CE2225306100AC23B3 /* SearchTableViewCell.swift */; };
 		8E6148ED21FA92E700E35EBD /* DataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6148EC21FA92E700E35EBD /* DataClient.swift */; };
 		8E6148EF21FA93A500E35EBD /* NetworkDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6148EE21FA93A500E35EBD /* NetworkDataClient.swift */; };
 		8E6148F221FA93D400E35EBD /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6148F121FA93D400E35EBD /* Endpoint.swift */; };
@@ -83,6 +87,10 @@
 		8E5DF0B82201361F00A82F29 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		8E5DF0BA220136BE00A82F29 /* IGBaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGBaseButton.swift; sourceTree = "<group>"; };
 		8E5F91C62224DE7800AC23B3 /* MessageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageView+Extensions.swift"; sourceTree = "<group>"; };
+		8E5F91C822251B4100AC23B3 /* SearchAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIService.swift; sourceTree = "<group>"; };
+		8E5F91CA2225215B00AC23B3 /* SearchViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewService.swift; sourceTree = "<group>"; };
+		8E5F91CC22252AC100AC23B3 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		8E5F91CE2225306100AC23B3 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		8E6148EC21FA92E700E35EBD /* DataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataClient.swift; sourceTree = "<group>"; };
 		8E6148EE21FA93A500E35EBD /* NetworkDataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataClient.swift; sourceTree = "<group>"; };
 		8E6148F121FA93D400E35EBD /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -154,6 +162,7 @@
 				8E5DF0B12201339C00A82F29 /* IGBaseTableViewCell.swift */,
 				8E7E1FA9222233C10099D5A8 /* PlainTextViewTableViewCell.swift */,
 				FAE3E7B82212560100C5AA50 /* ProfileInfoTableViewCell.swift */,
+				8E5F91CE2225306100AC23B3 /* SearchTableViewCell.swift */,
 				8E84DC9F220A7103002BDA76 /* TextFieldTableViewCell.swift */,
 			);
 			path = TableViewCells;
@@ -178,6 +187,7 @@
 				8ED7FEB12200580700859BE1 /* IGBaseAPIService.swift */,
 				8E7E1FAD222270A40099D5A8 /* PostsAPIService.swift */,
 				8E445884221250FC00986E68 /* ProfileAPIService.swift */,
+				8E5F91C822251B4100AC23B3 /* SearchAPIService.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -207,6 +217,7 @@
 				8E66CC8022118B2700DA957C /* CredentialsViewService.swift */,
 				8E66CC8222118B3C00DA957C /* IGBaseViewService.swift */,
 				8E4458882212781F00986E68 /* ProfileViewService.swift */,
+				8E5F91CA2225215B00AC23B3 /* SearchViewService.swift */,
 			);
 			path = ViewService;
 			sourceTree = "<group>";
@@ -291,6 +302,7 @@
 				8E94C34A21F7F098004BB77A /* IGBaseViewModel.swift */,
 				8E84DC98220A6904002BDA76 /* InputViewModel.swift */,
 				FAAAEDCB2213A629005B16D4 /* ProfileViewModel.swift */,
+				8E5F91CC22252AC100AC23B3 /* SearchViewModel.swift */,
 				8ED15AEC220BEB6A001AC530 /* UserInfoViewModel.swift */,
 			);
 			path = ViewModel;
@@ -522,17 +534,21 @@
 				8E66CC8322118B3C00DA957C /* IGBaseViewService.swift in Sources */,
 				8E7E1FA8222233200099D5A8 /* ImageHeaderView.swift in Sources */,
 				8E445885221250FC00986E68 /* ProfileAPIService.swift in Sources */,
+				8E5F91CB2225215B00AC23B3 /* SearchViewService.swift in Sources */,
 				8E66CC79221104F000DA957C /* User.swift in Sources */,
 				FAAAEDCC2213A629005B16D4 /* ProfileViewModel.swift in Sources */,
 				8E66CC8522118BA000DA957C /* CredentialsAPIService.swift in Sources */,
 				8E7E1FA6222229610099D5A8 /* CreatePostViewController.swift in Sources */,
+				8E5F91CD22252AC100AC23B3 /* SearchViewModel.swift in Sources */,
 				8E84DC99220A6904002BDA76 /* InputViewModel.swift in Sources */,
+				8E5F91CF2225306100AC23B3 /* SearchTableViewCell.swift in Sources */,
 				8E84DCA0220A7103002BDA76 /* TextFieldTableViewCell.swift in Sources */,
 				8E5DF0B22201339C00A82F29 /* IGBaseTableViewCell.swift in Sources */,
 				8E94C33021F7EEB9004BB77A /* IGBaseViewController.swift in Sources */,
 				8E94C34F21F7F0DA004BB77A /* IGBaseModel.swift in Sources */,
 				8E5DF0AE22012FAB00A82F29 /* FormatterUtility.swift in Sources */,
 				8ED15AEB220BE79B001AC530 /* CreateAccountViewController.swift in Sources */,
+				8E5F91C922251B4100AC23B3 /* SearchAPIService.swift in Sources */,
 				8E5BEF15221D445800BBC1A2 /* SearchViewController.swift in Sources */,
 				8E5BEF11221D43CF00BBC1A2 /* IGMainTabBarController.swift in Sources */,
 				8E5DF0B02201338700A82F29 /* HomeTableViewCell.swift in Sources */,
