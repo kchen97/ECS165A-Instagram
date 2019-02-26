@@ -6,7 +6,7 @@
 //  Copyright © 2019 Korman Chen. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class CreatePostViewModel: IGBaseViewModel {
 
@@ -31,14 +31,14 @@ class CreatePostViewModel: IGBaseViewModel {
         }
     }
 
-    func create(completion: @escaping (ServiceResponse) -> Void) {
+    func createPost(image: UIImage?, completion: @escaping (ServiceResponse) -> Void) {
 
-        if let post = post {
+        if let post = post, let data = image?.jpegData(compressionQuality: 0.2) {
 
             post.username = UserInfo.shared.username
             post.date = FormatterUtility().toString(date: Date())
 
-            CreatePostViewService().createPost(post: post) { serviceResponse in
+            CreatePostViewService().createPost(post: post, data: data) { serviceResponse in
                 completion(serviceResponse)
             }
         }

@@ -11,6 +11,10 @@ import SnapKit
 
 class ImageHeaderView: IGBaseView {
 
+    var image: UIImage? {
+        return picture.image
+    }
+
     private let picture: UIImageView = {
 
         let view = UIImageView()

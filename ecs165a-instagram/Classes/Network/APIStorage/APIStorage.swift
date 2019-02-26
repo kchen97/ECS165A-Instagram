@@ -17,6 +17,6 @@ final class APIStorage {
 
     lazy var getProfileAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_PROFILE_ENDPOINT)
 
-    lazy var postAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_POST_ENDPOINT)
+    lazy var postAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_POST_ENDPOINT, headers: kMultiPartFormDataHeaders)
     lazy var getPostAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_GET_POST_ENDPOINT)
 }

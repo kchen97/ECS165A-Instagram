@@ -18,7 +18,13 @@ typealias Endpoint = (path: String, method: HTTPMethod, encoding: ParameterEncod
  **
  */
 
+let kMultiPartFormDataHeaders = ["Content-type": "multipart/form-data"]
+
+// MAIN
 let IG_BASE_URI_PATH = "https://insta-b5cb5.appspot.com/api"
+
+// LOCAL
+//let IG_BASE_URI_PATH = "http://localhost:4000/api"
 
 let IG_SIGN_UP_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/signup", method: .post, encoding: JSONEncoding.default)
 let IG_LOGIN_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/login", method: .post, encoding: JSONEncoding.default)

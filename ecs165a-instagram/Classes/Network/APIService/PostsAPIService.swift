@@ -10,20 +10,23 @@ import PromiseKit
 
 class PostsAPIService: IGBaseAPIService {
 
-    func createPost(post: Post) -> Promise<ServiceResponse> {
+    func createPost(post: Post, data: Data) -> Promise<ServiceResponse> {
 
         return Promise { seal in
-            self.createPost(post: post, completion: { serviceResponse in
+            self.createPost(post: post, data: data, completion: { serviceResponse in
                 seal.fulfill(serviceResponse)
             })
         }
     }
 
-    private func createPost(post: Post, completion: @escaping (ServiceResponse) -> Void) {
+    private func createPost(post: Post, data: Data, completion: @escaping (ServiceResponse) -> Void) {
 
         if let postAPI = APIStorage.shared.postAPI {
 
-            postAPI.request(info: post.toJSON(), success: {
+            var info = post.toJSON()
+            info["image"] = data
+
+            postAPI.upload(info: info, success: {
 
                 let serviceResponse = ServiceResponse()
                 serviceResponse.status = .success

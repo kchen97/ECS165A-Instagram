@@ -16,6 +16,7 @@ class Post: IGBaseModel {
     var likes : Int?
     var comments: Int?
     var date: String?
+    var imageLink: String?
 
     override func mapping(map: Map) {
         super.mapping(map: map)
@@ -23,8 +24,9 @@ class Post: IGBaseModel {
         username <- map["username"]
         caption <- map["caption"]
         tags <- map["tags"]
-        likes <- map["likes"]
-        comments <- map["comments"]
+        likes <- map["numLikes"]
+        comments <- map["numComments"]
         date <- map["date"]
+        imageLink <- map["postPicture"]
     }
 }

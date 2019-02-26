@@ -82,10 +82,56 @@ class NetworkDataClient: DataClient {
         }
     }
 
+    func upload(info: Any, success: @escaping () -> Void, failure: @escaping () -> Void) {
+
+        process(info: info)
+
+        Alamofire.upload(multipartFormData: { multipartFormData in
+
+            if let parameters = self.parameters {
+
+                for (key, val) in parameters {
+
+                    if let data = val as? Data {
+                        multipartFormData.append(data, withName: key, fileName: UUID().uuidString + ".jpg", mimeType: "image/jpg")
+                    }
+                    else {
+                        multipartFormData.append("\(val)".data(using: String.Encoding.utf8)!, withName: key)
+                    }
+                }
+            }
+        },
+        usingThreshold: UInt64.init(),
+        to: endpoint.path,
+        method: endpoint.method,
+        headers: headers) { encodingResult in
+
+            switch encodingResult {
+
+            case .success(let upload, _, _):
+
+                upload.validate().responseJSON { response in
+
+                    switch response.result {
+
+                    case .success:
+                        success()
+                    case .failure:
+                        failure()
+                    }
+                }
+
+            case .failure:
+
+                failure()
+            }
+        }
+    }
+
     func process(info: Any) {
 
         if let info = info as? Parameters {
-            parameters = info;
+            parameters = info
         }
     }
 
