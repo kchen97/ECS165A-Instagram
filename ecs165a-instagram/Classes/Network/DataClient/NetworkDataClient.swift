@@ -26,7 +26,9 @@ class NetworkDataClient: DataClient {
         self.pathTemplate = endpoint.path
     }
 
-    func request(info: Any, success: @escaping () -> Void, failure: @escaping () -> Void) {
+    func request(info: Any,
+                 success: @escaping () -> Void,
+                 failure: @escaping (ServiceResponse) -> Void) {
 
         process(info: info)
 
@@ -38,14 +40,14 @@ class NetworkDataClient: DataClient {
                 success()
 
             case .failure:
-                failure()
+                failure(self.getErrorServiceResponse(data: response.result.value))
             }
         }
     }
 
     func request<T: Mappable>(info: Any,
                               success: @escaping (T?) -> Void,
-                              failure: @escaping () -> Void) {
+                              failure: @escaping (ServiceResponse) -> Void) {
         process(info: info)
 
         getDataRequest().validate().responseJSON { response in
@@ -56,7 +58,7 @@ class NetworkDataClient: DataClient {
                 success(self.parse(data: response.result.value))
 
             case .failure:
-                failure()
+                failure(self.getErrorServiceResponse(data: response.result.value))
 
             }
         }
@@ -64,7 +66,7 @@ class NetworkDataClient: DataClient {
 
     func request<T: Mappable>(info: Any,
                               success: @escaping ([T]?) -> Void,
-                              failure: @escaping () -> Void) {
+                              failure: @escaping (ServiceResponse) -> Void) {
 
         process(info: info)
 
@@ -76,13 +78,15 @@ class NetworkDataClient: DataClient {
                 success(self.parseArray(data: response.result.value))
 
             case .failure:
-                failure()
+                failure(self.getErrorServiceResponse(data: response.result.value))
 
             }
         }
     }
 
-    func upload(info: Any, success: @escaping () -> Void, failure: @escaping () -> Void) {
+    func upload(info: Any,
+                success: @escaping () -> Void,
+                failure: @escaping (ServiceResponse) -> Void) {
 
         process(info: info)
 
@@ -116,14 +120,15 @@ class NetworkDataClient: DataClient {
 
                     case .success:
                         success()
+
                     case .failure:
-                        failure()
+                        failure(self.getErrorServiceResponse(data: response.result.value))
                     }
                 }
 
             case .failure:
 
-                failure()
+                failure(self.getErrorServiceResponse(data: nil))
             }
         }
     }
@@ -160,5 +165,18 @@ class NetworkDataClient: DataClient {
         }
 
         return nil
+    }
+
+    private func getErrorServiceResponse(data: Any?) -> ServiceResponse {
+        
+        let response = ServiceResponse()
+        response.status = .failure
+        response.errorMessage = "Your request could not be completed at this time."
+
+        if let data = data as? [String: Any] {
+            response.errorMessage = data["errorMessage"] as? String
+        }
+
+        return response
     }
 }

@@ -34,11 +34,7 @@ class CredentialsAPIService: IGBaseAPIService {
 
                 completion(response, token)
             },
-            failure: {
-
-                let response = ServiceResponse()
-                response.status = .failure
-                response.errorMessage = "We were unable to connect at this moment. Please try again later."
+            failure: { response in
 
                 completion(response, nil)
             })
@@ -59,7 +55,8 @@ class CredentialsAPIService: IGBaseAPIService {
 
         if let loginAPI = APIStorage.shared.loginAPI {
 
-            loginAPI.request(info: user.toJSON(), success: { (token: AuthToken?) in
+            loginAPI.request(info: user.toJSON(),
+                             success: { (token: AuthToken?) in
 
                 let response = ServiceResponse()
                 response.status = .success
@@ -68,11 +65,7 @@ class CredentialsAPIService: IGBaseAPIService {
 
                 completion(response, token)
             },
-            failure: {
-
-                let response = ServiceResponse()
-                response.status = .failure
-                response.errorMessage = "We were unable to connect at this moment. Please try again later."
+            failure: { response in
 
                 completion(response, nil)
             })
