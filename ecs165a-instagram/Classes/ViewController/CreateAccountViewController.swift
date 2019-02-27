@@ -34,7 +34,7 @@ class CreateAccountViewController: CredentialsViewController {
 
         super.buttonTapped()
 
-        showSpinner()
+        showSpinner(message: "Creating...")
 
         userInfoVM.signUp { [weak self] serviceResponse in
 

@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileViewController: IGMainViewController {
 
+    var enableSettingsAndCreatePost: Bool = true
     var profileVM = ProfileViewModel()
 
     private let profileInfoCellId = "profileInfoCellId"
@@ -22,8 +23,11 @@ class ProfileViewController: IGMainViewController {
 
         super.viewWillAppear(animated)
 
+        showSpinner(message: "Loading...")
+
         profileVM.getProfile { [weak self] serviceResponse in
 
+            self?.stopSpinner()
             self?.navigationItem.title = self?.profileVM.profile?.username
 
             if serviceResponse.isSuccess {
@@ -55,7 +59,7 @@ class ProfileViewController: IGMainViewController {
             maker.edges.equalTo(view.safeAreaLayoutGuide)
         }
 
-        if profileVM.isOwnerProfile {
+        if enableSettingsAndCreatePost {
             setNavBarButtons()
         }
         else {

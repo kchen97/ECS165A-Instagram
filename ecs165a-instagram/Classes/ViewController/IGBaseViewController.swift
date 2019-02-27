@@ -24,8 +24,8 @@ class IGBaseViewController: UIViewController {
         view.backgroundColor = .white
     }
 
-    func showSpinner() {
-        SVProgressHUD.show()
+    func showSpinner(message: String? = nil) {
+        SVProgressHUD.show(withStatus: message)
     }
 
     func stopSpinner() {

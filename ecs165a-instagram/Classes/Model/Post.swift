@@ -7,6 +7,7 @@
 //
 
 import ObjectMapper
+import UIKit
 
 class Post: IGBaseModel {
 
@@ -17,6 +18,7 @@ class Post: IGBaseModel {
     var comments: Int?
     var date: String?
     var imageLink: String?
+    var image: UIImage?
 
     override func mapping(map: Map) {
         super.mapping(map: map)
