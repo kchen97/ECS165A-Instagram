@@ -14,6 +14,7 @@ class ProfileViewController: IGMainViewController {
     private var profileInfoTableViewCell: ProfileInfoTableViewCell?
     var enableSettingsAndCreatePost: Bool = true
     var profileVM = ProfileViewModel()
+    
     let profileInfoCellId = "profileInfoCellId"
     let profilePostsTableViewCellId = "profilePostsTableViewCellId"
 
@@ -105,15 +106,39 @@ class ProfileViewController: IGMainViewController {
             
             if serviceResponse.isSuccess {
                 if profileVM.followingUser == true {
+                    profileVM.unfollow(username: profileVM.profile?.username) { [weak self] serviceResponse in
+                        
+                        if serviceResponse.isSuccess {
+                            self?.profileInfoTableViewCell?.followingButton.setTitle("UNFOLLOW", for:.normal)
+                            self?.present(IGMainTabBarController(), animated: true, completion: nil)
+                        }
+                        else {
+                            self?.showMessage(body: response.errorMessage ?? "",
+                                              theme: .error,
+                                              style: .bottom)
+                        }
+                    }
                     self?.profileInfoTableViewCell?.followingButton.setTitle("UNFOLLOW", for:.normal)
                 }
                 else {
+                    profileVM.follow(username: profileVM.profile?.username) { [weak self] serviceResponse in
+                        
+                        if serviceResponse.isSuccess {
+                            self?.profileInfoTableViewCell?.followingButton.setTitle("UNFOLLOW", for:.normal)
+                            self?.present(IGMainTabBarController(), animated: true, completion: nil)
+                        }
+                        else {
+                            self?.showMessage(body: response.errorMessage ?? "",
+                                              theme: .error,
+                                              style: .bottom)
+                        }
+                    }
                     self?.profileInfoTableViewCell?.followingButton.setTitle("FOLLOW", for:.normal)
                 }
                 self?.present(IGMainTabBarController(), animated: true, completion: nil)
             }
             else {
-                self?.showMessage(body: "Already Following User",
+                self?.showMessage(body: response.errorMessage ?? "",
                                   theme: .error,
                                   style: .bottom)
             }
@@ -148,10 +173,10 @@ class ProfileViewController: IGMainViewController {
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
-    override func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    @objc override func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         profileImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        profileInfoTableViewCell?.profilePicture.setBackgroundImage(profileImage, for: .normal)
+        profileInfoTableViewCell?.profilePicture.setImage(profileImage, for: .normal)
         dismiss(animated: true, completion: nil)
     }
     
@@ -185,7 +210,6 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                             followers: profileVM.profile?.followers,
                             following: profileVM.profile?.following,
                             profileImage: nil)
-                cell.addTarget(target: self, selector: #selector(profilePictureTapped))
                 
                 if (UserInfo.shared.username != profileVM.profile?.username) {
                     cell.activateFollowButton(target: self, selector: #selector(followButtonTapped))
@@ -202,7 +226,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                      self?.present(IGMainTabBarController(), animated: true, completion: nil)
                      }
                      else {
-                     self?.showMessage(body: "Already Following User",
+                     self?.showMessage(body: response.errorMessage ?? "",
                      theme: .error,
                      style: .bottom)
                      }
@@ -210,6 +234,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                     cell.followingButton.setTitle("FOLLOW", for: .normal)
                 } else {
                     cell.deactivateFollowButton()
+                    cell.addTarget(target: self, selector: #selector(profilePictureTapped))
                 }
                 
                 profileInfoTableViewCell = cell
