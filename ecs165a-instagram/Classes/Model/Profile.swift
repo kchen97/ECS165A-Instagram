@@ -20,6 +20,7 @@ class Profile: IGBaseModel {
     var userPosts: [Post]?
     var profilePictureLink: String?
     var picture: UIImage?
+    var isFollowing: Bool?
 
     var fullName: String {
         return (firstName ?? "") + " " + (lastName ?? "")
@@ -38,5 +39,6 @@ class Profile: IGBaseModel {
         following <- map["numFollowing"]
         userPosts <- map["userPosts"]
         profilePictureLink <- map["profilePictureLink"]
+        isFollowing <- map["isFollowing"]
     }
 }

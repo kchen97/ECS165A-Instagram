@@ -21,9 +21,9 @@ class ProfileViewModel: IGBaseViewModel{
     
     func getProfile(completion: @escaping (ServiceResponse) -> Void) {
         
-        if let username = self.username {
+        if let username = self.username, let currentUser = UserInfo.shared.username {
             
-            ProfileViewService().getProfile(username: username) { [weak self] serviceResponse, serverProfile in
+            ProfileViewService().getProfile(username: username, currentUser: currentUser) { [weak self] serviceResponse, serverProfile in
 
                 self?.profile = serverProfile
                 completion(serviceResponse)
