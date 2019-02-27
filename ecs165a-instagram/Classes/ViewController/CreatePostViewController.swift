@@ -62,7 +62,7 @@ class CreatePostViewController: InputViewController {
 
     @objc private func postTapped() {
 
-        showSpinner()
+        showSpinner(message: "Saving...")
 
         createPostVM.createPost(image: headerView.image) { [weak self] serviceResponse in
 

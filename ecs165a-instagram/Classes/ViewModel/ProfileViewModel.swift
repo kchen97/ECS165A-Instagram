@@ -11,9 +11,6 @@ import UIKit
 
 class ProfileViewModel: IGBaseViewModel{
 
-    var isOwnerProfile: Bool {
-        return username == UserInfo.shared.username
-    }
     var profile: Profile?
 
     private var username: String?

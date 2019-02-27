@@ -27,7 +27,7 @@ class LoginViewController: CredentialsViewController {
 
         super.buttonTapped()
 
-        showSpinner()
+        showSpinner(message: "Loading...")
 
         userInfoVM.login { [weak self] serviceResponse in
 

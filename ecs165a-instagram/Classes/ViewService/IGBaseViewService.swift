@@ -11,4 +11,11 @@ import Foundation
 class IGBaseViewService {
 
     static var authToken: AuthToken?
+
+    var serviceResponse: ServiceResponse!
+
+    func setServiceResponse(serviceResponse: ServiceResponse) {
+        
+        self.serviceResponse = serviceResponse
+    }
 }

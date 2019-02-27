@@ -30,10 +30,11 @@ class SearchViewController: IGMainViewController {
 
     private let tableview: UITableView = {
 
-        let view = UITableView(frame: .zero, style: .grouped)
+        let view = UITableView(frame: .zero, style: .plain)
         view.tableHeaderView = UIView(frame: .zero)
         view.estimatedRowHeight = 44.0
         view.backgroundColor = .white
+        view.separatorStyle = .none
         view.rowHeight = UITableView.automaticDimension
         return view
     }()
@@ -89,7 +90,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UISe
     // MARK: - UISearchBar Delegates
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 
-        searchVM.search(username: "please", completion: { [weak self] response in
+        searchVM.search(username: searchBar.text, completion: { [weak self] response in
 
             if !response.isSuccess {
                 self?.showMessage(body: response.errorMessage ?? "", theme: .error, style: .bottom)
@@ -121,8 +122,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UISe
             return
         }
 
-        var profileScreen = ProfileViewController()
-        //profileScreen.profileVM = ProfileViewModel(username: username)
+        let profileScreen = ProfileViewController()
+        profileScreen.enableSettingsAndCreatePost = false
+        profileScreen.profileVM = ProfileViewModel(username: username)
 
         navigationController?.pushViewController(profileScreen, animated: true)
     }

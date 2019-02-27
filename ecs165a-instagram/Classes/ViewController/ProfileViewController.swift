@@ -9,13 +9,11 @@
 import UIKit
 
 class ProfileViewController: IGMainViewController {
-
-    let profileVM = ProfileViewModel()
-    
+        
     private var profileInfoTableViewCell: ProfileInfoTableViewCell?
-    private let profileInfoCellId = "profileInfoCellId"
-    private let profilePostsTableViewCellId = "profilePostsTableViewCellId"
-    
+    var enableSettingsAndCreatePost: Bool = true
+    var profileVM = ProfileViewModel()
+
     private let tableview = UITableView()
     
     private let ROW_HEIGHT: CGFloat = 200
@@ -24,8 +22,11 @@ class ProfileViewController: IGMainViewController {
         
         super.viewWillAppear(animated)
 
+        showSpinner(message: "Loading...")
+
         profileVM.getProfile { [weak self] serviceResponse in
 
+            self?.stopSpinner()
             self?.navigationItem.title = self?.profileVM.profile?.username
 
             if serviceResponse.isSuccess {
@@ -58,7 +59,7 @@ class ProfileViewController: IGMainViewController {
             maker.edges.equalTo(view.safeAreaLayoutGuide)
         }
 
-        if profileVM.isOwnerProfile {
+        if enableSettingsAndCreatePost {
             setNavBarButtons()
         }
         else {
