@@ -107,7 +107,8 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
             cell.config(username: feedVM.posts?[indexPath.row].username,
                         image: feedVM.posts?[indexPath.row].image,
                         caption: feedVM.posts?[indexPath.row].caption,
-                        likes: feedVM.posts?[indexPath.row].likes)
+                        likes: feedVM.posts?[indexPath.row].likes,
+                        date: feedVM.posts?[indexPath.row].date)
             cell.selectionStyle = .none
         }
 

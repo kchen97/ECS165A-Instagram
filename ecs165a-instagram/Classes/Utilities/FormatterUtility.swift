@@ -9,10 +9,13 @@
 import Foundation
 
 let kDefaultDateFormat = "MM/dd/yyyy"
+let kDetailedDateFormat = "MMM d, yyyy, h:mm a"
+private let kUTCDateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 
 class FormatterUtility {
 
-    func toDate(date: String, format: String = kDefaultDateFormat) -> Date? {
+    /// Default to UTC
+    func toDate(date: String, format: String = kUTCDateFormat) -> Date? {
 
         let formatter = DateFormatter()
         formatter.locale = Calendar.current.locale
@@ -21,7 +24,8 @@ class FormatterUtility {
         return formatter.date(from: date)
     }
 
-    func toString(date: Date, format: String = kDefaultDateFormat) -> String {
+    /// Default to MMM d, yyyy, h:mm a
+    func toString(date: Date, format: String = kDetailedDateFormat) -> String {
 
         let formatter = DateFormatter()
         formatter.locale = Calendar.current.locale
