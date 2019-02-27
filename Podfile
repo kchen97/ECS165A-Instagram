@@ -40,6 +40,9 @@ target 'ecs165a-instagram' do
   # ObjectMapper - https://github.com/tristanhimmelman/ObjectMapper
   pod 'ObjectMapper'
 
+  # AlamofireImage - https://github.com/Alamofire/AlamofireImage
+  pod 'AlamofireImage'
+
   #
   ## Utilities
   ###

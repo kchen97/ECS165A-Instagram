@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import AlamofireImage
 import ObjectMapper
 
 class NetworkDataClient: DataClient {
@@ -26,7 +27,7 @@ class NetworkDataClient: DataClient {
         self.pathTemplate = endpoint.path
     }
 
-    func request(info: Any,
+    func request(info: Any?,
                  success: @escaping () -> Void,
                  failure: @escaping (ServiceResponse) -> Void) {
 
@@ -45,7 +46,7 @@ class NetworkDataClient: DataClient {
         }
     }
 
-    func request<T: Mappable>(info: Any,
+    func request<T: Mappable>(info: Any?,
                               success: @escaping (T?) -> Void,
                               failure: @escaping (ServiceResponse) -> Void) {
         process(info: info)
@@ -64,7 +65,7 @@ class NetworkDataClient: DataClient {
         }
     }
 
-    func request<T: Mappable>(info: Any,
+    func request<T: Mappable>(info: Any?,
                               success: @escaping ([T]?) -> Void,
                               failure: @escaping (ServiceResponse) -> Void) {
 
@@ -84,7 +85,7 @@ class NetworkDataClient: DataClient {
         }
     }
 
-    func upload(info: Any,
+    func upload(info: Any?,
                 success: @escaping () -> Void,
                 failure: @escaping (ServiceResponse) -> Void) {
 
@@ -133,7 +134,27 @@ class NetworkDataClient: DataClient {
         }
     }
 
-    func process(info: Any) {
+    func download(info: Any?,
+                  success: @escaping (UIImage?) -> Void,
+                  failure: @escaping () -> Void) {
+
+        process(info: info)
+
+        getDataRequest().validate().responseImage { response in
+
+            switch response.result {
+
+            case .success:
+                success(response.result.value)
+
+            case .failure:
+                failure()
+
+            }
+        }
+    }
+
+    func process(info: Any?) {
 
         if let info = info as? Parameters {
             parameters = info
