@@ -52,6 +52,7 @@
 		8E84DCA2220A7502002BDA76 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E84DCA1220A7502002BDA76 /* ButtonTableViewCell.swift */; };
 		8E92DFF22225FF9200588FE7 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E92DFF12225FF9200588FE7 /* FeedViewModel.swift */; };
 		8E92DFF62226126D00588FE7 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E92DFF52226126D00588FE7 /* UILabel+Extensions.swift */; };
+		8E92DFF8222634BE00588FE7 /* FollowsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E92DFF7222634BE00588FE7 /* FollowsAPIService.swift */; };
 		8E94C32E21F7EEB9004BB77A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E94C32D21F7EEB9004BB77A /* AppDelegate.swift */; };
 		8E94C33021F7EEB9004BB77A /* IGBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E94C32F21F7EEB9004BB77A /* IGBaseViewController.swift */; };
 		8E94C33521F7EEBA004BB77A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E94C33421F7EEBA004BB77A /* Assets.xcassets */; };
@@ -121,6 +122,7 @@
 		8E84DCA1220A7502002BDA76 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		8E92DFF12225FF9200588FE7 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		8E92DFF52226126D00588FE7 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		8E92DFF7222634BE00588FE7 /* FollowsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowsAPIService.swift; sourceTree = "<group>"; };
 		8E94C32A21F7EEB9004BB77A /* ecs165a-instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ecs165a-instagram.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E94C32D21F7EEB9004BB77A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E94C32F21F7EEB9004BB77A /* IGBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGBaseViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				8E445884221250FC00986E68 /* ProfileAPIService.swift */,
 				8E5F91C822251B4100AC23B3 /* SearchAPIService.swift */,
 				8E5F91D2222560D400AC23B3 /* ImageAPIService.swift */,
+				8E92DFF7222634BE00588FE7 /* FollowsAPIService.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				8E6148ED21FA92E700E35EBD /* DataClient.swift in Sources */,
 				8E66CC8822118C6100DA957C /* ServiceResponse.swift in Sources */,
 				8E5F91D122255FA100AC23B3 /* FeedAPIService.swift in Sources */,
+				8E92DFF8222634BE00588FE7 /* FollowsAPIService.swift in Sources */,
 				8ED15AED220BEB6A001AC530 /* UserInfoViewModel.swift in Sources */,
 				8E66CC8122118B2700DA957C /* CredentialsViewService.swift in Sources */,
 				8E94C34D21F7F0BC004BB77A /* IGBaseView.swift in Sources */,

@@ -23,6 +23,7 @@ class TextFieldTableViewCell: IGBaseTableViewCell {
         tf.selectedTitleColor = .themeBlue
         tf.lineHeight = 1.0
         tf.selectedLineHeight = 2.0
+        tf.autocapitalizationType = .none
         return tf
     }()
 

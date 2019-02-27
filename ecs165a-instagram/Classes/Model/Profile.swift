@@ -17,6 +17,9 @@ class Profile: IGBaseModel {
     var posts: Int?
     var followers: Int?
     var following: Int?
+    var userPosts: [Post]?
+    var profilePictureLink: String?
+    var picture: UIImage?
 
     var fullName: String {
         return (firstName ?? "") + " " + (lastName ?? "")
@@ -33,5 +36,7 @@ class Profile: IGBaseModel {
         posts <- map["numPosts"]
         followers <- map["numFollowers"]
         following <- map["numFollowing"]
+        userPosts <- map["userPosts"]
+        profilePictureLink <- map["profilePictureLink"]
     }
 }

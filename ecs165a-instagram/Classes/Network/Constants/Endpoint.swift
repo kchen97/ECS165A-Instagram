@@ -37,3 +37,6 @@ let IG_GET_POST_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/posts", method:
 let IG_SEARCH_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/search", method: .get, encoding: URLEncoding.default)
 
 let IG_FEED_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/feed", method: .get, encoding: URLEncoding.default)
+
+let IG_FOLLOW_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/follows", method: .post, encoding: JSONEncoding.default)
+let IG_UNFOLLOW_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/follows/unfollow", method: .post, encoding: JSONEncoding.default)
