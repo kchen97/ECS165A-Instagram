@@ -23,4 +23,7 @@ final class APIStorage {
     lazy var searchAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_SEARCH_ENDPOINT)
 
     lazy var feedAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_FEED_ENDPOINT)
+
+    lazy var followsAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_FOLLOW_ENDPOINT)
+    lazy var unfollowsAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_UNFOLLOW_ENDPOINT)
 }
