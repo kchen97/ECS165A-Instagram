@@ -20,11 +20,11 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         return button
     }()
     
-    private let followingButton: UIButton = {
+    let followingButton: UIButton = {
         
         let button = UIButton()
         
-        button.setTitle("FOLLOW", for: .normal)
+        //button.setTitle("FOLLOW", for: .normal)
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.themeBlue.cgColor
         button.setTitleColor(.themeBlue, for: .normal)
@@ -143,11 +143,15 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         postsCountLabel.text = "\(posts ?? 0)"
         followerCountLabel.text = "\(followers ?? 0)"
         followingCountLabel.text = "\(following ?? 0)"
+        
         if let image = profileImage {
             profilePicture.setBackgroundImage(image, for: .normal)
         } else if let image = UIImage(named: "default") {
             profilePicture.setBackgroundImage(image, for: .normal)
         }
+        
+        /* if UserInfo.shared.username != name
+        */
     }
     
     func addTarget(target: Any, selector: Selector) {

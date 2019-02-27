@@ -12,13 +12,11 @@ import UIKit
 class ProfileViewModel: IGBaseViewModel{
 
     var profile: Profile?
-    var isUser: Bool?
     private var username: String?
 
-    init(username: String? = UserInfo.shared.username, isUser: Bool?) {
+    init(username: String? = UserInfo.shared.username) {
 
         self.username = username
-        self.isUser = isUser
     }
     
     func getProfile(completion: @escaping (ServiceResponse) -> Void) {

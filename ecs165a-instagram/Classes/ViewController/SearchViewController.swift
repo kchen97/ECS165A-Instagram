@@ -124,7 +124,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UISe
 
         let profileScreen = ProfileViewController()
         profileScreen.enableSettingsAndCreatePost = false
-        profileScreen.profileVM = ProfileViewModel(username: username, isUser: false)
+        profileScreen.profileVM = ProfileViewModel(username: username)
 
         navigationController?.pushViewController(profileScreen, animated: true)
     }

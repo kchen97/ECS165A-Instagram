@@ -51,10 +51,6 @@ class ProfilePostsTableViewCell: IGBaseTableViewCell {
         super.init(coder: aDecoder)
     }
     
-    func config() {
-        
-    }
-    
     func addTarget1(target: Any, selector: Selector) {
         post1.addTarget(target, action: selector, for: .touchUpInside)
     }
