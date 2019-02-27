@@ -15,6 +15,7 @@ class User: IGBaseModel {
     var username: String?
     var email: String?
     var password: String?
+    var profilePicture: String?
 
     override func mapping(map: Map) {
 
@@ -25,6 +26,7 @@ class User: IGBaseModel {
         username <- map["username"]
         email <- map["email"]
         password <- map["password"]
+        profilePicture <- map["profilePicture"]
     }
 }
 

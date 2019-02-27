@@ -57,6 +57,13 @@ class ProfileViewController: IGMainViewController {
         tableview.snp.makeConstraints { maker in
             maker.edges.equalTo(view.safeAreaLayoutGuide)
         }
+
+        if profileVM.isOwnerProfile {
+            setNavBarButtons()
+        }
+        else {
+            navigationController?.navigationBar.tintColor = .themeDarkGray
+        }
     }
     
     @objc func profilePictureTapped() {

@@ -15,5 +15,6 @@ class FeedViewController: IGMainViewController {
         super.setup()
 
         view.backgroundColor = .red
+        setNavBarButtons()
     }
 }
