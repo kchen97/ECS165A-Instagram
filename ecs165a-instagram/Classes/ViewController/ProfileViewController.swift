@@ -154,7 +154,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                             posts: profileVM.profile?.posts,
                             followers: profileVM.profile?.followers,
                             following: profileVM.profile?.following,
-                            profileImage: profileVM.profile?.profileImage)
+                            profileImage: nil)
                 cell.addTarget(target: self, selector: #selector(profilePictureTapped))
                 //fix button
                 if !(profileVM.isUser ?? true) {
