@@ -64,6 +64,14 @@ class ProfilePostsTableViewCell: IGBaseTableViewCell {
     func addTarget3(target: Any, selector: Selector) {
         post3.addTarget(target, action: selector, for: .touchUpInside)
     }
+    func deactivatePost2() {
+        post2.removeTarget(nil, action: nil, for: .allEvents)
+        post2.isHidden = true
+    }
+    func deactivatePost3() {
+        post3.removeTarget(nil, action: nil, for: .allEvents)
+        post3.isHidden = true
+    }
     
     private func setup() {
         contentView.addMultipleSubviews(views: [post1, post2, post3])

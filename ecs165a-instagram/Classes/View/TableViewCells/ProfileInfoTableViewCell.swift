@@ -5,7 +5,6 @@
 //  Created by Matthew Czajkowski on 2/10/19.
 //  Copyright © 2019 Korman Chen. All rights reserved.
 //
-
 import UIKit
 
 class ProfileInfoTableViewCell: IGBaseTableViewCell {
@@ -35,16 +34,16 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
     }()
     
     private let nameLabel: UILabel = {
-
+        
         let label = UILabel()
         label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 14)
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
-
+    
     private let captionLabel: UILabel = {
-
+        
         let label = UILabel()
         label.font = UIFont(name: "TimesNewRomanPSMT", size: 14)
         label.lineBreakMode = .byWordWrapping
@@ -53,7 +52,7 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
     }()
     
     private let followerCountLabel: UILabel = {
-
+        
         let label = UILabel()
         label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
         //label.lineBreakMode = .byWordWrapping
@@ -64,7 +63,7 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
     }()
     
     private let followingCountLabel: UILabel = {
-
+        
         let label = UILabel()
         label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
         //label.lineBreakMode = .byWordWrapping
@@ -73,9 +72,9 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
-
+    
     private let postsCountLabel: UILabel = {
-
+        
         let label = UILabel()
         label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
         //label.lineBreakMode = .byWordWrapping
@@ -84,9 +83,9 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
-
+    
     private let followersLabel: UILabel = {
-
+        
         let label = UILabel()
         label.text = "Followers"
         label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
@@ -96,9 +95,9 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
-
+    
     private let followingLabel: UILabel = {
-
+        
         let label = UILabel()
         label.text = "Following"
         label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
@@ -108,9 +107,9 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
-
+    
     private let postsLabel: UILabel = {
-
+        
         let label = UILabel()
         label.text = "Posts"
         label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
@@ -131,14 +130,14 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-
+    
     func config(name: String?,
                 caption: String?,
                 posts: Int?,
                 followers: Int?,
                 following: Int?,
                 profileImage: UIImage?) {
-
+        
         nameLabel.text = name
         captionLabel.text = caption
         postsCountLabel.text = "\(posts ?? 0)"
@@ -166,7 +165,7 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
     }
     
     private func setup() {
-
+        
         contentView.addMultipleSubviews(views: [profilePicture,
                                                 nameLabel,
                                                 followerCountLabel,
@@ -179,23 +178,23 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
                                                 followingButton])
         
         profilePicture.snp.makeConstraints { maker in
-
+            
             maker.top.equalToSuperview().inset(10)
             maker.leading.equalToSuperview().inset(10)
             maker.width.equalToSuperview().multipliedBy(0.3)
             maker.height.equalTo(profilePicture.snp.width)
         }
-
+        
         nameLabel.snp.makeConstraints { maker in
-
+            
             maker.top.equalTo(profilePicture.snp.bottom).offset(3)
             maker.leading.equalTo(profilePicture.snp.leading)
             maker.height.equalTo(30)
             maker.trailing.equalTo(contentView.snp.centerX)
         }
-
+        
         captionLabel.snp.makeConstraints { maker in
-
+            
             maker.top.equalTo(nameLabel.snp.bottom)
             maker.leading.equalTo(profilePicture.snp.leading)
             maker.trailing.equalToSuperview().inset(10)
@@ -232,15 +231,15 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         }
         
         postsLabel.snp.makeConstraints { maker in
-
+            
             maker.top.equalTo(profilePicture.snp.top)
             maker.trailing.equalTo(followersLabel.snp.leading).inset(-15)
             maker.trailing.equalTo(contentView.snp.centerX)
             maker.width.equalTo(followersLabel.snp.width).multipliedBy(0.55)
         }
-
+        
         postsCountLabel.snp.makeConstraints { maker in
-
+            
             maker.top.equalTo(followingCountLabel.snp.top)
             maker.centerX.equalTo(postsLabel.snp.centerX)
             maker.width.equalTo(followingLabel.snp.width).multipliedBy(0.14)

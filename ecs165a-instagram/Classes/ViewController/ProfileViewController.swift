@@ -9,10 +9,13 @@
 import UIKit
 
 class ProfileViewController: IGMainViewController {
-        
+    
+    private var profileImage: UIImage?
     private var profileInfoTableViewCell: ProfileInfoTableViewCell?
     var enableSettingsAndCreatePost: Bool = true
-    var profileVM = ProfileViewModel()
+    var profileVM = ProfileViewModel(isUser: true)
+    let profileInfoCellId = "profileInfoCellId"
+    let profilePostsTableViewCellId = "profilePostsTableViewCellId"
 
     private let tableview = UITableView()
     
@@ -98,7 +101,7 @@ class ProfileViewController: IGMainViewController {
     }
     
     @objc func followButtonTapped() {
-        print("Follow Button Tapped")
+        
     }
     
     private func presentImagePicker(source: UIImagePickerController.SourceType) {
@@ -116,9 +119,9 @@ class ProfileViewController: IGMainViewController {
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
-    @objc override func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    override func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        profileInfoTableViewCell?.profilePicture.setBackgroundImage(info[UIImagePickerController.InfoKey.originalImage] as? UIImage, for: .normal)
+        profileImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         dismiss(animated: true, completion: nil)
     }
     
@@ -128,7 +131,10 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let postCount = profileVM.profile?.posts {
-            return (postCount / 3) + 2
+            if postCount % 3 != 0{
+                return (postCount / 3) + 2
+            }
+            return (postCount / 3) + 1
         } else {
             return 1
         }
@@ -151,7 +157,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                             profileImage: profileVM.profile?.profileImage)
                 cell.addTarget(target: self, selector: #selector(profilePictureTapped))
                 //fix button
-                if profileVM.validate(currentUserPage: profileVM.profile?.username) {
+                if !(profileVM.isUser ?? true) {
                     cell.activateFollowButton(target: self, selector: #selector(followButtonTapped))
                 } else {
                     cell.deactivateFollowButton()
@@ -169,11 +175,24 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             
             if let cell = cell as? ProfilePostsTableViewCell {
                 cell.config()
-                cell.addTarget1(target: self, selector: #selector(post1Tapped))
-                cell.addTarget2(target: self, selector: #selector(post2Tapped))
-                cell.addTarget3(target: self, selector: #selector(post3Tapped))
+                if let postCount = profileVM.profile?.posts {
+                    if postCount % 3 == 0 || indexPath.row != ((postCount / 3) + 1) {
+                        cell.addTarget1(target: self, selector: #selector(post1Tapped))
+                        cell.addTarget2(target: self, selector: #selector(post2Tapped))
+                        cell.addTarget3(target: self, selector: #selector(post3Tapped))
+                    }
+                    else if postCount % 3 == 1 {
+                        cell.addTarget1(target: self, selector: #selector(post1Tapped))
+                        cell.deactivatePost2()
+                        cell.deactivatePost3()
+                    }
+                    else if postCount % 3 == 2 {
+                        cell.addTarget1(target: self, selector: #selector(post1Tapped))
+                        cell.addTarget2(target: self, selector: #selector(post2Tapped))
+                        cell.deactivatePost3()
+                    }
+                }
             }
-            
             return cell
         }
     }

@@ -9,7 +9,7 @@
 import Foundation
 
 @objcMembers class SearchViewModel: IGBaseViewModel {
-
+    
     dynamic var users: [User]?
 
     func search(username: String?,
