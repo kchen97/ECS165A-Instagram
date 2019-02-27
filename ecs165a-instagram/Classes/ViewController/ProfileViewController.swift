@@ -102,49 +102,46 @@ class ProfileViewController: IGMainViewController {
     }
     
     @objc func followButtonTapped() {
-        /*profileVM.request(UserInfo.shared.username, profileVM.profile?.username) { [weak self] serviceResponse in
+        profileVM.getProfile() { [weak self] serviceResponse in
             
             if serviceResponse.isSuccess {
-                if profileVM.followingUser == true {
-                    profileVM.unfollow(username: profileVM.profile?.username) { [weak self] serviceResponse in
+                if self?.profileVM.profile?.isFollowing == true {
+                    self?.profileVM.unfollow(username: self?.profileVM.profile?.username) { [weak self] serviceResponse in
                         
                         if serviceResponse.isSuccess {
-                            self?.profileInfoTableViewCell?.followingButton.setTitle("UNFOLLOW", for:.normal)
+                            self?.profileInfoTableViewCell?.followingButton.setTitle("FOLLOW", for:.normal)
                             self?.present(IGMainTabBarController(), animated: true, completion: nil)
                         }
                         else {
-                            self?.showMessage(body: response.errorMessage ?? "",
+                            self?.showMessage(body: serviceResponse.errorMessage ?? "",
                                               theme: .error,
                                               style: .bottom)
                         }
                     }
-                    self?.profileInfoTableViewCell?.followingButton.setTitle("UNFOLLOW", for:.normal)
                 }
                 else {
-                    profileVM.follow(username: profileVM.profile?.username) { [weak self] serviceResponse in
+                    self?.profileVM.follow(username: self?.profileVM.profile?.username) { [weak self] serviceResponse in
                         
                         if serviceResponse.isSuccess {
                             self?.profileInfoTableViewCell?.followingButton.setTitle("UNFOLLOW", for:.normal)
                             self?.present(IGMainTabBarController(), animated: true, completion: nil)
                         }
                         else {
-                            self?.showMessage(body: response.errorMessage ?? "",
+                            self?.showMessage(body: serviceResponse.errorMessage ?? "",
                                               theme: .error,
                                               style: .bottom)
                         }
                     }
-                    self?.profileInfoTableViewCell?.followingButton.setTitle("FOLLOW", for:.normal)
                 }
-                self?.present(IGMainTabBarController(), animated: true, completion: nil)
             }
             else {
-                self?.showMessage(body: response.errorMessage ?? "",
+                self?.showMessage(body: serviceResponse.errorMessage ?? "",
                                   theme: .error,
                                   style: .bottom)
             }
-        }*/
+        }
         
-        profileVM.follow(username: profileVM.profile?.username) { [weak self] serviceResponse in
+        /*profileVM.follow(username: profileVM.profile?.username) { [weak self] serviceResponse in
             
             if serviceResponse.isSuccess {
                 self?.profileInfoTableViewCell?.followingButton.setTitle("UNFOLLOW", for:.normal)
@@ -155,7 +152,7 @@ class ProfileViewController: IGMainViewController {
                                   theme: .error,
                                   style: .bottom)
             }
-        }
+        }*/
     }
     
     private func presentImagePicker(source: UIImagePickerController.SourceType) {
@@ -214,23 +211,21 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                 if (UserInfo.shared.username != profileVM.profile?.username) {
                     cell.activateFollowButton(target: self, selector: #selector(followButtonTapped))
                     
-                    /*profileVM.request(UserInfo.shared.username, profileVM.profile?.username) { [weak self] serviceResponse in
-                     
-                     if serviceResponse.isSuccess {
-                     if profileVM.followingUser == true {
-                     self?.profileInfoTableViewCell?.followingButton.setTitle("FOLLOW", for:.normal)
+                    profileVM.getProfile() { [weak self] serviceResponse in
+                        if serviceResponse.isSuccess {
+                            if self?.profileVM.profile?.isFollowing == true {
+                                self?.profileInfoTableViewCell?.followingButton.setTitle("UNFOLLOW", for:.normal)
+                            }
+                            else {
+                                self?.profileInfoTableViewCell?.followingButton.setTitle("FOLLOW", for:.normal)
+                            }
+                        }
+                        else {
+                            self?.showMessage(body: serviceResponse.errorMessage ?? "",
+                                                                theme: .error,
+                                                                style: .bottom)
+                        }
                      }
-                     else {
-                     self?.profileInfoTableViewCell?.followingButton.setTitle("UNFOLLOW", for:.normal)
-                     }
-                     self?.present(IGMainTabBarController(), animated: true, completion: nil)
-                     }
-                     else {
-                     self?.showMessage(body: response.errorMessage ?? "",
-                     theme: .error,
-                     style: .bottom)
-                     }
-                     }*/
                     cell.followingButton.setTitle("FOLLOW", for: .normal)
                 } else {
                     cell.deactivateFollowButton()
