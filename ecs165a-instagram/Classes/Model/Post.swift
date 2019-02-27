@@ -30,7 +30,11 @@ class Post: IGBaseModel {
         tags <- map["tags"]
         likes <- map["numLikes"]
         comments <- map["numComments"]
-        date <- map["date"]
         imageLink <- map["postPicture"]
+
+        if let utcDate = FormatterUtility().toDate(date: map["date"].currentValue as? String ?? "") {
+
+            date = FormatterUtility().toString(date: utcDate)
+        }
     }
 }
