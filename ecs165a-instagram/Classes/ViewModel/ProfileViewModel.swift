@@ -35,4 +35,36 @@ class ProfileViewModel: IGBaseViewModel{
             completion(ServiceResponse.getInvalidRequestServiceResponse())
         }
     }
+
+    /// Username is the username of who the current user wants to follow
+    func follow(username: String?, completion: @escaping (ServiceResponse) -> Void) {
+
+        if let _ = UserInfo.shared.username, let userToFollow = username {
+
+            ProfileViewService().follow(username: userToFollow) { response in
+
+                completion(response)
+            }
+        }
+        else {
+
+            completion(ServiceResponse.getInvalidRequestServiceResponse())
+        }
+    }
+
+    /// Username is the username of who the current user wants to unfollow
+    func unfollow(username: String?, completion: @escaping (ServiceResponse) -> Void) {
+
+        if let _ = UserInfo.shared.username, let userToFollow = username {
+
+            ProfileViewService().unfollow(username: userToFollow) { response in
+
+                completion(response)
+            }
+        }
+        else {
+
+            completion(ServiceResponse.getInvalidRequestServiceResponse())
+        }
+    }
 }

@@ -11,6 +11,7 @@ import UIKit
 
 class Post: IGBaseModel {
 
+    var postID: String?
     var username: String?
     var caption: String?
     var tags: [String]?
@@ -23,6 +24,7 @@ class Post: IGBaseModel {
     override func mapping(map: Map) {
         super.mapping(map: map)
 
+        postID <- map["postID"]
         username <- map["username"]
         caption <- map["caption"]
         tags <- map["tags"]
