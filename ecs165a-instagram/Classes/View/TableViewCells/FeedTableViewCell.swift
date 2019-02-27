@@ -44,6 +44,15 @@ class FeedTableViewCell: IGBaseTableViewCell {
         return label
     }()
 
+    private let dateLabel: UILabel = {
+
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.font = UIFont.systemFont(ofSize: 10.0)
+        return label
+    }()
+
     private let likeButton: UIButton = {
 
         let button = UIButton()
@@ -75,7 +84,8 @@ class FeedTableViewCell: IGBaseTableViewCell {
     func config(username: String?,
                 image: UIImage?,
                 caption: String?,
-                likes: Int?) {
+                likes: Int?,
+                date: String?) {
 
         usernameLabel.text = username
         picture.image = image
@@ -84,6 +94,7 @@ class FeedTableViewCell: IGBaseTableViewCell {
                                        attributedTexts: [(text: username ?? "",
                                                           font: UIFont.boldSystemFont(ofSize: 12.0)
                                         )])
+        dateLabel.text = "Posted on \(date ?? "")"
     }
 
     private func setup() {
@@ -93,7 +104,8 @@ class FeedTableViewCell: IGBaseTableViewCell {
                                                 captionLabel,
                                                 likesLabel,
                                                 likeButton,
-                                                commentButton])
+                                                commentButton,
+                                                dateLabel])
 
         usernameLabel.snp.makeConstraints { maker in
 
@@ -138,7 +150,15 @@ class FeedTableViewCell: IGBaseTableViewCell {
             maker.top.equalTo(likesLabel.snp.bottom).offset(10)
             maker.leading.equalTo(usernameLabel.snp.leading)
             maker.trailing.equalTo(usernameLabel.snp.trailing)
+            maker.bottom.equalTo(dateLabel.snp.top).offset(-6)
+        }
+
+        dateLabel.snp.makeConstraints { maker in
+
             maker.bottom.equalToSuperview()
+            maker.leading.equalTo(usernameLabel.snp.leading)
+            maker.trailing.equalTo(usernameLabel.snp.trailing)
+            maker.height.equalTo(12)
         }
     }
 }
