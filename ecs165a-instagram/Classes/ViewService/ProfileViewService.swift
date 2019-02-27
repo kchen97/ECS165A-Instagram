@@ -10,11 +10,13 @@ import PromiseKit
 
 class ProfileViewService: IGBaseViewService {
 
-    func getProfile(username: String, completion: @escaping (ServiceResponse, Profile?) -> Void) {
+    func getProfile(username: String,
+                    currentUser: String,
+                    completion: @escaping (ServiceResponse, Profile?) -> Void) {
 
         DispatchQueue.global(qos: .userInitiated).async {
 
-            ProfileAPIService().getProfile(username: username)
+            ProfileAPIService().getProfile(username: username, currentUser: currentUser)
                 .done { serviceResponse, profile in
 
                     DispatchQueue.main.async {
