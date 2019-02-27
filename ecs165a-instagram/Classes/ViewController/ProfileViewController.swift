@@ -115,7 +115,7 @@ class ProfileViewController: IGMainViewController {
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
-    override func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    @objc override func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         profileInfoTableViewCell?.profilePicture.setBackgroundImage(info[UIImagePickerController.InfoKey.originalImage] as? UIImage, for: .normal)
         dismiss(animated: true, completion: nil)
