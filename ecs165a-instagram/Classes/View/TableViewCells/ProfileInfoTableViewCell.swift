@@ -24,7 +24,6 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         
         let button = UIButton()
         
-        //button.setTitle("FOLLOW", for: .normal)
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.themeBlue.cgColor
         button.setTitleColor(.themeBlue, for: .normal)
@@ -36,87 +35,97 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
     private let nameLabel: UILabel = {
         
         let label = UILabel()
+        
         label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 14)
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
+        
         return label
     }()
     
     private let captionLabel: UILabel = {
         
         let label = UILabel()
+        
         label.font = UIFont(name: "TimesNewRomanPSMT", size: 14)
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
+        
         return label
     }()
     
-    private let followerCountLabel: UILabel = {
+    let followerCountLabel: UILabel = {
         
         let label = UILabel()
+        
         label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
-        //label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 1
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
+        
         return label
     }()
     
     private let followingCountLabel: UILabel = {
         
         let label = UILabel()
+        
         label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
-        //label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 1
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
+        
         return label
     }()
     
     private let postsCountLabel: UILabel = {
         
         let label = UILabel()
+        
         label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
-        //label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 1
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
+        
         return label
     }()
     
     private let followersLabel: UILabel = {
         
         let label = UILabel()
+        
         label.text = "Followers"
         label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
-        //label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 1
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
+        
         return label
     }()
     
     private let followingLabel: UILabel = {
         
         let label = UILabel()
+        
         label.text = "Following"
         label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
-        //label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 1
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
+        
         return label
     }()
     
     private let postsLabel: UILabel = {
         
         let label = UILabel()
+        
         label.text = "Posts"
         label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
-        //label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 1
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
+        
         return label
     }()
     
@@ -149,9 +158,6 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         } else if let image = UIImage(named: "default") {
             profilePicture.setBackgroundImage(image, for: .normal)
         }
-        
-        /* if UserInfo.shared.username != name
-        */
     }
     
     func addTarget(target: Any, selector: Selector) {

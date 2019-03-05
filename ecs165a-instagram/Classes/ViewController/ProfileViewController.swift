@@ -110,7 +110,8 @@ class ProfileViewController: IGMainViewController {
                         
                         if serviceResponse.isSuccess {
                             self?.profileInfoTableViewCell?.followingButton.setTitle("FOLLOW", for:.normal)
-                            self?.present(IGMainTabBarController(), animated: true, completion: nil)
+                            let currentCount = (self?.profileVM.profile?.followers ?? 0) - 1
+                            self?.profileInfoTableViewCell?.followerCountLabel.text = "\(currentCount)"
                         }
                         else {
                             self?.showMessage(body: serviceResponse.errorMessage ?? "",
@@ -124,7 +125,8 @@ class ProfileViewController: IGMainViewController {
                         
                         if serviceResponse.isSuccess {
                             self?.profileInfoTableViewCell?.followingButton.setTitle("UNFOLLOW", for:.normal)
-                            self?.present(IGMainTabBarController(), animated: true, completion: nil)
+                            let currentCount = (self?.profileVM.profile?.followers ?? 0) + 1
+                            self?.profileInfoTableViewCell?.followerCountLabel.text = "\(currentCount)"
                         }
                         else {
                             self?.showMessage(body: serviceResponse.errorMessage ?? "",
@@ -140,19 +142,6 @@ class ProfileViewController: IGMainViewController {
                                   style: .bottom)
             }
         }
-        
-        /*profileVM.follow(username: profileVM.profile?.username) { [weak self] serviceResponse in
-            
-            if serviceResponse.isSuccess {
-                self?.profileInfoTableViewCell?.followingButton.setTitle("UNFOLLOW", for:.normal)
-                self?.present(IGMainTabBarController(), animated: true, completion: nil)
-            }
-            else {
-                self?.showMessage(body: "Already Following User",
-                                  theme: .error,
-                                  style: .bottom)
-            }
-        }*/
     }
     
     private func presentImagePicker(source: UIImagePickerController.SourceType) {
