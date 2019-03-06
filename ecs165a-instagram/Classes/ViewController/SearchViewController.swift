@@ -90,6 +90,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UISe
     // MARK: - UISearchBar Delegates
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 
+        searchBar.resignFirstResponder()
+
         searchVM.search(username: searchBar.text, completion: { [weak self] response in
 
             if !response.isSuccess {
