@@ -16,6 +16,7 @@ class User: IGBaseModel {
     var email: String?
     var password: String?
     var profilePicture: String?
+    var picture: UIImage?
 
     override func mapping(map: Map) {
 

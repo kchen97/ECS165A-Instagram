@@ -48,8 +48,9 @@ class SearchTableViewCell: IGBaseTableViewCell {
         setup()
     }
 
-    func config(username: String?) {
+    func config(picture: UIImage?, username: String?) {
 
+        profilePicture.image = picture
         usernameLabel.text = username
     }
 
