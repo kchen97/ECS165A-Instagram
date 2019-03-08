@@ -10,25 +10,55 @@ import PromiseKit
 
 class SearchViewService: IGBaseViewService {
 
+    private var users: [User]?
+
     func search(username: String, completion: @escaping (ServiceResponse, [User]?) -> Void) {
 
         DispatchQueue.global(qos: .userInitiated).async {
 
-            SearchAPIService().search(username: username)
-                .done { serviceResponse, users in
+            firstly {
 
-                    DispatchQueue.main.async {
-                        completion(serviceResponse, users)
+                SearchAPIService().search(username: username)
+            }
+            .then { (serviceResponse, users) -> Promise<[(ServiceResponse, UIImage?, String)]> in
+
+                self.users = users
+                self.setServiceResponse(serviceResponse: serviceResponse)
+                return when(fulfilled: self.getImages())
+            }
+            .done { results in
+
+                for user in self.users ?? [] {
+
+                    for result in results where result.2 == user.profilePicture {
+
+                        user.picture = result.1
+                        self.setServiceResponse(serviceResponse: result.0)
                     }
                 }
-                .catch { error in
+                completion(self.serviceResponse, self.users)
+            }
+            .catch { error in
 
-                    let serviceResponse = ServiceResponse()
-                    serviceResponse.status = .failure
-                    serviceResponse.error = error
+                let serviceResponse = ServiceResponse()
+                serviceResponse.error = error
+                serviceResponse.status = .failure
 
-                    completion(serviceResponse, nil)
+                completion(serviceResponse, self.users)
             }
         }
+    }
+
+    private func getImages() -> [Promise<(ServiceResponse, UIImage?, String)>] {
+
+        var promises: [Promise<(ServiceResponse, UIImage?, String)>] = []
+
+        for user in users ?? [] {
+
+            if let url = user.profilePicture {
+                promises.append(ImageAPIService().getImage(url: url))
+            }
+        }
+        return promises
     }
 }

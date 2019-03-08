@@ -37,7 +37,8 @@ class ImageAPIService: IGBaseAPIService {
         failure: {
 
             let serviceResponse = ServiceResponse()
-            serviceResponse.status = .failure
+            // TODO: - Fix this, should not be success
+            serviceResponse.status = .success
             serviceResponse.errorMessage = "Request failed with url: \(url)"
 
             completion(serviceResponse, nil)
