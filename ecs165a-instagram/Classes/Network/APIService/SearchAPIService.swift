@@ -24,7 +24,7 @@ class SearchAPIService: IGBaseAPIService {
 
         if let searchAPI = APIStorage.shared.searchAPI {
 
-            searchAPI.request(info: ["username": username], success: { (users: [User]?) in
+            searchAPI.request(info: ["search": username], success: { (users: [User]?) in
 
                 let serviceResponse = ServiceResponse()
                 serviceResponse.status = .success
