@@ -23,6 +23,7 @@ PODS:
   - SwiftMessages (6.0.2):
     - SwiftMessages/App (= 6.0.2)
   - SwiftMessages/App (6.0.2)
+  - ViewAnimator (2.2.2)
 
 DEPENDENCIES:
   - Alamofire
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - SVProgressHUD
   - SwiftLint (~> 0.27)
   - SwiftMessages
+  - ViewAnimator
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -51,6 +53,7 @@ SPEC REPOS:
     - SVProgressHUD
     - SwiftLint
     - SwiftMessages
+    - ViewAnimator
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
@@ -65,7 +68,8 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
   SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
+  ViewAnimator: 6eaa112663b6a2d9e6b2573df65b416dd051cbe4
 
-PODFILE CHECKSUM: 8e2396338fe308e816bca571250cacbd4ed23a11
+PODFILE CHECKSUM: b71b6f9109563b650441e16877ccd9771005be4c
 
 COCOAPODS: 1.6.0.rc.2

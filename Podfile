@@ -28,6 +28,9 @@ target 'ecs165a-instagram' do
   # SwiftMessages - https://github.com/SwiftKickMobile/SwiftMessages
   pod 'SwiftMessages'
 
+  # ViewAnimator - https://github.com/marcosgriselli/ViewAnimator
+  pod 'ViewAnimator'
+
   #
   ## Network
   ###
