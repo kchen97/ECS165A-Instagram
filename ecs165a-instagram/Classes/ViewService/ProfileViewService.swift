@@ -80,4 +80,47 @@ class ProfileViewService: IGBaseViewService {
             }
         }
     }
+
+    func getPicture(url: String?, completion: @escaping (ServiceResponse, UIImage?) -> Void) {
+        
+        var picture: UIImage?
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            
+                firstly {
+                    
+                    when(fulfilled: self.getImages(url: url))
+                }
+                .done { results in
+                        
+                    for result in results where result.2 == url {
+                            
+                        picture = result.1
+                        self.setServiceResponse(serviceResponse: result.0)
+                    }
+                    DispatchQueue.main.async {
+                        completion(self.serviceResponse, picture)
+                    }
+                    
+                }
+                .catch { error in
+                    
+                    let serviceResponse = ServiceResponse()
+                    serviceResponse.error = error
+                    serviceResponse.status = .failure
+                    
+                    completion(serviceResponse, nil)
+            }
+        }
+    }
+    
+    private func getImages(url: String?) -> [Promise<(ServiceResponse, UIImage?, String)>] {
+        
+        var promises: [Promise<(ServiceResponse, UIImage?, String)>] = []
+            
+        if let link = url {
+            promises.append(ImageAPIService().getImage(url: link))
+        }
+        return promises
+    }
 }

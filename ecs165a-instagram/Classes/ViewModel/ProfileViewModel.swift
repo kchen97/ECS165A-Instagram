@@ -65,4 +65,26 @@ class ProfileViewModel: IGBaseViewModel{
             completion(ServiceResponse.getInvalidRequestServiceResponse())
         }
     }
+    
+    func getProfilePicture(completion: @escaping (ServiceResponse) -> Void) {
+        
+        if let url = profile?.profilePictureLink {
+            
+            ProfileViewService().getPicture(url: url) { [weak self] serviceResponse, profilePicture in
+                
+                if serviceResponse.isSuccess {
+                    self?.profile?.picture = profilePicture
+                }
+                else {
+                    self?.profile?.picture = nil
+                }
+                completion(serviceResponse)
+            }
+        }
+        else {
+            
+            completion(ServiceResponse.getInvalidRequestServiceResponse())
+        }
+    }
+
 }

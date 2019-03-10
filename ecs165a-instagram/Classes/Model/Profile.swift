@@ -40,5 +40,6 @@ class Profile: IGBaseModel {
         userPosts <- map["userPosts"]
         profilePictureLink <- map["profilePictureLink"]
         isFollowing <- map["isFollowing"]
+        picture = nil
     }
 }

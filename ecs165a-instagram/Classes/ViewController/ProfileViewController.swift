@@ -29,7 +29,7 @@ class ProfileViewController: IGMainViewController {
         showSpinner(message: "Loading...")
 
         profileVM.getProfile { [weak self] serviceResponse in
-
+            
             self?.stopSpinner()
             self?.navigationItem.title = self?.profileVM.profile?.username
 
@@ -42,6 +42,20 @@ class ProfileViewController: IGMainViewController {
                                   style: .bottom)
             }
         }
+        /*profileVM.getProfilePicture { [weak self] serviceResponse in
+            
+            self?.stopSpinner()
+            self?.navigationItem.title = self?.profileVM.profile?.username
+            
+            if serviceResponse.isSuccess {
+                self?.tableview.reloadData()
+            }
+            else {
+                self?.showMessage(body: serviceResponse.errorMessage ?? "",
+                                  theme: .error,
+                                  style: .bottom)
+            }
+        }*/
     }
     
     override func setup() {
@@ -195,7 +209,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                             posts: profileVM.profile?.posts,
                             followers: profileVM.profile?.followers,
                             following: profileVM.profile?.following,
-                            profileImage: nil)
+                            profileImage: profileVM.profile?.picture)
                 
                 if (UserInfo.shared.username != profileVM.profile?.username) {
                     cell.activateFollowButton(target: self, selector: #selector(followButtonTapped))

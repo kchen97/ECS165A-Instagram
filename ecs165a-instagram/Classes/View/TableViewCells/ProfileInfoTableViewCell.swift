@@ -28,6 +28,7 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         button.layer.borderColor = UIColor.themeBlue.cgColor
         button.setTitleColor(.themeBlue, for: .normal)
         button.layer.cornerRadius = 10
+        button.isHidden = true
         
         return button
     }()
