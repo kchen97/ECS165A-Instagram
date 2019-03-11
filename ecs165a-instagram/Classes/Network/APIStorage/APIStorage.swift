@@ -26,4 +26,7 @@ final class APIStorage {
 
     lazy var followsAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_FOLLOW_ENDPOINT)
     lazy var unfollowsAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_UNFOLLOW_ENDPOINT)
+
+    lazy var commentAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_COMMENT_ENDPOINT)
+    lazy var getCommentsAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_GET_COMMENTS_ENDPOINT)
 }

@@ -87,6 +87,14 @@ class FeedViewController: IGMainViewController {
         refresher.endRefreshing()
     }
 
+    private func showCommentsScreen(postID: String?) {
+
+        let nextScreen = CommentsViewController()
+        nextScreen.commentsVM = CommentsViewModel(postID: postID)
+
+        navigationController?.pushViewController(nextScreen, animated: true)
+    }
+
     @objc private func pagePulled() {
         loadData()
     }
@@ -104,11 +112,18 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
 
         if let cell = cell as? FeedTableViewCell {
 
-            cell.config(username: feedVM.posts?[indexPath.row].username,
-                        image: feedVM.posts?[indexPath.row].image,
-                        caption: feedVM.posts?[indexPath.row].caption,
-                        likes: feedVM.posts?[indexPath.row].likes,
-                        date: feedVM.posts?[indexPath.row].date)
+            let post = feedVM.posts?[indexPath.row]
+
+            cell.config(username: post?.username,
+                        image: post?.image,
+                        caption: post?.caption,
+                        likes: post?.likes,
+                        date: post?.date)
+
+            cell.commentTapped = { [weak self] in
+
+                self?.showCommentsScreen(postID: post?.postID)
+            }
             cell.selectionStyle = .none
         }
 
