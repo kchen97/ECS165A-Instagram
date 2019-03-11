@@ -29,4 +29,20 @@ import Foundation
             completion(ServiceResponse.getInvalidRequestServiceResponse())
         }
     }
+
+    func likePost(postID: String?,
+                  completion: @escaping (ServiceResponse) -> Void) {
+
+        if let postID = postID, let username = UserInfo.shared.username {
+
+            FeedViewService().likePost(postID: postID, username: username) { serviceResponse in
+
+                completion(serviceResponse)
+            }
+        }
+        else {
+
+            completion(ServiceResponse.getInvalidRequestServiceResponse())
+        }
+    }
 }
