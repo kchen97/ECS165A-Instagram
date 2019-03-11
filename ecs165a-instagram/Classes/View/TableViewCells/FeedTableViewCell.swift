@@ -98,12 +98,15 @@ class FeedTableViewCell: IGBaseTableViewCell {
                 image: UIImage?,
                 caption: String?,
                 likes: Int?,
-                date: String?) {
+                date: String?,
+                tags: String?) {
+
+        let text = (username ?? "") + " " + (caption ?? "") + (tags ?? "")
 
         usernameLabel.text = username
         picture.image = image
         likesLabel.text = "\(likes ?? 0) like(s)"
-        captionLabel.setAttributedText(text: (username ?? "") + " " + (caption ?? ""),
+        captionLabel.setAttributedText(text: text,
                                        attributedTexts: [(text: username ?? "",
                                                           font: UIFont.boldSystemFont(ofSize: 12.0)
                                         )])

@@ -113,12 +113,14 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         if let cell = cell as? FeedTableViewCell {
 
             let post = feedVM.posts?[indexPath.row]
+            let tags = (post?.tags ?? []).reduce("", { $0 + " " + $1 })
 
             cell.config(username: post?.username,
                         image: post?.image,
                         caption: post?.caption,
                         likes: post?.likes,
-                        date: post?.date)
+                        date: post?.date,
+                        tags: tags)
 
             cell.commentTapped = { [weak self] in
 
