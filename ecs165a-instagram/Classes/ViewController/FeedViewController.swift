@@ -95,6 +95,27 @@ class FeedViewController: IGMainViewController {
         navigationController?.pushViewController(nextScreen, animated: true)
     }
 
+    private func likePost(postID: String?) {
+
+        showSpinner(message: "Liking...")
+
+        feedVM.likePost(postID: postID) { [weak self] serviceResponse in
+
+            self?.stopSpinner()
+
+            if serviceResponse.isSuccess {
+
+                self?.loadData()
+            }
+            else {
+
+                self?.showMessage(body: serviceResponse.errorMessage ?? "",
+                            theme: .error,
+                            style: .bottom)
+            }
+        }
+    }
+
     @objc private func pagePulled() {
         loadData()
     }
@@ -117,15 +138,20 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
 
             cell.config(username: post?.username,
                         image: post?.image,
-                        caption: post?.caption,
+                        caption: (post?.caption ?? "") + tags,
                         likes: post?.likes,
-                        date: post?.date,
-                        tags: tags)
+                        date: post?.date)
 
             cell.commentTapped = { [weak self] in
 
                 self?.showCommentsScreen(postID: post?.postID)
             }
+
+            cell.likeTapped = { [weak self] in
+
+                self?.likePost(postID: post?.postID)
+            }
+            cell.liked = post?.liked == true
             cell.selectionStyle = .none
         }
 

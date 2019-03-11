@@ -46,6 +46,7 @@
 		8E74AAB02235FBC900EB8F00 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74AAAF2235FBC900EB8F00 /* CommentTableViewCell.swift */; };
 		8E74AAB4223650B900EB8F00 /* PlainTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74AAB3223650B900EB8F00 /* PlainTextFieldView.swift */; };
 		8E74AAB62236512300EB8F00 /* PlainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74AAB52236512300EB8F00 /* PlainTextField.swift */; };
+		8E74AAB82236680000EB8F00 /* LikeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74AAB72236680000EB8F00 /* LikeAPIService.swift */; };
 		8E7E1FA4222226DD0099D5A8 /* IGMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E1FA3222226DD0099D5A8 /* IGMainViewController.swift */; };
 		8E7E1FA6222229610099D5A8 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E1FA5222229610099D5A8 /* CreatePostViewController.swift */; };
 		8E7E1FA8222233200099D5A8 /* ImageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E1FA7222233200099D5A8 /* ImageHeaderView.swift */; };
@@ -124,6 +125,7 @@
 		8E74AAAF2235FBC900EB8F00 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		8E74AAB3223650B900EB8F00 /* PlainTextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainTextFieldView.swift; sourceTree = "<group>"; };
 		8E74AAB52236512300EB8F00 /* PlainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainTextField.swift; sourceTree = "<group>"; };
+		8E74AAB72236680000EB8F00 /* LikeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeAPIService.swift; sourceTree = "<group>"; };
 		8E7E1FA3222226DD0099D5A8 /* IGMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGMainViewController.swift; sourceTree = "<group>"; };
 		8E7E1FA5222229610099D5A8 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		8E7E1FA7222233200099D5A8 /* ImageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHeaderView.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				8E92DFF7222634BE00588FE7 /* FollowsAPIService.swift */,
 				8ED7FEB12200580700859BE1 /* IGBaseAPIService.swift */,
 				8E5F91D2222560D400AC23B3 /* ImageAPIService.swift */,
+				8E74AAB72236680000EB8F00 /* LikeAPIService.swift */,
 				8E7E1FAD222270A40099D5A8 /* PostsAPIService.swift */,
 				8E445884221250FC00986E68 /* ProfileAPIService.swift */,
 				8E5F91C822251B4100AC23B3 /* SearchAPIService.swift */,
@@ -591,6 +594,7 @@
 				8E74AAAE2235FB9800EB8F00 /* CommentsViewController.swift in Sources */,
 				8E84DCA0220A7103002BDA76 /* TextFieldTableViewCell.swift in Sources */,
 				8E5DF0B22201339C00A82F29 /* IGBaseTableViewCell.swift in Sources */,
+				8E74AAB82236680000EB8F00 /* LikeAPIService.swift in Sources */,
 				8E94C33021F7EEB9004BB77A /* IGBaseViewController.swift in Sources */,
 				8EA6F48E223521330052638F /* CommentsAPIService.swift in Sources */,
 				8E74AAAC2235F84900EB8F00 /* CommentsViewModel.swift in Sources */,

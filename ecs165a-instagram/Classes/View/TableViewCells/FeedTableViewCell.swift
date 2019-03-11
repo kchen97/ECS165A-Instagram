@@ -10,6 +10,14 @@ import UIKit
 
 class FeedTableViewCell: IGBaseTableViewCell {
 
+    var liked: Bool = false {
+
+        didSet {
+
+            likeButton.tintColor = liked ? .errorColor : .black
+        }
+    }
+
     var commentTapped: (() -> Void)?
     var likeTapped: (() -> Void)?
 
@@ -59,7 +67,7 @@ class FeedTableViewCell: IGBaseTableViewCell {
     private let likeButton: UIButton = {
 
         let button = UIButton()
-        button.setImage(UIImage(named: "heart"), for: .normal)
+        button.setImage(UIImage(named: "heart")?.withRenderingMode(.alwaysTemplate), for: .normal)
         return button
     }()
 
@@ -98,15 +106,12 @@ class FeedTableViewCell: IGBaseTableViewCell {
                 image: UIImage?,
                 caption: String?,
                 likes: Int?,
-                date: String?,
-                tags: String?) {
-
-        let text = (username ?? "") + " " + (caption ?? "") + (tags ?? "")
+                date: String?) {
 
         usernameLabel.text = username
         picture.image = image
         likesLabel.text = "\(likes ?? 0) like(s)"
-        captionLabel.setAttributedText(text: text,
+        captionLabel.setAttributedText(text: (username ?? "") + " " + (caption ?? ""),
                                        attributedTexts: [(text: username ?? "",
                                                           font: UIFont.boldSystemFont(ofSize: 12.0)
                                         )])
