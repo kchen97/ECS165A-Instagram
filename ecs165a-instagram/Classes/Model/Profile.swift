@@ -38,8 +38,7 @@ class Profile: IGBaseModel {
         followers <- map["numFollowers"]
         following <- map["numFollowing"]
         userPosts <- map["userPosts"]
-        profilePictureLink <- map["profilePictureLink"]
+        profilePictureLink <- map["profilePicture"]
         isFollowing <- map["isFollowing"]
-        picture = nil
     }
 }

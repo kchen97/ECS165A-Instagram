@@ -14,6 +14,7 @@ class ProfileViewController: IGMainViewController {
     private var profileInfoTableViewCell: ProfileInfoTableViewCell?
     var enableSettingsAndCreatePost: Bool = true
     var profileVM = ProfileViewModel()
+    var profilePostsVM = ProfilePostsViewModel()
     
     let profileInfoCellId = "profileInfoCellId"
     let profilePostsTableViewCellId = "profilePostsTableViewCellId"
@@ -27,13 +28,27 @@ class ProfileViewController: IGMainViewController {
         super.viewWillAppear(animated)
 
         showSpinner(message: "Loading...")
-
+        
         profileVM.getProfile { [weak self] serviceResponse in
             
-            self?.stopSpinner()
+            
             self?.navigationItem.title = self?.profileVM.profile?.username
 
             if serviceResponse.isSuccess {
+                self?.profilePostsVM.getUserPosts(username: self?.profileVM.profile?.username) { [weak self] serviceResponse in
+                    
+                    self?.stopSpinner()
+                    self?.navigationItem.title = self?.profileVM.profile?.username
+                    
+                    if serviceResponse.isSuccess {
+                        self?.tableview.reloadData()
+                    }
+                    else {
+                        self?.showMessage(body: serviceResponse.errorMessage ?? "",
+                                          theme: .error,
+                                          style: .bottom)
+                    }
+                }
                 self?.tableview.reloadData()
             }
             else {
@@ -42,20 +57,8 @@ class ProfileViewController: IGMainViewController {
                                   style: .bottom)
             }
         }
-        /*profileVM.getProfilePicture { [weak self] serviceResponse in
-            
-            self?.stopSpinner()
-            self?.navigationItem.title = self?.profileVM.profile?.username
-            
-            if serviceResponse.isSuccess {
-                self?.tableview.reloadData()
-            }
-            else {
-                self?.showMessage(body: serviceResponse.errorMessage ?? "",
-                                  theme: .error,
-                                  style: .bottom)
-            }
-        }*/
+        
+        
     }
     
     override func setup() {
@@ -177,6 +180,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         profileImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         profileInfoTableViewCell?.profilePicture.setImage(profileImage, for: .normal)
+        //send profile image here to server
         dismiss(animated: true, completion: nil)
     }
     
@@ -198,18 +202,20 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
+            
+            var error: Bool
             guard let cell = tableView.dequeueReusableCell(withIdentifier: profileInfoCellId) else {
                 return UITableViewCell()
             }
             
             if let cell = cell as? ProfileInfoTableViewCell {
                 
-                cell.config(name: profileVM.profile?.fullName,
-                            caption: profileVM.profile?.biography,
-                            posts: profileVM.profile?.posts,
-                            followers: profileVM.profile?.followers,
-                            following: profileVM.profile?.following,
-                            profileImage: profileVM.profile?.picture)
+                error = cell.config(profileVM: profileVM)
+                if error {
+                    self.showMessage(body: "Invalid request parameters",
+                                      theme: .error,
+                                      style: .bottom)
+                }
                 
                 if (UserInfo.shared.username != profileVM.profile?.username) {
                     cell.activateFollowButton(target: self, selector: #selector(followButtonTapped))
@@ -229,7 +235,6 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                                                                 style: .bottom)
                         }
                      }
-                    cell.followingButton.setTitle("FOLLOW", for: .normal)
                 } else {
                     cell.deactivateFollowButton()
                     cell.addTarget(target: self, selector: #selector(profilePictureTapped))
@@ -249,16 +254,22 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             if let cell = cell as? ProfilePostsTableViewCell {
                 if let postCount = profileVM.profile?.posts {
                     if postCount % 3 == 0 || indexPath.row != ((postCount / 3) + 1) {
+                        cell.config1(row: indexPath.row, profilePostsVM: self.profilePostsVM)
+                        cell.config2(row: indexPath.row, profilePostsVM: self.profilePostsVM)
+                        cell.config3(row: indexPath.row, profilePostsVM: self.profilePostsVM)
                         cell.addTarget1(target: self, selector: #selector(post1Tapped))
                         cell.addTarget2(target: self, selector: #selector(post2Tapped))
                         cell.addTarget3(target: self, selector: #selector(post3Tapped))
                     }
                     else if postCount % 3 == 1 {
+                        cell.config1(row: indexPath.row, profilePostsVM: self.profilePostsVM)
                         cell.addTarget1(target: self, selector: #selector(post1Tapped))
                         cell.deactivatePost2()
                         cell.deactivatePost3()
                     }
                     else if postCount % 3 == 2 {
+                        cell.config1(row: indexPath.row, profilePostsVM: self.profilePostsVM)
+                        cell.config2(row: indexPath.row, profilePostsVM: self.profilePostsVM)
                         cell.addTarget1(target: self, selector: #selector(post1Tapped))
                         cell.addTarget2(target: self, selector: #selector(post2Tapped))
                         cell.deactivatePost3()

@@ -66,9 +66,8 @@ class ProfileViewModel: IGBaseViewModel{
         }
     }
     
-    func getProfilePicture(completion: @escaping (ServiceResponse) -> Void) {
-        
-        if let url = profile?.profilePictureLink {
+    func getProfilePicture(link: String?, completion: @escaping (ServiceResponse) -> Void) {
+        if let url = link {
             
             ProfileViewService().getPicture(url: url) { [weak self] serviceResponse, profilePicture in
                 
@@ -86,5 +85,27 @@ class ProfileViewModel: IGBaseViewModel{
             completion(ServiceResponse.getInvalidRequestServiceResponse())
         }
     }
+    
+    /*func getPicture(link: String?, completion: @escaping (ServiceResponse, UIImage?) -> Void) {
+        if let url = link {
+            print(url)
+            ProfileViewService().getPicture(url: url) { [weak self] serviceResponse, picture in
+                
+                if serviceResponse.isSuccess {
+                    print("Herex")
+                    self?.profile?.postContainer = picture
+                    completion(serviceResponse, picture)
+                }
+                else {
+                    print("here")
+                    completion(serviceResponse, nil)
+                }
+            }
+        }
+        else {
+            print("url bad")
+            completion(ServiceResponse.getInvalidRequestServiceResponse(), nil)
+        }
+    }*/
 
 }

@@ -141,24 +141,42 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         super.init(coder: aDecoder)
     }
     
-    func config(name: String?,
-                caption: String?,
-                posts: Int?,
-                followers: Int?,
-                following: Int?,
-                profileImage: UIImage?) {
+    func config(profileVM: ProfileViewModel) -> Bool {
+
+        var error = false
         
-        nameLabel.text = name
-        captionLabel.text = caption
-        postsCountLabel.text = "\(posts ?? 0)"
-        followerCountLabel.text = "\(followers ?? 0)"
-        followingCountLabel.text = "\(following ?? 0)"
-        
-        if let image = profileImage {
-            profilePicture.setBackgroundImage(image, for: .normal)
-        } else if let image = UIImage(named: "default") {
-            profilePicture.setBackgroundImage(image, for: .normal)
+        if let url = profileVM.profile?.profilePictureLink, url.contains("https") {
+             profileVM.getProfilePicture(link: url, completion: { serviceResponse in
+             
+             if serviceResponse.isSuccess {
+                error = false
+                if let image = profileVM.profile?.picture {
+                    self.profilePicture.setBackgroundImage(image, for: .normal)
+                } else if let image = UIImage(named: "default") {
+                    self.profilePicture.setBackgroundImage(image, for: .normal)
+                }
+             }
+             else {
+                error = true
+                if let image = UIImage(named: "default"){
+                    self.profilePicture.setBackgroundImage(image, for: .normal)
+                }
+            }
+        })
+        } else {
+            if let image = UIImage(named: "default"){
+                self.profilePicture.setBackgroundImage(image, for: .normal)
+            }
         }
+        
+        
+        nameLabel.text = profileVM.profile?.fullName
+        captionLabel.text = profileVM.profile?.biography
+        postsCountLabel.text = "\(profileVM.profile?.posts ?? 0)"
+        followerCountLabel.text = "\(profileVM.profile?.followers ?? 0)"
+        followingCountLabel.text = "\(profileVM.profile?.following ?? 0)"
+        
+        return error
     }
     
     func addTarget(target: Any, selector: Selector) {

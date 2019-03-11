@@ -9,14 +9,12 @@
 import UIKit
 
 class ProfilePostsTableViewCell: IGBaseTableViewCell {
-        
+    
+    private var posts: [Post]?
+    
     private let post1: UIButton = {
         
         let button = UIButton()
-        
-        if let Image = UIImage(named: "default") {
-            button.setBackgroundImage(Image, for: .normal)
-        }
         return button
     }()
     
@@ -67,6 +65,27 @@ class ProfilePostsTableViewCell: IGBaseTableViewCell {
     func deactivatePost3() {
         post3.removeTarget(nil, action: nil, for: .allEvents)
         post3.isHidden = true
+    }
+    
+    func config1(row: Int, profilePostsVM: ProfilePostsViewModel){
+        print(row)
+        if row <= 3 {
+        if let image = profilePostsVM.posts?[(row - 1) * 3].image {
+            self.post1.setBackgroundImage(image, for: .normal)
+        }
+        }
+    }
+    
+    func config2(row: Int, profilePostsVM: ProfilePostsViewModel){
+        if let image = profilePostsVM.posts?[((row - 1) * 3) + 1].image {
+            self.post2.setBackgroundImage(image, for: .normal)
+        }
+    }
+    
+    func config3(row: Int, profilePostsVM: ProfilePostsViewModel){
+        if let image = profilePostsVM.posts?[((row - 1) * 3) + 2].image {
+            self.post3.setBackgroundImage(image, for: .normal)
+        }
     }
     
     private func setup() {

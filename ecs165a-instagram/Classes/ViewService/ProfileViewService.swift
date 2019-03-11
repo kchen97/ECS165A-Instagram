@@ -84,17 +84,15 @@ class ProfileViewService: IGBaseViewService {
     func getPicture(url: String?, completion: @escaping (ServiceResponse, UIImage?) -> Void) {
         
         var picture: UIImage?
-        
         DispatchQueue.global(qos: .userInitiated).async {
             
                 firstly {
                     
-                    when(fulfilled: self.getImages(url: url))
+                    return when(fulfilled: self.getImages(url: url))
                 }
                 .done { results in
-                        
+                    
                     for result in results where result.2 == url {
-                            
                         picture = result.1
                         self.setServiceResponse(serviceResponse: result.0)
                     }
