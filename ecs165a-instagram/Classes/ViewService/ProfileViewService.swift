@@ -102,6 +102,44 @@ class ProfileViewService: IGBaseViewService {
         }
     }
 
+    func updateProfile(image: Data?,
+                       bio: String?,
+                       completion: @escaping (ServiceResponse) -> Void) {
+
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
+        DispatchQueue.global(qos: .userInitiated).async {
+
+            var requests: [Promise<ServiceResponse>] = []
+
+            if let data = image {
+
+                requests.append(ProfileAPIService().updatePicture(data: data))
+            }
+
+            if let bio = bio {
+
+                requests.append(ProfileAPIService().updateBio(bio: bio))
+            }
+            when(fulfilled: requests)
+                .done { responses in
+
+                    for response in responses {
+                        self.setServiceResponse(serviceResponse: response)
+                    }
+                    completion(self.serviceResponse)
+                }
+                .catch { error in
+
+                    let serviceResponse = ServiceResponse()
+                    serviceResponse.status = .failure
+                    serviceResponse.error = error
+
+                    completion(serviceResponse)
+                }
+        }
+    }
+
     private func getImages() -> [Promise<(ServiceResponse, UIImage?, String)>] {
 
         var promises: [Promise<(ServiceResponse, UIImage?, String)>] = []

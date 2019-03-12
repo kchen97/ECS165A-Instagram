@@ -69,4 +69,12 @@ class ProfileViewModel: IGBaseViewModel{
             completion(ServiceResponse.getInvalidRequestServiceResponse())
         }
     }
+
+    func updateProfile(image: Data?, bio: String?, completion: @escaping (ServiceResponse) -> Void) {
+
+        ProfileViewService().updateProfile(image: image, bio: bio) { serviceResponse in
+
+            completion(serviceResponse)
+        }
+    }
 }

@@ -11,6 +11,7 @@
 		8E1435C9223740520080E70D /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1435C8223740520080E70D /* PostViewModel.swift */; };
 		8E1435CB223754960080E70D /* ProfileInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1435CA223754960080E70D /* ProfileInfoHeaderView.swift */; };
 		8E1435CE22375D610080E70D /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1435CD22375D610080E70D /* PostCollectionViewCell.swift */; };
+		8E1435D02237A0A30080E70D /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1435CF2237A0A30080E70D /* EditProfileView.swift */; };
 		8E4458832212502A00986E68 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4458822212502A00986E68 /* UIView+Extensions.swift */; };
 		8E445885221250FC00986E68 /* ProfileAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E445884221250FC00986E68 /* ProfileAPIService.swift */; };
 		8E4458872212512200986E68 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4458862212512200986E68 /* Profile.swift */; };
@@ -93,6 +94,7 @@
 		8E1435C8223740520080E70D /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		8E1435CA223754960080E70D /* ProfileInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoHeaderView.swift; sourceTree = "<group>"; };
 		8E1435CD22375D610080E70D /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
+		8E1435CF2237A0A30080E70D /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		8E4458822212502A00986E68 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		8E445884221250FC00986E68 /* ProfileAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPIService.swift; sourceTree = "<group>"; };
 		8E4458862212512200986E68 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				8E1435CC22375D450080E70D /* CollectionViewCells */,
+				8E1435CF2237A0A30080E70D /* EditProfileView.swift */,
 				8E5DF0BA220136BE00A82F29 /* IGBaseButton.swift */,
 				8E94C34C21F7F0BC004BB77A /* IGBaseView.swift */,
 				8E7E1FA7222233200099D5A8 /* ImageHeaderView.swift */,
@@ -559,6 +562,7 @@
 				"${BUILT_PRODUCTS_DIR}/Blueprints/Blueprints.framework",
 				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Popover/Popover.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RSKGrowingTextView/RSKGrowingTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/RSKPlaceholderTextView/RSKPlaceholderTextView.framework",
@@ -575,6 +579,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Blueprints.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Popover.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKGrowingTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKPlaceholderTextView.framework",
@@ -656,6 +661,7 @@
 				8E92DFF62226126D00588FE7 /* UILabel+Extensions.swift in Sources */,
 				8E6148EF21FA93A500E35EBD /* NetworkDataClient.swift in Sources */,
 				8E7E1FB0222279720099D5A8 /* CreatePostViewService.swift in Sources */,
+				8E1435D02237A0A30080E70D /* EditProfileView.swift in Sources */,
 				8E5BEF13221D442F00BBC1A2 /* FeedViewController.swift in Sources */,
 				8E92DFF22225FF9200588FE7 /* FeedViewModel.swift in Sources */,
 				8E5DF0B92201361F00A82F29 /* RoundButton.swift in Sources */,

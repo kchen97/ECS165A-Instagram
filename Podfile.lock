@@ -5,6 +5,7 @@ PODS:
   - Blueprints (0.9.0)
   - HexColors (6.0.0)
   - ObjectMapper (3.4.2)
+  - Popover (1.2.2)
   - PromiseKit (6.8.3):
     - PromiseKit/CorePromise (= 6.8.3)
     - PromiseKit/Foundation (= 6.8.3)
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - Blueprints
   - HexColors
   - ObjectMapper
+  - Popover
   - PromiseKit
   - RSKGrowingTextView
   - SkyFloatingLabelTextField
@@ -48,6 +50,7 @@ SPEC REPOS:
     - Blueprints
     - HexColors
     - ObjectMapper
+    - Popover
     - PromiseKit
     - RSKGrowingTextView
     - RSKPlaceholderTextView
@@ -64,6 +67,7 @@ SPEC CHECKSUMS:
   Blueprints: 6dea8aa1e682d4ee405b83502569011e8640f394
   HexColors: f8c66339541a74bb08905bfe7cd4f8cc85e9e173
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
+  Popover: 21e357f86d45c8d9e29a41a4adbca3664d6e511f
   PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
   RSKGrowingTextView: aade5bc3ae2a202bd3d70674d605b76117034040
   RSKPlaceholderTextView: 15f1dc1883e103ea605874b863f19ff6b08496d5
@@ -74,6 +78,6 @@ SPEC CHECKSUMS:
   SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
   ViewAnimator: 6eaa112663b6a2d9e6b2573df65b416dd051cbe4
 
-PODFILE CHECKSUM: 11ccc4f4df84a9362e9df90c66edf3a51788514f
+PODFILE CHECKSUM: 37ccc21425353bd17d2a6c6e1dcf9867a32bbfe8
 
 COCOAPODS: 1.6.0.rc.2

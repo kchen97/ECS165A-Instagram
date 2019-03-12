@@ -34,6 +34,9 @@ target 'ecs165a-instagram' do
   # Blueprints - https://github.com/zenangst/Blueprints
   pod 'Blueprints'
 
+  # Popover - https://github.com/corin8823/Popover
+  pod 'Popover'
+
   #
   ## Network
   ###

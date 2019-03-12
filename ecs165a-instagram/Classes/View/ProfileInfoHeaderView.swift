@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Popover
 
 class ProfileInfoHeaderView: UICollectionReusableView {
 
@@ -19,6 +20,16 @@ class ProfileInfoHeaderView: UICollectionReusableView {
         }
     }
 
+    var saveProfileTapped: ((UIImage?, String?) -> Void)?
+
+    var editPictureTapped: (() -> Void)? {
+
+        didSet {
+
+            editProfileButton.isHidden = false
+        }
+    }
+
     var followTapped: (() -> Void)? {
 
         didSet {
@@ -26,6 +37,24 @@ class ProfileInfoHeaderView: UICollectionReusableView {
             followButton.isHidden = false
         }
     }
+
+    let editProfileView = EditProfileView(frame: CGRect(x: 0,
+                                                        y: 0,
+                                                        width: UIScreen.main.bounds.width,
+                                                        height: 220))
+
+    private let popover: Popover = {
+
+        let options: [PopoverOption] = [
+            .type(.down),
+            .cornerRadius(20),
+            .animationIn(0.6),
+            .overlayBlur(.dark),
+            .arrowSize(.zero)
+        ]
+
+        return Popover(options: options)
+    }()
 
     private let profilePicture: UIImageView = {
 
@@ -137,6 +166,19 @@ class ProfileInfoHeaderView: UICollectionReusableView {
         return button
     }()
 
+    private let editProfileButton: UIButton = {
+
+        let button = UIButton()
+        button.setTitle("Edit Profile", for: .normal)
+        button.setTitleColor(.themeDarkGray, for: .normal)
+        button.layer.cornerRadius = 2
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.themeDarkGray.cgColor
+        button.isHidden = true
+
+        return button
+    }()
+
     override init(frame: CGRect) {
 
         super.init(frame: frame)
@@ -172,6 +214,19 @@ class ProfileInfoHeaderView: UICollectionReusableView {
         followTapped?()
     }
 
+    @objc private func editProfilePressed() {
+
+        editProfileView.config(image: profilePicture.image)
+
+        editProfileView.pictureTapped = editPictureTapped
+        editProfileView.saveTapped = { [weak self] image, text in
+
+            self?.popover.dismiss()
+            self?.saveProfileTapped?(image, text)
+        }
+        popover.show(editProfileView, fromView: editProfileButton)
+    }
+
     private func setup() {
 
         addMultipleSubviews(views: [profilePicture,
@@ -183,7 +238,8 @@ class ProfileInfoHeaderView: UICollectionReusableView {
                                     postsLabel,
                                     postsCountLabel,
                                     captionLabel,
-                                    followButton])
+                                    followButton,
+                                    editProfileButton])
 
         profilePicture.snp.makeConstraints { maker in
 
@@ -265,6 +321,15 @@ class ProfileInfoHeaderView: UICollectionReusableView {
             maker.height.equalTo(40)
         }
 
+        editProfileButton.snp.makeConstraints { maker in
+
+            maker.top.equalTo(profilePicture.snp.centerY)
+            maker.leading.equalTo(postsLabel.snp.leading)
+            maker.trailing.equalTo(followingLabel.snp.trailing)
+            maker.height.equalTo(40)
+        }
+
         followButton.addTarget(self, action: #selector(followPressed), for: .touchUpInside)
+        editProfileButton.addTarget(self, action: #selector(editProfilePressed), for: .touchUpInside)
     }
 }

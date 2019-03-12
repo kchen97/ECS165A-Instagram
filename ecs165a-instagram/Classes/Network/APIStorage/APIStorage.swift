@@ -32,4 +32,7 @@ final class APIStorage {
 
     lazy var likeAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_LIKE_ENDPOINT)
     lazy var unlikeAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_UNLIKE_ENDPOINT)
+
+    lazy var updateProfilePictureAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_UPDATE_PROFILE_PICTURE_ENDPOINT)
+    lazy var updateBioAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_UPDATE_BIO_ENDPOINT)
 }

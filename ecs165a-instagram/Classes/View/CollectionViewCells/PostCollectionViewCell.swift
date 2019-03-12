@@ -13,7 +13,9 @@ class PostCollectionViewCell: UICollectionViewCell {
     private let picture: UIImageView = {
 
         let view = UIImageView()
-        view.contentMode = .scaleToFill
+        view.contentMode = .scaleAspectFill
+        view.layer.masksToBounds = false
+        view.clipsToBounds = true
         return view
     }()
 
