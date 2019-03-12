@@ -45,4 +45,5 @@ let IG_COMMENT_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/comments", metho
 let IG_GET_COMMENTS_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/comments", method: .get, encoding: URLEncoding.default)
 
 let IG_LIKE_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/likes", method: .patch, encoding: JSONEncoding.default)
+let IG_UNLIKE_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/likes", method: .delete, encoding: JSONEncoding.default)
 
