@@ -36,9 +36,14 @@ class ProfileViewService: IGBaseViewService {
 
                 for post in self.profile?.userPosts ?? [] {
 
-                    for result in results where result.2 == post.imageLink {
+                    for result in results {
 
-                        post.image = result.1
+                        if result.2 == post.imageLink {
+                            post.image = result.1
+                        }
+                        else if result.2 == self.profile?.profilePictureLink {
+                            self.profile?.picture = result.1
+                        }
                         self.setServiceResponse(serviceResponse: result.0)
                     }
                 }
@@ -117,10 +122,11 @@ class ProfileViewService: IGBaseViewService {
                 requests.append(ProfileAPIService().updatePicture(data: data))
             }
 
-            if let bio = bio {
+            if let bio = bio, !bio.isEmpty {
 
                 requests.append(ProfileAPIService().updateBio(bio: bio))
             }
+
             when(fulfilled: requests)
                 .done { responses in
 
@@ -147,6 +153,10 @@ class ProfileViewService: IGBaseViewService {
         for post in profile?.userPosts ?? [] {
 
             if let url = post.imageLink {
+                promises.append(ImageAPIService().getImage(url: url))
+            }
+
+            if let url = profile?.profilePictureLink {
                 promises.append(ImageAPIService().getImage(url: url))
             }
         }
