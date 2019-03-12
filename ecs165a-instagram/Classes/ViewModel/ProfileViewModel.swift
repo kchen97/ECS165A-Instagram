@@ -12,6 +12,10 @@ class ProfileViewModel: IGBaseViewModel{
 
     var profile: Profile?
 
+    var isSelf: Bool {
+        return username == UserInfo.shared.username
+    }
+
     private var username: String?
 
     init(username: String? = UserInfo.shared.username) {
@@ -35,7 +39,7 @@ class ProfileViewModel: IGBaseViewModel{
     }
 
     /// Username is the username of who the current user wants to follow
-    func follow(username: String?, completion: @escaping (ServiceResponse) -> Void) {
+    func follow(completion: @escaping (ServiceResponse) -> Void) {
 
         if let _ = UserInfo.shared.username, let userToFollow = username {
 
@@ -51,7 +55,7 @@ class ProfileViewModel: IGBaseViewModel{
     }
 
     /// Username is the username of who the current user wants to unfollow
-    func unfollow(username: String?, completion: @escaping (ServiceResponse) -> Void) {
+    func unfollow(completion: @escaping (ServiceResponse) -> Void) {
 
         if let _ = UserInfo.shared.username, let userToFollow = username {
 
@@ -63,6 +67,14 @@ class ProfileViewModel: IGBaseViewModel{
         else {
 
             completion(ServiceResponse.getInvalidRequestServiceResponse())
+        }
+    }
+
+    func updateProfile(image: Data?, bio: String?, completion: @escaping (ServiceResponse) -> Void) {
+
+        ProfileViewService().updateProfile(image: image, bio: bio) { serviceResponse in
+
+            completion(serviceResponse)
         }
     }
 }

@@ -47,3 +47,5 @@ let IG_GET_COMMENTS_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/comments", 
 let IG_LIKE_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/likes", method: .patch, encoding: JSONEncoding.default)
 let IG_UNLIKE_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/likes", method: .delete, encoding: JSONEncoding.default)
 
+let IG_UPDATE_PROFILE_PICTURE_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/profile/updateProfilePicture", method: .patch, encoding: JSONEncoding.default)
+let IG_UPDATE_BIO_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/profile/updateBio", method: .post, encoding: JSONEncoding.default)

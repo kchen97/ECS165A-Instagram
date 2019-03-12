@@ -31,6 +31,12 @@ target 'ecs165a-instagram' do
   # ViewAnimator - https://github.com/marcosgriselli/ViewAnimator
   pod 'ViewAnimator'
 
+  # Blueprints - https://github.com/zenangst/Blueprints
+  pod 'Blueprints'
+
+  # Popover - https://github.com/corin8823/Popover
+  pod 'Popover'
+
   #
   ## Network
   ###

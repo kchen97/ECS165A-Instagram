@@ -7,15 +7,36 @@
 //
 
 import UIKit
+import Blueprints
 
 class ProfileViewController: IGMainViewController {
 
     var enableSettingsAndCreatePost: Bool = true
     var profileVM = ProfileViewModel()
 
-    private let profileInfoCellId = "profileInfoCellId"
+    private let postCellID = "postCellID"
+    private let profileInfoHeaderViewID = "profileInfoHeaderViewID"
 
-    private let tableview = UITableView()
+    private var headerView: ProfileInfoHeaderView?
+
+    private let collectionView: UICollectionView = {
+
+        let blueprintLayout = VerticalBlueprintLayout(
+            itemsPerRow: 2,
+            height: 300,
+            minimumInteritemSpacing: 10,
+            minimumLineSpacing: 10,
+            sectionInset: EdgeInsets(top: 10, left: 10, bottom: 10, right: 10),
+            stickyHeaders: false,
+            stickyFooters: false
+        )
+        blueprintLayout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 180)
+
+        let view = UICollectionView(frame: .zero, collectionViewLayout: blueprintLayout)
+        view.backgroundColor = .white
+
+        return view
+    }()
     
     private let ROW_HEIGHT: CGFloat = 200
 
@@ -23,6 +44,10 @@ class ProfileViewController: IGMainViewController {
 
         super.viewWillAppear(animated)
 
+        loadData()
+    }
+
+    private func loadData() {
         showSpinner(message: "Loading...")
 
         profileVM.getProfile { [weak self] serviceResponse in
@@ -31,7 +56,7 @@ class ProfileViewController: IGMainViewController {
             self?.navigationItem.title = self?.profileVM.profile?.username
 
             if serviceResponse.isSuccess {
-                self?.tableview.reloadData()
+                self?.collectionView.reloadData()
             }
             else {
                 self?.showMessage(body: serviceResponse.errorMessage ?? "",
@@ -40,22 +65,31 @@ class ProfileViewController: IGMainViewController {
             }
         }
     }
+
+    override func viewWillLayoutSubviews() {
+
+        super.viewWillLayoutSubviews()
+
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
     
     override func setup() {
         
         super.setup()
         
-        tableview.delegate = self
-        tableview.dataSource = self
-        tableview.separatorStyle = .none
-        tableview.tableFooterView = UIView(frame: .zero)
-        tableview.showsVerticalScrollIndicator = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.showsVerticalScrollIndicator = false
 
-        tableview.register(ProfileInfoTableViewCell.self, forCellReuseIdentifier: profileInfoCellId)
+        collectionView.register(PostCollectionViewCell.self,
+                                forCellWithReuseIdentifier: postCellID)
+        collectionView.register(ProfileInfoHeaderView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: profileInfoHeaderViewID)
+
+        view.addSubview(collectionView)
         
-        view.addSubview(tableview)
-        
-        tableview.snp.makeConstraints { maker in
+        collectionView.snp.makeConstraints { maker in
             maker.edges.equalTo(view.safeAreaLayoutGuide)
         }
 
@@ -66,32 +100,162 @@ class ProfileViewController: IGMainViewController {
             navigationController?.navigationBar.tintColor = .themeDarkGray
         }
     }
+
+    private func follow(completion: @escaping (Bool) -> Void) {
+
+        showSpinner(message: "Following...")
+
+        profileVM.follow { [weak self] serviceResponse in
+
+            self?.stopSpinner()
+
+            if !serviceResponse.isSuccess {
+
+                self?.showMessage(body: serviceResponse.errorMessage ?? "", theme: .error, style: .bottom)
+            }
+            completion(serviceResponse.isSuccess)
+        }
+    }
+
+    private func unfollow(completion: @escaping (Bool) -> Void) {
+
+        showSpinner(message: "Following...")
+
+        profileVM.unfollow { [weak self] serviceResponse in
+
+            self?.stopSpinner()
+
+            if !serviceResponse.isSuccess {
+
+                self?.showMessage(body: serviceResponse.errorMessage ?? "", theme: .error, style: .bottom)
+            }
+            completion(serviceResponse.isSuccess)
+        }
+    }
+
+    private func updateProfile(image: UIImage?, bio: String?) {
+
+        showSpinner(message: "Saving...")
+
+        profileVM.updateProfile(image: image?.jpegData(compressionQuality: 0.2), bio: bio) { [weak self] serviceResponse in
+
+            self?.stopSpinner()
+
+            if !serviceResponse.isSuccess {
+                self?.showMessage(body: serviceResponse.errorMessage ?? "", theme: .error, style: .bottom)
+            }
+            else {
+                self?.loadData()
+            }
+        }
+    }
+
+    @objc private func addImage() {
+
+        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { [weak self] action in
+            self?.presentImagePicker(source: .camera)
+        })
+
+        let photoAlbumAction = UIAlertAction(title: "Photo Album", style: .default, handler: { [weak self] action in
+            self?.presentImagePicker(source: .photoLibrary)
+        })
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+
+        let actionSheet = UIAlertController(title: nil, message: "Choose an option", preferredStyle: .actionSheet)
+        actionSheet.addAction(actions: [cameraAction, photoAlbumAction, cancelAction])
+
+        present(actionSheet, animated: true, completion: nil)
+    }
+
+    private func presentImagePicker(source: UIImagePickerController.SourceType) {
+
+        if UIImagePickerController.isSourceTypeAvailable(source) {
+
+            let controller = UIImagePickerController()
+            controller.sourceType = source
+            controller.delegate = self
+
+            present(controller, animated: true, completion: nil)
+        }
+    }
 }
 
-extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return ROW_HEIGHT
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: profileInfoCellId, for: indexPath)
-        cell.selectionStyle = .none
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
-        if let cell = cell as? ProfileInfoTableViewCell {
+    // MARK: ImagePickerController Delegates
+    override func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
-            cell.config(name: profileVM.profile?.fullName,
+        headerView?.editProfileView.config(image: info[UIImagePickerController.InfoKey.originalImage] as? UIImage)
+        dismiss(animated: true, completion: nil)
+    }
+
+    // MARK: UICollectionView Delegates
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+        return profileVM.profile?.userPosts?.count ?? 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                   withReuseIdentifier: profileInfoHeaderViewID,
+                                                                   for: indexPath)
+
+        if let view = view as? ProfileInfoHeaderView {
+
+            view.config(name: profileVM.profile?.username,
                         caption: profileVM.profile?.biography,
                         posts: profileVM.profile?.posts,
                         followers: profileVM.profile?.followers,
-                        following: profileVM.profile?.following)
-        }
+                        following: profileVM.profile?.following,
+                        picture: profileVM.profile?.picture)
 
+            if !profileVM.isSelf {
+
+                view.followTapped = {  [weak self] in
+
+                    if self?.profileVM.profile?.isFollowing == true {
+
+                        self?.unfollow { success in
+                            view.followed = success == false
+                        }
+                    }
+                    else {
+
+                        self?.follow { success in
+                            view.followed = success
+                        }
+                    }
+                }
+            }
+            else {
+
+                view.editPictureTapped = { [weak self] in
+                    self?.addImage()
+                }
+
+                view.saveProfileTapped = { [weak self] image, text in
+                    self?.updateProfile(image: image, bio: text)
+                }
+            }
+
+            view.followed = profileVM.profile?.isFollowing == true
+            headerView = view
+        }
+        return view
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: postCellID, for: indexPath)
+
+        if let cell = cell as? PostCollectionViewCell {
+
+            cell.config(image: profileVM.profile?.userPosts?[indexPath.row].image)
+        }
         return cell
     }
 }

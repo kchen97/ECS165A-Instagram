@@ -40,4 +40,64 @@ class ProfileAPIService: IGBaseAPIService {
             })
         }
     }
+
+    func updatePicture(data: Data) -> Promise<(ServiceResponse)> {
+
+        return Promise { seal in
+
+            self.updatePicture(data: data) { serviceResponse in
+                seal.fulfill(serviceResponse)
+            }
+        }
+    }
+
+    private func updatePicture(data: Data, completion: @escaping (ServiceResponse) -> Void) {
+
+        if let updatePictureAPI = APIStorage.shared.updateProfilePictureAPI {
+
+            updatePictureAPI.upload(info: ["username": UserInfo.shared.username ?? "",
+                                           "image": data],
+                                    success: {
+
+                let response = ServiceResponse()
+                response.status = .success
+
+                completion(response)
+            },
+            failure: { response in
+
+                completion(response)
+            })
+        }
+    }
+
+    func updateBio(bio: String) -> Promise<ServiceResponse> {
+
+        return Promise { seal in
+
+            self.updateBio(bio: bio) { response in
+                seal.fulfill(response)
+            }
+        }
+    }
+
+    private func updateBio(bio: String, completion: @escaping (ServiceResponse) -> Void) {
+
+        if let updateBioAPI = APIStorage.shared.updateBioAPI {
+
+            updateBioAPI.request(info: ["username": UserInfo.shared.username ?? "",
+                                        "bio": bio],
+                                 success: {
+
+                let response = ServiceResponse()
+                response.status = .success
+
+                completion(response)
+            },
+            failure: { response in
+
+                completion(response)
+            })
+        }
+    }
 }
