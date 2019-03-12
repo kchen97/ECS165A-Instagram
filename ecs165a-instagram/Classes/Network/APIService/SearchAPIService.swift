@@ -10,26 +10,26 @@ import PromiseKit
 
 class SearchAPIService: IGBaseAPIService {
 
-    func search(username: String) -> Promise<(ServiceResponse, [User]?)> {
+    func search(search: String) -> Promise<(ServiceResponse, SearchResults?)> {
 
         return Promise { seal in
-            self.search(username: username) { serviceResponse, users in
-                seal.fulfill((serviceResponse, users))
+            self.search(search: search) { serviceResponse, results in
+                seal.fulfill((serviceResponse, results))
             }
         }
     }
 
-    private func search(username: String,
-                        completion: @escaping (ServiceResponse, [User]?) -> Void) {
+    private func search(search: String,
+                        completion: @escaping (ServiceResponse, SearchResults?) -> Void) {
 
         if let searchAPI = APIStorage.shared.searchAPI {
 
-            searchAPI.request(info: ["search": username], success: { (users: [User]?) in
+            searchAPI.request(info: ["search": search], success: { (results: SearchResults?) in
 
                 let serviceResponse = ServiceResponse()
                 serviceResponse.status = .success
 
-                completion(serviceResponse, users)
+                completion(serviceResponse, results)
             },
             failure: { response in
 

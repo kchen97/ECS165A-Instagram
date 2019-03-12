@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objcMembers class FeedViewModel: IGBaseViewModel {
+@objcMembers class FeedViewModel: PostViewModel {
 
     dynamic var posts: [Post]?
 
@@ -21,38 +21,6 @@ import Foundation
                 if serviceResponse.isSuccess {
                     self?.posts = feed
                 }
-                completion(serviceResponse)
-            }
-        }
-        else {
-
-            completion(ServiceResponse.getInvalidRequestServiceResponse())
-        }
-    }
-
-    func likePost(postID: String?,
-                  completion: @escaping (ServiceResponse) -> Void) {
-
-        if let postID = postID, let username = UserInfo.shared.username {
-
-            FeedViewService().likePost(postID: postID, username: username) { serviceResponse in
-
-                completion(serviceResponse)
-            }
-        }
-        else {
-
-            completion(ServiceResponse.getInvalidRequestServiceResponse())
-        }
-    }
-
-    func unlikePost(postID: String?,
-                    completion: @escaping (ServiceResponse) -> Void) {
-
-        if let postID = postID, let username = UserInfo.shared.username {
-
-            FeedViewService().unlikePost(postID: postID, username: username) { serviceResponse in
-
                 completion(serviceResponse)
             }
         }
