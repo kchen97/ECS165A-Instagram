@@ -10,27 +10,48 @@ import PromiseKit
 
 class ProfileViewService: IGBaseViewService {
 
+    private var profile: Profile?
+
     func getProfile(username: String,
                     currentUser: String,
                     completion: @escaping (ServiceResponse, Profile?) -> Void) {
 
         DispatchQueue.global(qos: .userInitiated).async {
 
-            ProfileAPIService().getProfile(username: username, currentUser: currentUser)
-                .done { serviceResponse, profile in
+            firstly {
 
-                    DispatchQueue.main.async {
-                        completion(serviceResponse, profile)
+                ProfileAPIService().getProfile(username: username, currentUser: currentUser)
+            }
+            .then { (serviceResponse, profile) -> Promise<[(ServiceResponse, UIImage?, String)]> in
+
+                self.profile = profile
+                return when(fulfilled: self.getImages())
+            }
+            .done { results in
+
+                let serviceResponse = ServiceResponse()
+                serviceResponse.status = .success
+
+                self.setServiceResponse(serviceResponse: serviceResponse)
+
+                for post in self.profile?.userPosts ?? [] {
+
+                    for result in results where result.2 == post.imageLink {
+
+                        post.image = result.1
+                        self.setServiceResponse(serviceResponse: result.0)
                     }
                 }
-                .catch { error in
+                completion(self.serviceResponse, self.profile)
+            }
+            .catch { error in
 
-                    let serviceResponse = ServiceResponse()
-                    serviceResponse.status = .failure
-                    serviceResponse.error = error
+                let serviceResponse = ServiceResponse()
+                serviceResponse.error = error
+                serviceResponse.status = .failure
 
-                    completion(serviceResponse, nil)
-                }
+                completion(serviceResponse, self.profile)
+            }
         }
     }
 
@@ -79,5 +100,18 @@ class ProfileViewService: IGBaseViewService {
                     completion(serviceResponse)
             }
         }
+    }
+
+    private func getImages() -> [Promise<(ServiceResponse, UIImage?, String)>] {
+
+        var promises: [Promise<(ServiceResponse, UIImage?, String)>] = []
+
+        for post in profile?.userPosts ?? [] {
+
+            if let url = post.imageLink {
+                promises.append(ImageAPIService().getImage(url: url))
+            }
+        }
+        return promises
     }
 }

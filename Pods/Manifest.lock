@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.8.1)
   - AlamofireImage (3.5.0):
     - Alamofire (~> 4.8)
+  - Blueprints (0.9.0)
   - HexColors (6.0.0)
   - ObjectMapper (3.4.2)
   - PromiseKit (6.8.3):
@@ -28,6 +29,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
+  - Blueprints
   - HexColors
   - ObjectMapper
   - PromiseKit
@@ -43,6 +45,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireImage
+    - Blueprints
     - HexColors
     - ObjectMapper
     - PromiseKit
@@ -58,6 +61,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
+  Blueprints: 6dea8aa1e682d4ee405b83502569011e8640f394
   HexColors: f8c66339541a74bb08905bfe7cd4f8cc85e9e173
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
@@ -70,6 +74,6 @@ SPEC CHECKSUMS:
   SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
   ViewAnimator: 6eaa112663b6a2d9e6b2573df65b416dd051cbe4
 
-PODFILE CHECKSUM: b71b6f9109563b650441e16877ccd9771005be4c
+PODFILE CHECKSUM: 11ccc4f4df84a9362e9df90c66edf3a51788514f
 
 COCOAPODS: 1.6.0.rc.2
