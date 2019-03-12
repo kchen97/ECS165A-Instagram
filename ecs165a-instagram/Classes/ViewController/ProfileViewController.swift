@@ -29,7 +29,7 @@ class ProfileViewController: IGMainViewController {
 
         showSpinner(message: "Loading...")
         
-        profileVM.getProfile { [weak self] serviceResponse in
+        profileVM.getProfile() { [weak self] serviceResponse in
             
             
             self?.navigationItem.title = self?.profileVM.profile?.username
@@ -57,7 +57,7 @@ class ProfileViewController: IGMainViewController {
                                   style: .bottom)
             }
         }
-        
+        self.tableview.reloadData()
         
     }
     
@@ -189,7 +189,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let postCount = profileVM.profile?.posts {
+        if let postCount = profilePostsVM.posts?.count {
             if postCount % 3 != 0{
                 return (postCount / 3) + 2
             }
@@ -203,19 +203,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.row == 0 {
             
-            var error: Bool
             guard let cell = tableView.dequeueReusableCell(withIdentifier: profileInfoCellId) else {
                 return UITableViewCell()
             }
             
             if let cell = cell as? ProfileInfoTableViewCell {
-                
-                error = cell.config(profileVM: profileVM)
-                if error {
-                    self.showMessage(body: "Invalid request parameters",
-                                      theme: .error,
-                                      style: .bottom)
-                }
                 
                 if (UserInfo.shared.username != profileVM.profile?.username) {
                     cell.activateFollowButton(target: self, selector: #selector(followButtonTapped))
@@ -239,10 +231,16 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                     cell.deactivateFollowButton()
                     cell.addTarget(target: self, selector: #selector(profilePictureTapped))
                 }
-                
+
+                let error = cell.config(profileVM: profileVM, profilePostsCount: profilePostsVM.posts?.count)
+                if error {
+                    self.showMessage(body: "Invalid Request Info",
+                                      theme: .error,
+                                      style: .bottom)
+                }
                 profileInfoTableViewCell = cell
             }
-            
+
             return cell
             
         } else {
@@ -252,7 +250,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             if let cell = cell as? ProfilePostsTableViewCell {
-                if let postCount = profileVM.profile?.posts {
+                if let postCount = profilePostsVM.posts?.count {
                     if postCount % 3 == 0 || indexPath.row != ((postCount / 3) + 1) {
                         cell.config1(row: indexPath.row, profilePostsVM: self.profilePostsVM)
                         cell.config2(row: indexPath.row, profilePostsVM: self.profilePostsVM)

@@ -79,7 +79,7 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         return label
     }()
     
-    private let postsCountLabel: UILabel = {
+    let postsCountLabel: UILabel = {
         
         let label = UILabel()
         
@@ -141,7 +141,7 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         super.init(coder: aDecoder)
     }
     
-    func config(profileVM: ProfileViewModel) -> Bool {
+    func config(profileVM: ProfileViewModel, profilePostsCount: Int?) -> Bool {
 
         var error = false
         
@@ -172,7 +172,9 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         
         nameLabel.text = profileVM.profile?.fullName
         captionLabel.text = profileVM.profile?.biography
-        postsCountLabel.text = "\(profileVM.profile?.posts ?? 0)"
+        if let count = profilePostsCount {
+            postsCountLabel.text = "\(profileVM.profile?.posts ?? 0)"
+        }
         followerCountLabel.text = "\(profileVM.profile?.followers ?? 0)"
         followingCountLabel.text = "\(profileVM.profile?.following ?? 0)"
         

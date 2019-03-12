@@ -51,12 +51,15 @@ class ProfilePostsTableViewCell: IGBaseTableViewCell {
     
     func addTarget1(target: Any, selector: Selector) {
         post1.addTarget(target, action: selector, for: .touchUpInside)
+        post1.isHidden = false
     }
     func addTarget2(target: Any, selector: Selector) {
         post2.addTarget(target, action: selector, for: .touchUpInside)
+        post2.isHidden = false
     }
     func addTarget3(target: Any, selector: Selector) {
         post3.addTarget(target, action: selector, for: .touchUpInside)
+        post3.isHidden = false
     }
     func deactivatePost2() {
         post2.removeTarget(nil, action: nil, for: .allEvents)
@@ -68,23 +71,32 @@ class ProfilePostsTableViewCell: IGBaseTableViewCell {
     }
     
     func config1(row: Int, profilePostsVM: ProfilePostsViewModel){
-        print(row)
-        if row <= 3 {
-        if let image = profilePostsVM.posts?[(row - 1) * 3].image {
-            self.post1.setBackgroundImage(image, for: .normal)
-        }
+        if let postCount = profilePostsVM.posts?.count {
+            if(postCount - 1 >= ((row - 1) * 3)) {
+                if let image = profilePostsVM.posts?[(row - 1) * 3].image {
+                    self.post1.setBackgroundImage(image, for: .normal)
+                }
+            }
         }
     }
     
     func config2(row: Int, profilePostsVM: ProfilePostsViewModel){
-        if let image = profilePostsVM.posts?[((row - 1) * 3) + 1].image {
-            self.post2.setBackgroundImage(image, for: .normal)
+        if let postCount = profilePostsVM.posts?.count {
+            if(postCount - 1 >= ((row - 1) * 3) + 1) {
+                if let image = profilePostsVM.posts?[((row - 1) * 3) + 1].image {
+                    self.post2.setBackgroundImage(image, for: .normal)
+                }
+            }
         }
     }
     
     func config3(row: Int, profilePostsVM: ProfilePostsViewModel){
-        if let image = profilePostsVM.posts?[((row - 1) * 3) + 2].image {
-            self.post3.setBackgroundImage(image, for: .normal)
+        if let postCount = profilePostsVM.posts?.count {
+            if(postCount - 1 >= ((row - 1) * 3) + 2) {
+                if let image = profilePostsVM.posts?[((row - 1) * 3) + 2].image {
+                    self.post3.setBackgroundImage(image, for: .normal)
+                }
+            }
         }
     }
     
