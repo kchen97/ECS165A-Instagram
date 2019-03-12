@@ -8,19 +8,19 @@
 
 import Foundation
 
-@objcMembers class SearchViewModel: IGBaseViewModel {
-    
-    dynamic var users: [User]?
+@objcMembers class SearchViewModel: PostViewModel {
 
-    func search(username: String?,
+    dynamic var results: SearchResults?
+
+    func search(search: String?,
                 completion: @escaping (ServiceResponse) -> Void) {
 
-        if let username = username {
+        if let search = search {
 
-            SearchViewService().search(username: username) { [weak self] serviceResponse, users in
+            SearchViewService().search(search: search) { [weak self] serviceResponse, results in
 
                 if serviceResponse.isSuccess {
-                    self?.users = users
+                    self?.results = results
                 }
                 completion(serviceResponse)
             }

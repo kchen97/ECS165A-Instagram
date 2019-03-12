@@ -87,6 +87,56 @@ class FeedViewController: IGMainViewController {
         refresher.endRefreshing()
     }
 
+    private func showCommentsScreen(postID: String?) {
+
+        let nextScreen = CommentsViewController()
+        nextScreen.commentsVM = CommentsViewModel(postID: postID)
+
+        navigationController?.pushViewController(nextScreen, animated: true)
+    }
+
+    private func likePost(postID: String?) {
+
+        showSpinner(message: "Liking...")
+
+        feedVM.likePost(postID: postID) { [weak self] serviceResponse in
+
+            self?.stopSpinner()
+
+            if serviceResponse.isSuccess {
+
+                self?.loadData()
+            }
+            else {
+
+                self?.showMessage(body: serviceResponse.errorMessage ?? "",
+                            theme: .error,
+                            style: .bottom)
+            }
+        }
+    }
+
+    private func unlikePost(postID: String?) {
+
+        showSpinner(message: "Unliking...")
+
+        feedVM.unlikePost(postID: postID) { [weak self] serviceResponse in
+
+            self?.stopSpinner()
+
+            if serviceResponse.isSuccess {
+
+                self?.loadData()
+            }
+            else {
+
+                self?.showMessage(body: serviceResponse.errorMessage ?? "",
+                                  theme: .error,
+                                  style: .bottom)
+            }
+        }
+    }
+
     @objc private func pagePulled() {
         loadData()
     }
@@ -104,11 +154,32 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
 
         if let cell = cell as? FeedTableViewCell {
 
-            cell.config(username: feedVM.posts?[indexPath.row].username,
-                        image: feedVM.posts?[indexPath.row].image,
-                        caption: feedVM.posts?[indexPath.row].caption,
-                        likes: feedVM.posts?[indexPath.row].likes,
-                        date: feedVM.posts?[indexPath.row].date)
+            let post = feedVM.posts?[indexPath.row]
+            let tags = (post?.tags ?? []).reduce("", { $0 + " " + $1 })
+
+            cell.config(username: post?.username,
+                        image: post?.image,
+                        caption: (post?.caption ?? "") + tags,
+                        likes: post?.likes,
+                        date: post?.date)
+
+            cell.commentTapped = { [weak self] in
+
+                self?.showCommentsScreen(postID: post?.postID)
+            }
+
+            cell.likeTapped = { [weak self] in
+
+                if post?.liked == true {
+
+                    self?.unlikePost(postID: post?.postID)
+                }
+                else {
+
+                    self?.likePost(postID: post?.postID)
+                }
+            }
+            cell.liked = post?.liked == true
             cell.selectionStyle = .none
         }
 

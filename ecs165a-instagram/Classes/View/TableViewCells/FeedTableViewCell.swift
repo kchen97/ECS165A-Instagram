@@ -10,6 +10,17 @@ import UIKit
 
 class FeedTableViewCell: IGBaseTableViewCell {
 
+    var liked: Bool = false {
+
+        didSet {
+
+            likeButton.tintColor = liked ? .errorColor : .black
+        }
+    }
+
+    var commentTapped: (() -> Void)?
+    var likeTapped: (() -> Void)?
+
     private let usernameLabel: UILabel = {
 
         let label = UILabel()
@@ -56,7 +67,7 @@ class FeedTableViewCell: IGBaseTableViewCell {
     private let likeButton: UIButton = {
 
         let button = UIButton()
-        button.setImage(UIImage(named: "heart"), for: .normal)
+        button.setImage(UIImage(named: "heart")?.withRenderingMode(.alwaysTemplate), for: .normal)
         return button
     }()
 
@@ -64,6 +75,16 @@ class FeedTableViewCell: IGBaseTableViewCell {
 
         let button = UIButton()
         button.setImage(UIImage(named: "speech-bubble"), for: .normal)
+        return button
+    }()
+
+    private let viewCommentsButton: UIButton = {
+
+        let button = UIButton()
+        button.setTitle("View all comments", for: .normal)
+        button.setTitleColor(.themeDarkGray, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 10.0)
+        button.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
         return button
     }()
 
@@ -105,7 +126,8 @@ class FeedTableViewCell: IGBaseTableViewCell {
                                                 likesLabel,
                                                 likeButton,
                                                 commentButton,
-                                                dateLabel])
+                                                dateLabel,
+                                                viewCommentsButton])
 
         usernameLabel.snp.makeConstraints { maker in
 
@@ -150,7 +172,15 @@ class FeedTableViewCell: IGBaseTableViewCell {
             maker.top.equalTo(likesLabel.snp.bottom).offset(10)
             maker.leading.equalTo(usernameLabel.snp.leading)
             maker.trailing.equalTo(usernameLabel.snp.trailing)
+            maker.bottom.equalTo(viewCommentsButton.snp.top).offset(-6)
+        }
+
+        viewCommentsButton.snp.makeConstraints { maker in
+
             maker.bottom.equalTo(dateLabel.snp.top).offset(-6)
+            maker.leading.equalTo(usernameLabel.snp.leading)
+            maker.trailing.equalTo(usernameLabel.snp.trailing)
+            maker.height.equalTo(12)
         }
 
         dateLabel.snp.makeConstraints { maker in
@@ -160,5 +190,19 @@ class FeedTableViewCell: IGBaseTableViewCell {
             maker.trailing.equalTo(usernameLabel.snp.trailing)
             maker.height.equalTo(12)
         }
+
+        commentButton.addTarget(self, action: #selector(commentPressed), for: .touchUpInside)
+        viewCommentsButton.addTarget(self, action: #selector(commentPressed), for: .touchUpInside)
+        likeButton.addTarget(self, action: #selector(likePressed), for: .touchUpInside)
+    }
+
+    @objc private func commentPressed() {
+
+        commentTapped?()
+    }
+
+    @objc private func likePressed() {
+
+        likeTapped?()
     }
 }

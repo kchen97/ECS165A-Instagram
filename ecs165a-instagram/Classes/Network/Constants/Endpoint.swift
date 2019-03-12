@@ -40,3 +40,10 @@ let IG_FEED_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/feed", method: .get
 
 let IG_FOLLOW_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/follows", method: .post, encoding: JSONEncoding.default)
 let IG_UNFOLLOW_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/follows/unfollow", method: .post, encoding: JSONEncoding.default)
+
+let IG_COMMENT_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/comments", method: .patch, encoding: JSONEncoding.default)
+let IG_GET_COMMENTS_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/comments", method: .get, encoding: URLEncoding.default)
+
+let IG_LIKE_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/likes", method: .patch, encoding: JSONEncoding.default)
+let IG_UNLIKE_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/likes", method: .delete, encoding: JSONEncoding.default)
+

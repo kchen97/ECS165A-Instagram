@@ -100,6 +100,12 @@ class NetworkDataClient: DataClient {
                     if let data = val as? Data {
                         multipartFormData.append(data, withName: key, fileName: UUID().uuidString + ".jpeg", mimeType: "image/jpeg")
                     }
+                    else if let array = val as? [Any] {
+                        
+                        for value in array {
+                            multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key)
+                        }
+                    }
                     else {
                         multipartFormData.append("\(val)".data(using: String.Encoding.utf8)!, withName: key)
                     }

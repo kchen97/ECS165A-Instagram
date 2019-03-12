@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objcMembers class FeedViewModel: IGBaseViewModel {
+@objcMembers class FeedViewModel: PostViewModel {
 
     dynamic var posts: [Post]?
 

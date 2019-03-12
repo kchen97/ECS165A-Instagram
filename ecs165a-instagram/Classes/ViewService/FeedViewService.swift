@@ -51,6 +51,62 @@ class FeedViewService: IGBaseViewService {
         }
     }
 
+    /// Username is the username of the currently logged in user
+    func likePost(postID: String, username: String, completion: @escaping (ServiceResponse) -> Void) {
+
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
+        DispatchQueue.global(qos: .userInitiated).async {
+
+            LikeAPIService().like(postID: postID, username: username)
+                .done { serviceResponse in
+
+                    DispatchQueue.main.async {
+
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
+                        completion(serviceResponse)
+                    }
+                }
+                .catch { error in
+
+                    let response = ServiceResponse()
+                    response.error = error
+                    response.status = .failure
+
+                    completion(response)
+                }
+        }
+    }
+
+    /// Username is the username of the currently logged in user
+    func unlikePost(postID: String, username: String, completion: @escaping (ServiceResponse) -> Void) {
+
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
+        DispatchQueue.global(qos: .userInitiated).async {
+
+            LikeAPIService().unlike(postID: postID, username: username)
+                .done { serviceResponse in
+
+                    DispatchQueue.main.async {
+
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
+                        completion(serviceResponse)
+                    }
+                }
+                .catch { error in
+
+                    let response = ServiceResponse()
+                    response.error = error
+                    response.status = .failure
+
+                    completion(response)
+            }
+        }
+    }
+
     private func getImages() -> [Promise<(ServiceResponse, UIImage?, String)>] {
 
         var promises: [Promise<(ServiceResponse, UIImage?, String)>] = []
