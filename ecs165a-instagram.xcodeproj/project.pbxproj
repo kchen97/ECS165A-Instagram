@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E1435C7223736DA0080E70D /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1435C6223736DA0080E70D /* SearchResults.swift */; };
+		8E1435C9223740520080E70D /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1435C8223740520080E70D /* PostViewModel.swift */; };
 		8E4458832212502A00986E68 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4458822212502A00986E68 /* UIView+Extensions.swift */; };
 		8E445885221250FC00986E68 /* ProfileAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E445884221250FC00986E68 /* ProfileAPIService.swift */; };
 		8E4458872212512200986E68 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4458862212512200986E68 /* Profile.swift */; };
@@ -86,6 +88,8 @@
 /* Begin PBXFileReference section */
 		12CA7B7FF93BDD9FD9D4859E /* Pods-ecs165a-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecs165a-instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ecs165a-instagram/Pods-ecs165a-instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		271D86E8C2068D1F2CA253FC /* Pods-ecs165a-instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecs165a-instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-ecs165a-instagram/Pods-ecs165a-instagram.release.xcconfig"; sourceTree = "<group>"; };
+		8E1435C6223736DA0080E70D /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
+		8E1435C8223740520080E70D /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		8E4458822212502A00986E68 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		8E445884221250FC00986E68 /* ProfileAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPIService.swift; sourceTree = "<group>"; };
 		8E4458862212512200986E68 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -319,6 +323,7 @@
 				8E4458862212512200986E68 /* Profile.swift */,
 				8E66CC78221104F000DA957C /* User.swift */,
 				8E44588A22128B9800986E68 /* UserInfo.swift */,
+				8E1435C6223736DA0080E70D /* SearchResults.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				8E92DFF12225FF9200588FE7 /* FeedViewModel.swift */,
 				8E94C34A21F7F098004BB77A /* IGBaseViewModel.swift */,
 				8E84DC98220A6904002BDA76 /* InputViewModel.swift */,
+				8E1435C8223740520080E70D /* PostViewModel.swift */,
 				FAAAEDCB2213A629005B16D4 /* ProfileViewModel.swift */,
 				8E5F91CC22252AC100AC23B3 /* SearchViewModel.swift */,
 				8ED15AEC220BEB6A001AC530 /* UserInfoViewModel.swift */,
@@ -582,6 +588,7 @@
 				8E5DF0BB220136BE00A82F29 /* IGBaseButton.swift in Sources */,
 				8E66CC8322118B3C00DA957C /* IGBaseViewService.swift in Sources */,
 				8E7E1FA8222233200099D5A8 /* ImageHeaderView.swift in Sources */,
+				8E1435C9223740520080E70D /* PostViewModel.swift in Sources */,
 				8E445885221250FC00986E68 /* ProfileAPIService.swift in Sources */,
 				8E5F91CB2225215B00AC23B3 /* SearchViewService.swift in Sources */,
 				8E66CC79221104F000DA957C /* User.swift in Sources */,
@@ -647,6 +654,7 @@
 				8E5F91D3222560D400AC23B3 /* ImageAPIService.swift in Sources */,
 				8E7E1FAC2222662D0099D5A8 /* CreatePostViewModel.swift in Sources */,
 				8E66CC7B22116A1900DA957C /* AuthToken.swift in Sources */,
+				8E1435C7223736DA0080E70D /* SearchResults.swift in Sources */,
 				8E84DC9C220A6D61002BDA76 /* UIColor+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

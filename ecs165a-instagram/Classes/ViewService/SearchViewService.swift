@@ -10,33 +10,42 @@ import PromiseKit
 
 class SearchViewService: IGBaseViewService {
 
-    private var users: [User]?
+    private var results: SearchResults?
 
-    func search(username: String, completion: @escaping (ServiceResponse, [User]?) -> Void) {
+    func search(search: String, completion: @escaping (ServiceResponse, SearchResults?) -> Void) {
 
         DispatchQueue.global(qos: .userInitiated).async {
 
             firstly {
 
-                SearchAPIService().search(username: username)
+                SearchAPIService().search(search: search)
             }
-            .then { (serviceResponse, users) -> Promise<[(ServiceResponse, UIImage?, String)]> in
+            .then { (serviceResponse, results) -> Promise<[(ServiceResponse, UIImage?, String)]> in
 
-                self.users = users
+                self.results = results
                 self.setServiceResponse(serviceResponse: serviceResponse)
                 return when(fulfilled: self.getImages())
             }
-            .done { results in
+            .done { imageResults in
 
-                for user in self.users ?? [] {
+                for user in self.results?.users ?? [] {
 
-                    for result in results where result.2 == user.profilePicture {
+                    for result in imageResults where result.2 == user.profilePicture {
 
                         user.picture = result.1
                         self.setServiceResponse(serviceResponse: result.0)
                     }
                 }
-                completion(self.serviceResponse, self.users)
+
+                for post in self.results?.posts ?? [] {
+
+                    for result in imageResults where result.2 == post.imageLink {
+
+                        post.image = result.1
+                        self.setServiceResponse(serviceResponse: result.0)
+                    }
+                }
+                completion(self.serviceResponse, self.results)
             }
             .catch { error in
 
@@ -44,7 +53,7 @@ class SearchViewService: IGBaseViewService {
                 serviceResponse.error = error
                 serviceResponse.status = .failure
 
-                completion(serviceResponse, self.users)
+                completion(serviceResponse, self.results)
             }
         }
     }
@@ -53,9 +62,16 @@ class SearchViewService: IGBaseViewService {
 
         var promises: [Promise<(ServiceResponse, UIImage?, String)>] = []
 
-        for user in users ?? [] {
+        for user in results?.users ?? [] {
 
             if let url = user.profilePicture {
+                promises.append(ImageAPIService().getImage(url: url))
+            }
+        }
+
+        for post in results?.posts ?? [] {
+
+            if let url = post.imageLink {
                 promises.append(ImageAPIService().getImage(url: url))
             }
         }
