@@ -45,4 +45,20 @@ import Foundation
             completion(ServiceResponse.getInvalidRequestServiceResponse())
         }
     }
+
+    func unlikePost(postID: String?,
+                    completion: @escaping (ServiceResponse) -> Void) {
+
+        if let postID = postID, let username = UserInfo.shared.username {
+
+            FeedViewService().unlikePost(postID: postID, username: username) { serviceResponse in
+
+                completion(serviceResponse)
+            }
+        }
+        else {
+
+            completion(ServiceResponse.getInvalidRequestServiceResponse())
+        }
+    }
 }

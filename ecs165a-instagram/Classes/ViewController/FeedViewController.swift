@@ -116,6 +116,27 @@ class FeedViewController: IGMainViewController {
         }
     }
 
+    private func unlikePost(postID: String?) {
+
+        showSpinner(message: "Unliking...")
+
+        feedVM.unlikePost(postID: postID) { [weak self] serviceResponse in
+
+            self?.stopSpinner()
+
+            if serviceResponse.isSuccess {
+
+                self?.loadData()
+            }
+            else {
+
+                self?.showMessage(body: serviceResponse.errorMessage ?? "",
+                                  theme: .error,
+                                  style: .bottom)
+            }
+        }
+    }
+
     @objc private func pagePulled() {
         loadData()
     }
@@ -149,7 +170,14 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
 
             cell.likeTapped = { [weak self] in
 
-                self?.likePost(postID: post?.postID)
+                if post?.liked == true {
+
+                    self?.unlikePost(postID: post?.postID)
+                }
+                else {
+
+                    self?.likePost(postID: post?.postID)
+                }
             }
             cell.liked = post?.liked == true
             cell.selectionStyle = .none

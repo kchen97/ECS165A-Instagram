@@ -39,4 +39,34 @@ class LikeAPIService: IGBaseAPIService {
             })
         }
     }
+
+    /// Username is the current logged in user
+    func unlike(postID: String, username: String) -> Promise<(ServiceResponse)> {
+
+        return Promise { seal in
+
+            self.unlike(postID: postID, username: username) { response in
+                seal.fulfill(response)
+            }
+        }
+    }
+
+    private func unlike(postID: String, username: String, completion: @escaping (ServiceResponse) -> Void) {
+
+        if let unlikeAPI = APIStorage.shared.unlikeAPI {
+
+            unlikeAPI.request(info: ["postID": postID,
+                                     "username": username], success: {
+
+                let response = ServiceResponse()
+                response.status = .success
+
+                completion(response)
+            },
+            failure: { response in
+
+                completion(response)
+            })
+        }
+    }
 }
