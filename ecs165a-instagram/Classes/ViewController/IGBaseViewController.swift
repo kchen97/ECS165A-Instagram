@@ -19,6 +19,10 @@ class IGBaseViewController: UIViewController {
         setup()
     }
 
+    deinit {
+        debugPrint(String(describing: self) + " in deinit")
+    }
+
     internal func setup() {
 
         view.backgroundColor = .white

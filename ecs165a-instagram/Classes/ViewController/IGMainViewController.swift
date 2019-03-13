@@ -30,7 +30,16 @@ class IGMainViewController: IGBaseViewController {
     }
 
     @objc private func settingsTapped() {
-        debugPrint("settings tapped")
+
+        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { [weak self] _ in
+            self?.tabBarController?.dismiss(animated: true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(actions: [logoutAction, cancelAction])
+
+        present(actionSheet, animated: true, completion: nil)
     }
 
     @objc private func postTapped() {
