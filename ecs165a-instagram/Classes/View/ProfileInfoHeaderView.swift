@@ -11,6 +11,9 @@ import Popover
 
 class ProfileInfoHeaderView: UICollectionReusableView {
 
+    var followersTapped: (() -> Void)?
+    var followingTapped: (() -> Void)?
+
     var followed = false {
 
         didSet {
@@ -95,6 +98,7 @@ class ProfileInfoHeaderView: UICollectionReusableView {
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.isUserInteractionEnabled = true
         return label
     }()
 
@@ -105,6 +109,7 @@ class ProfileInfoHeaderView: UICollectionReusableView {
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.isUserInteractionEnabled = true
         return label
     }()
 
@@ -227,6 +232,16 @@ class ProfileInfoHeaderView: UICollectionReusableView {
         popover.show(editProfileView, fromView: editProfileButton)
     }
 
+    @objc private func followersPressed() {
+
+        followersTapped?()
+    }
+
+    @objc private func followingPressed() {
+
+        followingTapped?()
+    }
+
     private func setup() {
 
         addMultipleSubviews(views: [profilePicture,
@@ -331,5 +346,11 @@ class ProfileInfoHeaderView: UICollectionReusableView {
 
         followButton.addTarget(self, action: #selector(followPressed), for: .touchUpInside)
         editProfileButton.addTarget(self, action: #selector(editProfilePressed), for: .touchUpInside)
+
+        let followersTap = UITapGestureRecognizer(target: self, action: #selector(followersPressed))
+        let followingTap = UITapGestureRecognizer(target: self, action: #selector(followingPressed))
+
+        followerCountLabel.addGestureRecognizer(followersTap)
+        followingCountLabel.addGestureRecognizer(followingTap)
     }
 }

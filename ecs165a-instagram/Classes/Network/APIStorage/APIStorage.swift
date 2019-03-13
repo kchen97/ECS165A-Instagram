@@ -35,4 +35,7 @@ final class APIStorage {
 
     lazy var updateProfilePictureAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_UPDATE_PROFILE_PICTURE_ENDPOINT)
     lazy var updateBioAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_UPDATE_BIO_ENDPOINT)
+
+    lazy var followersAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_FOLLOWERS_ENDPOINT)
+    lazy var followingAPI: NetworkDataClient? = NetworkDataClient(endpoint: IG_FOLLOWING_ENDPOINT)
 }

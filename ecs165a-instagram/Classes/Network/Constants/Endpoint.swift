@@ -49,3 +49,6 @@ let IG_UNLIKE_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/likes", method: .
 
 let IG_UPDATE_PROFILE_PICTURE_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/profile/updateProfilePic", method: .post, encoding: JSONEncoding.default)
 let IG_UPDATE_BIO_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/profile/updateBio", method: .post, encoding: JSONEncoding.default)
+
+let IG_FOLLOWERS_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/profile/getFollowers", method: .get, encoding: URLEncoding.default)
+let IG_FOLLOWING_ENDPOINT: Endpoint = (path: IG_BASE_URI_PATH + "/profile/getFollowing", method: .get, encoding: URLEncoding.default)

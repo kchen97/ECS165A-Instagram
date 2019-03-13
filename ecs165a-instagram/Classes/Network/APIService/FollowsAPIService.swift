@@ -69,4 +69,64 @@ class FollowsAPIService: IGBaseAPIService {
             })
         }
     }
+
+    /// Username is the user who followers will be returned for
+    func followers(username: String) -> Promise<(ServiceResponse, [User]?)> {
+
+        return Promise { seal in
+
+            self.followers(username: username) { response, users in
+                seal.fulfill((response, users))
+            }
+        }
+    }
+
+    private func followers(username: String,
+                           completion: @escaping (ServiceResponse, [User]?) -> Void) {
+
+        if let followersAPI = APIStorage.shared.followersAPI {
+
+            followersAPI.request(info: ["username": username], success: { (users: [User]?) in
+
+                let response = ServiceResponse()
+                response.status = .success
+
+                completion(response, users)
+            },
+            failure: { response in
+
+                completion(response, nil)
+            })
+        }
+    }
+
+    /// Username is the user who following will be returned for
+    func following(username: String) -> Promise<(ServiceResponse, [User]?)> {
+
+        return Promise { seal in
+
+            self.following(username: username) { response, users in
+                seal.fulfill((response, users))
+            }
+        }
+    }
+
+    private func following(username: String,
+                           completion: @escaping (ServiceResponse, [User]?) -> Void) {
+
+        if let followingAPI = APIStorage.shared.followingAPI {
+
+            followingAPI.request(info: ["username": username], success: { (users: [User]?) in
+
+                let response = ServiceResponse()
+                response.status = .success
+
+                completion(response, users)
+            },
+            failure: { response in
+
+                completion(response, nil)
+            })
+        }
+    }
 }

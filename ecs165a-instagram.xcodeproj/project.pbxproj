@@ -35,6 +35,9 @@
 		8E5F91D122255FA100AC23B3 /* FeedAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F91D022255FA100AC23B3 /* FeedAPIService.swift */; };
 		8E5F91D3222560D400AC23B3 /* ImageAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F91D2222560D400AC23B3 /* ImageAPIService.swift */; };
 		8E5F91D52225629C00AC23B3 /* FeedViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F91D42225629C00AC23B3 /* FeedViewService.swift */; };
+		8E60638A2238ED3B007F8F70 /* FollowsViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6063892238ED3B007F8F70 /* FollowsViewService.swift */; };
+		8E60638C2238EE52007F8F70 /* FollowsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60638B2238EE52007F8F70 /* FollowsViewModel.swift */; };
+		8E60638E2238F0F2007F8F70 /* FollowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60638D2238F0F2007F8F70 /* FollowsViewController.swift */; };
 		8E6148ED21FA92E700E35EBD /* DataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6148EC21FA92E700E35EBD /* DataClient.swift */; };
 		8E6148EF21FA93A500E35EBD /* NetworkDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6148EE21FA93A500E35EBD /* NetworkDataClient.swift */; };
 		8E6148F221FA93D400E35EBD /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6148F121FA93D400E35EBD /* Endpoint.swift */; };
@@ -118,6 +121,9 @@
 		8E5F91D022255FA100AC23B3 /* FeedAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPIService.swift; sourceTree = "<group>"; };
 		8E5F91D2222560D400AC23B3 /* ImageAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIService.swift; sourceTree = "<group>"; };
 		8E5F91D42225629C00AC23B3 /* FeedViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewService.swift; sourceTree = "<group>"; };
+		8E6063892238ED3B007F8F70 /* FollowsViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowsViewService.swift; sourceTree = "<group>"; };
+		8E60638B2238EE52007F8F70 /* FollowsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowsViewModel.swift; sourceTree = "<group>"; };
+		8E60638D2238F0F2007F8F70 /* FollowsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowsViewController.swift; sourceTree = "<group>"; };
 		8E6148EC21FA92E700E35EBD /* DataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataClient.swift; sourceTree = "<group>"; };
 		8E6148EE21FA93A500E35EBD /* NetworkDataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataClient.swift; sourceTree = "<group>"; };
 		8E6148F121FA93D400E35EBD /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -268,6 +274,7 @@
 				8E7E1FAF222279720099D5A8 /* CreatePostViewService.swift */,
 				8E66CC8022118B2700DA957C /* CredentialsViewService.swift */,
 				8E5F91D42225629C00AC23B3 /* FeedViewService.swift */,
+				8E6063892238ED3B007F8F70 /* FollowsViewService.swift */,
 				8E66CC8222118B3C00DA957C /* IGBaseViewService.swift */,
 				8E4458882212781F00986E68 /* ProfileViewService.swift */,
 				8E5F91CA2225215B00AC23B3 /* SearchViewService.swift */,
@@ -362,6 +369,7 @@
 				8E74AAAB2235F84900EB8F00 /* CommentsViewModel.swift */,
 				8E7E1FAB2222662D0099D5A8 /* CreatePostViewModel.swift */,
 				8E92DFF12225FF9200588FE7 /* FeedViewModel.swift */,
+				8E60638B2238EE52007F8F70 /* FollowsViewModel.swift */,
 				8E94C34A21F7F098004BB77A /* IGBaseViewModel.swift */,
 				8E84DC98220A6904002BDA76 /* InputViewModel.swift */,
 				8E1435C8223740520080E70D /* PostViewModel.swift */,
@@ -380,6 +388,7 @@
 				8E7E1FA5222229610099D5A8 /* CreatePostViewController.swift */,
 				8ED15AE6220BDB6C001AC530 /* CredentialsViewController.swift */,
 				8E5BEF12221D442F00BBC1A2 /* FeedViewController.swift */,
+				8E60638D2238F0F2007F8F70 /* FollowsViewController.swift */,
 				8E94C32F21F7EEB9004BB77A /* IGBaseViewController.swift */,
 				8E5BEF10221D43CF00BBC1A2 /* IGMainTabBarController.swift */,
 				8E7E1FA3222226DD0099D5A8 /* IGMainViewController.swift */,
@@ -614,6 +623,7 @@
 				8E66CC8522118BA000DA957C /* CredentialsAPIService.swift in Sources */,
 				8E7E1FA6222229610099D5A8 /* CreatePostViewController.swift in Sources */,
 				8E5F91CD22252AC100AC23B3 /* SearchViewModel.swift in Sources */,
+				8E60638A2238ED3B007F8F70 /* FollowsViewService.swift in Sources */,
 				8E84DC99220A6904002BDA76 /* InputViewModel.swift in Sources */,
 				8E5F91CF2225306100AC23B3 /* SearchTableViewCell.swift in Sources */,
 				8E74AAAE2235FB9800EB8F00 /* CommentsViewController.swift in Sources */,
@@ -635,6 +645,7 @@
 				8E6148F221FA93D400E35EBD /* Endpoint.swift in Sources */,
 				8E1435CE22375D610080E70D /* PostCollectionViewCell.swift in Sources */,
 				8E4458892212781F00986E68 /* ProfileViewService.swift in Sources */,
+				8E60638E2238F0F2007F8F70 /* FollowsViewController.swift in Sources */,
 				8E7E1FA4222226DD0099D5A8 /* IGMainViewController.swift in Sources */,
 				8E74AAB62236512300EB8F00 /* PlainTextField.swift in Sources */,
 				8E74AAB4223650B900EB8F00 /* PlainTextFieldView.swift in Sources */,
@@ -656,6 +667,7 @@
 				8E94C34B21F7F098004BB77A /* IGBaseViewModel.swift in Sources */,
 				8E7E1FAA222233C10099D5A8 /* PlainTextViewTableViewCell.swift in Sources */,
 				8E5DF0AB22012EA700A82F29 /* Post.swift in Sources */,
+				8E60638C2238EE52007F8F70 /* FollowsViewModel.swift in Sources */,
 				8E7E1FAE222270A40099D5A8 /* PostsAPIService.swift in Sources */,
 				8E5F91C72224DE7800AC23B3 /* MessageView+Extensions.swift in Sources */,
 				8E92DFF62226126D00588FE7 /* UILabel+Extensions.swift in Sources */,

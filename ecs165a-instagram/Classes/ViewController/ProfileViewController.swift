@@ -153,6 +153,15 @@ class ProfileViewController: IGMainViewController {
         }
     }
 
+    private func showFollowsScreen(type: FollowsType) {
+
+        let followsScreen = FollowsViewController()
+        followsScreen.followsVM = FollowsViewModel(username: profileVM.profile?.username)
+        followsScreen.type = type
+
+        navigationController?.pushViewController(followsScreen, animated: true)
+    }
+
     @objc private func addImage() {
 
         let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { [weak self] action in
@@ -237,6 +246,14 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
                 view.saveProfileTapped = { [weak self] image, text in
                     self?.updateProfile(image: image, bio: text)
                 }
+            }
+
+            view.followersTapped = { [weak self] in
+                self?.showFollowsScreen(type: .followers)
+            }
+
+            view.followingTapped = { [weak self] in
+                self?.showFollowsScreen(type: .following)
             }
 
             view.followed = profileVM.profile?.isFollowing == true
