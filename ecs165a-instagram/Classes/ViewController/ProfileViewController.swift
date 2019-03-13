@@ -48,6 +48,7 @@ class ProfileViewController: IGMainViewController {
     }
 
     private func loadData() {
+
         showSpinner(message: "Loading...")
 
         profileVM.getProfile { [weak self] serviceResponse in
@@ -101,35 +102,37 @@ class ProfileViewController: IGMainViewController {
         }
     }
 
-    private func follow(completion: @escaping (Bool) -> Void) {
+    private func follow() {
 
-        showSpinner(message: "Following...")
+        showSpinner(message: "Saving...")
 
         profileVM.follow { [weak self] serviceResponse in
 
             self?.stopSpinner()
 
             if !serviceResponse.isSuccess {
-
                 self?.showMessage(body: serviceResponse.errorMessage ?? "", theme: .error, style: .bottom)
             }
-            completion(serviceResponse.isSuccess)
+            else {
+                self?.loadData()
+            }
         }
     }
 
-    private func unfollow(completion: @escaping (Bool) -> Void) {
+    private func unfollow() {
 
-        showSpinner(message: "Following...")
+        showSpinner(message: "Saving...")
 
         profileVM.unfollow { [weak self] serviceResponse in
 
             self?.stopSpinner()
 
             if !serviceResponse.isSuccess {
-
                 self?.showMessage(body: serviceResponse.errorMessage ?? "", theme: .error, style: .bottom)
             }
-            completion(serviceResponse.isSuccess)
+            else {
+                self?.loadData()
+            }
         }
     }
 
@@ -218,16 +221,10 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
                 view.followTapped = {  [weak self] in
 
                     if self?.profileVM.profile?.isFollowing == true {
-
-                        self?.unfollow { success in
-                            view.followed = success == false
-                        }
+                        self?.unfollow()
                     }
                     else {
-
-                        self?.follow { success in
-                            view.followed = success
-                        }
+                        self?.follow()
                     }
                 }
             }
