@@ -44,10 +44,7 @@ class FollowsViewController: IGBaseViewController {
 
                 self?.stopSpinner()
 
-                if response.isSuccess {
-                    self?.reload()
-                }
-                else {
+                if !response.isSuccess {
                     self?.showMessage(body: response.errorMessage ?? "", theme: .error, style: .bottom)
                 }
             }
@@ -58,10 +55,7 @@ class FollowsViewController: IGBaseViewController {
 
                 self?.stopSpinner()
 
-                if response.isSuccess {
-                    self?.reload()
-                }
-                else {
+                if !response.isSuccess {
                     self?.showMessage(body: response.errorMessage ?? "", theme: .error, style: .bottom)
                 }
             }
