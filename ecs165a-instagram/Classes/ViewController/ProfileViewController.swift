@@ -57,7 +57,6 @@ class ProfileViewController: IGMainViewController {
                                   style: .bottom)
             }
         }
-        self.tableview.reloadData()
         
     }
     

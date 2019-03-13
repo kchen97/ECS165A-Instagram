@@ -59,10 +59,11 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         
         let label = UILabel()
         
-        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
+        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 20)
         label.numberOfLines = 1
         label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
+        //label.adjustsFontSizeToFitWidth = true
+        //label.minimumScaleFactor = 1
         
         return label
     }()
@@ -71,10 +72,11 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         
         let label = UILabel()
         
-        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
+        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 20)
         label.numberOfLines = 1
         label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
+        //label.adjustsFontSizeToFitWidth = true
+        //label.minimumScaleFactor = 1
         
         return label
     }()
@@ -83,10 +85,11 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         
         let label = UILabel()
         
-        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 30)
+        label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 20)
         label.numberOfLines = 1
         label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
+        //label.adjustsFontSizeToFitWidth = true
+        //label.minimumScaleFactor = 1
         
         return label
     }()
@@ -173,7 +176,7 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
         nameLabel.text = profileVM.profile?.fullName
         captionLabel.text = profileVM.profile?.biography
         if let count = profilePostsCount {
-            postsCountLabel.text = "\(profileVM.profile?.posts ?? 0)"
+            postsCountLabel.text = "\(count)"
         }
         followerCountLabel.text = "\(profileVM.profile?.followers ?? 0)"
         followingCountLabel.text = "\(profileVM.profile?.following ?? 0)"
@@ -243,7 +246,7 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
             
             maker.top.equalTo(followingLabel.snp.bottom).offset(5)
             maker.centerX.equalTo(followingLabel.snp.centerX)
-            maker.width.equalTo(followingLabel.snp.width).multipliedBy(0.14)
+            maker.width.equalTo(followingLabel.snp.width)
         }
         
         followersLabel.snp.makeConstraints { maker in
@@ -258,7 +261,7 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
             
             maker.top.equalTo(followingCountLabel.snp.top)
             maker.centerX.equalTo(followersLabel.snp.centerX)
-            maker.width.equalTo(followingLabel.snp.width).multipliedBy(0.14)
+            maker.width.equalTo(followersLabel.snp.width)
         }
         
         postsLabel.snp.makeConstraints { maker in
@@ -273,7 +276,7 @@ class ProfileInfoTableViewCell: IGBaseTableViewCell {
             
             maker.top.equalTo(followingCountLabel.snp.top)
             maker.centerX.equalTo(postsLabel.snp.centerX)
-            maker.width.equalTo(followingLabel.snp.width).multipliedBy(0.14)
+            maker.width.equalTo(postsLabel.snp.width)
         }
         
         followingButton.snp.makeConstraints { maker in
