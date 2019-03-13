@@ -32,9 +32,14 @@ class FeedViewService: IGBaseViewService {
 
                 for post in self.posts ?? [] {
 
-                    for result in results where result.2 == post.imageLink {
+                    for result in results {
 
-                        post.image = result.1
+                        if result.2 == post.imageLink {
+                            post.image = result.1
+                        }
+                        else if result.2 == post.profilePictureLink {
+                            post.profilePicture = result.1
+                        }
                         self.setServiceResponse(serviceResponse: result.0)
                     }
                 }
@@ -114,6 +119,9 @@ class FeedViewService: IGBaseViewService {
         for post in posts ?? [] {
 
             if let url = post.imageLink {
+                promises.append(ImageAPIService().getImage(url: url))
+            }
+            if let url = post.profilePictureLink {
                 promises.append(ImageAPIService().getImage(url: url))
             }
         }

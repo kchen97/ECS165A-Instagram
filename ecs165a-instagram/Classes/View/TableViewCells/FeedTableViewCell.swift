@@ -30,10 +30,21 @@ class FeedTableViewCell: IGBaseTableViewCell {
         return label
     }()
 
+    private let profilePicture: UIImageView = {
+
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 15
+        view.backgroundColor = .themeLightGray
+        return view
+    }()
+
     private let picture: UIImageView = {
 
         let view = UIImageView()
-        view.contentMode = .scaleAspectFit
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
         return view
     }()
 
@@ -120,7 +131,8 @@ class FeedTableViewCell: IGBaseTableViewCell {
 
     private func setup() {
 
-        contentView.addMultipleSubviews(views: [usernameLabel,
+        contentView.addMultipleSubviews(views: [profilePicture,
+                                                usernameLabel,
                                                 picture,
                                                 captionLabel,
                                                 likesLabel,
@@ -129,26 +141,33 @@ class FeedTableViewCell: IGBaseTableViewCell {
                                                 dateLabel,
                                                 viewCommentsButton])
 
-        usernameLabel.snp.makeConstraints { maker in
+        profilePicture.snp.makeConstraints { maker in
 
             maker.top.equalToSuperview().offset(20)
             maker.leading.equalToSuperview().offset(20)
+            maker.size.equalTo(CGSize(width: 30, height: 30))
+        }
+
+        usernameLabel.snp.makeConstraints { maker in
+
+            maker.centerY.equalTo(profilePicture)
+            maker.leading.equalTo(profilePicture.snp.trailing).offset(10)
             maker.trailing.equalToSuperview().inset(20)
             maker.height.equalTo(40)
         }
 
         picture.snp.makeConstraints { maker in
 
-            maker.top.equalTo(usernameLabel.snp.bottom)
+            maker.top.equalTo(profilePicture.snp.bottom).offset(10)
             maker.leading.equalToSuperview()
             maker.trailing.equalToSuperview()
-            maker.height.equalTo(200)
+            maker.height.equalTo(300)
         }
 
         likeButton.snp.makeConstraints { maker in
 
             maker.top.equalTo(picture.snp.bottom).offset(10)
-            maker.leading.equalTo(usernameLabel.snp.leading)
+            maker.leading.equalTo(profilePicture.snp.leading)
             maker.size.equalTo(CGSize(width: 20, height: 20))
         }
 
@@ -170,7 +189,7 @@ class FeedTableViewCell: IGBaseTableViewCell {
         captionLabel.snp.makeConstraints { maker in
 
             maker.top.equalTo(likesLabel.snp.bottom).offset(10)
-            maker.leading.equalTo(usernameLabel.snp.leading)
+            maker.leading.equalTo(profilePicture.snp.leading)
             maker.trailing.equalTo(usernameLabel.snp.trailing)
             maker.bottom.equalTo(viewCommentsButton.snp.top).offset(-6)
         }
@@ -178,7 +197,7 @@ class FeedTableViewCell: IGBaseTableViewCell {
         viewCommentsButton.snp.makeConstraints { maker in
 
             maker.bottom.equalTo(dateLabel.snp.top).offset(-6)
-            maker.leading.equalTo(usernameLabel.snp.leading)
+            maker.leading.equalTo(profilePicture.snp.leading)
             maker.trailing.equalTo(usernameLabel.snp.trailing)
             maker.height.equalTo(12)
         }
@@ -186,7 +205,7 @@ class FeedTableViewCell: IGBaseTableViewCell {
         dateLabel.snp.makeConstraints { maker in
 
             maker.bottom.equalToSuperview()
-            maker.leading.equalTo(usernameLabel.snp.leading)
+            maker.leading.equalTo(profilePicture.snp.leading)
             maker.trailing.equalTo(usernameLabel.snp.trailing)
             maker.height.equalTo(12)
         }

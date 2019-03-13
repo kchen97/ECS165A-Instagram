@@ -21,6 +21,8 @@ class Post: IGBaseModel {
     var imageLink: String?
     var image: UIImage?
     var liked: Bool?
+    var profilePictureLink: String?
+    var profilePicture: UIImage?
 
     override func mapping(map: Map) {
         super.mapping(map: map)
@@ -33,6 +35,7 @@ class Post: IGBaseModel {
         comments <- map["numComments"]
         imageLink <- map["postPicture"]
         liked <- map["liked"]
+        profilePictureLink <- map["profilePictureLink"]
 
         if let utcDate = FormatterUtility().toDate(date: map["date"].currentValue as? String ?? "") {
 
