@@ -117,7 +117,8 @@ class FeedTableViewCell: IGBaseTableViewCell {
                 image: UIImage?,
                 caption: String?,
                 likes: Int?,
-                date: String?) {
+                date: String?,
+                profilePicture: UIImage?) {
 
         usernameLabel.text = username
         picture.image = image
@@ -127,6 +128,7 @@ class FeedTableViewCell: IGBaseTableViewCell {
                                                           font: UIFont.boldSystemFont(ofSize: 12.0)
                                         )])
         dateLabel.text = "Posted on \(date ?? "")"
+        self.profilePicture.image = profilePicture
     }
 
     private func setup() {

@@ -47,6 +47,7 @@ class TextFieldTableViewCell: IGBaseTableViewCell {
 
     private func setup() {
 
+        textField.delegate = self
         textField.addTarget(self, action: #selector(checkInput), for: .editingChanged)
         contentView.addSubview(textField)
 
@@ -65,5 +66,14 @@ class TextFieldTableViewCell: IGBaseTableViewCell {
             textField.errorMessage = validate(textField.text) ? "" : "Invalid \(textField.title?.uppercased() ?? "NULL")"
         }
         textDidChange?(textField.text)
+    }
+}
+
+extension TextFieldTableViewCell: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
+        textField.resignFirstResponder()
+        return true
     }
 }

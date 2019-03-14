@@ -10,6 +10,8 @@ import PromiseKit
 
 class FollowsViewService: IGBaseViewService {
 
+    private var users: [User]?
+
     func followers(username: String,
                    completion: @escaping (ServiceResponse, [User]?) -> Void) {
 
@@ -17,24 +19,35 @@ class FollowsViewService: IGBaseViewService {
 
         DispatchQueue.global(qos: .userInitiated).async {
 
-            FollowsAPIService().followers(username: username)
-                .done { serviceResponse, users in
+            firstly {
+                FollowsAPIService().followers(username: username)
+            }
+            .then { (serviceResponse, users) -> Promise<[(ServiceResponse, UIImage?, String)]> in
 
-                    DispatchQueue.main.async {
+                self.users = users
+                self.setServiceResponse(serviceResponse: serviceResponse)
+                return when(fulfilled: self.getImages())
+            }
+            .done { results in
 
-                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                for user in self.users ?? [] {
 
-                        completion(serviceResponse, users)
+                    for result in results where result.2 == user.profilePicture {
+
+                        user.picture = result.1
+                        self.setServiceResponse(serviceResponse: result.0)
                     }
                 }
-                .catch { error in
+                completion(self.serviceResponse, self.users)
+            }
+            .catch { error in
 
-                    let serviceResponse = ServiceResponse()
-                    serviceResponse.error = error
-                    serviceResponse.status = .failure
+                let serviceResponse = ServiceResponse()
+                serviceResponse.error = error
+                serviceResponse.status = .failure
 
-                    completion(serviceResponse, nil)
-                }
+                completion(serviceResponse, self.users)
+            }
         }
     }
 
@@ -45,24 +58,48 @@ class FollowsViewService: IGBaseViewService {
 
         DispatchQueue.global(qos: .userInitiated).async {
 
-            FollowsAPIService().following(username: username)
-                .done { serviceResponse, users in
+            firstly {
+                FollowsAPIService().following(username: username)
+            }
+            .then { (serviceResponse, users) -> Promise<[(ServiceResponse, UIImage?, String)]> in
 
-                    DispatchQueue.main.async {
+                self.users = users
+                self.setServiceResponse(serviceResponse: serviceResponse)
+                return when(fulfilled: self.getImages())
+            }
+            .done { results in
 
-                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                for user in self.users ?? [] {
 
-                        completion(serviceResponse, users)
+                    for result in results where result.2 == user.profilePicture {
+
+                        user.picture = result.1
+                        self.setServiceResponse(serviceResponse: result.0)
                     }
                 }
-                .catch { error in
+                completion(self.serviceResponse, self.users)
+            }
+            .catch { error in
 
-                    let serviceResponse = ServiceResponse()
-                    serviceResponse.error = error
-                    serviceResponse.status = .failure
+                let serviceResponse = ServiceResponse()
+                serviceResponse.error = error
+                serviceResponse.status = .failure
 
-                    completion(serviceResponse, nil)
+                completion(serviceResponse, self.users)
             }
         }
+    }
+
+    private func getImages() -> [Promise<(ServiceResponse, UIImage?, String)>] {
+
+        var promises: [Promise<(ServiceResponse, UIImage?, String)>] = []
+
+        for user in users ?? [] {
+
+            if let url = user.profilePicture {
+                promises.append(ImageAPIService().getImage(url: url))
+            }
+        }
+        return promises
     }
 }

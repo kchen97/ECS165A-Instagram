@@ -276,7 +276,7 @@ class ProfileInfoHeaderView: UICollectionReusableView {
 
             maker.top.equalTo(nameLabel.snp.bottom)
             maker.leading.equalTo(profilePicture.snp.leading)
-            maker.trailing.equalTo(snp.centerX)
+            maker.trailing.equalTo(snp.centerX).offset(40)
             maker.height.equalTo(30)
         }
 

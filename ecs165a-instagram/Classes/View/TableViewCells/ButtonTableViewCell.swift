@@ -53,8 +53,8 @@ class ButtonTableViewCell: IGBaseTableViewCell {
         button.snp.makeConstraints { maker in
 
             maker.top.equalToSuperview().inset(60)
-            maker.leading.equalToSuperview().inset(60)
-            maker.trailing.equalToSuperview().inset(60)
+            maker.centerX.equalToSuperview()
+            maker.leading.equalToSuperview().offset(30)
             maker.bottom.equalToSuperview()
         }
     }

@@ -205,7 +205,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     // MARK: UICollectionView Delegates
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-        return profileVM.profile?.userPosts?.count ?? 0
+        return profileVM.profile?.userPosts?.isEmpty == false ? (profileVM.profile?.userPosts?.count ?? 0) : 1
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -265,6 +265,14 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: postCellID, for: indexPath)
+
+        guard profileVM.profile?.userPosts?.isEmpty == false else {
+
+            cell.isHidden = true
+            return cell
+        }
+
+        cell.isHidden = false
 
         if let cell = cell as? PostCollectionViewCell {
 

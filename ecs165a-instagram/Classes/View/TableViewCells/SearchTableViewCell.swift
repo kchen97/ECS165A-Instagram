@@ -11,18 +11,14 @@ import SnapKit
 
 class SearchTableViewCell: IGBaseTableViewCell {
 
-    override var bounds: CGRect {
-        didSet {
-            profilePicture.layer.cornerRadius = PROFILE_PICTURE_WIDTH_HEIGHT * 0.5
-        }
-    }
-
     private let PROFILE_PICTURE_WIDTH_HEIGHT: CGFloat = 20.0
 
     private let profilePicture: UIImageView = {
 
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
+        view.layer.cornerRadius = 10.0
+        view.clipsToBounds = true
         return view
     }()
 

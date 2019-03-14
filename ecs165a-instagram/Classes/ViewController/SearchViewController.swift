@@ -199,7 +199,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UISe
                         image: post?.image,
                         caption: (post?.caption ?? "") + tags,
                         likes: post?.likes,
-                        date: post?.date)
+                        date: post?.date,
+                        profilePicture: post?.profilePicture)
 
             cell.commentTapped = { [weak self] in
 
